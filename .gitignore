@@ -1,0 +1,4 @@
+
+.classpath
+*.MF
+target/m2e-wtp/web-resources/META-INF/maven/org.zeorck/controller/pom.properties
