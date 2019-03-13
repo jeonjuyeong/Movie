@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <!-- Bootstrap core JavaScript -->
+  <script src="/ctrl/resources/vendor/jquery/jquery.min.js"></script>
+  <script src="/ctrl/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/ctrl/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/ctrl/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="/ctrl/resources/js/jqBootstrapValidation.js"></script>
+  <script src="/ctrl/resources/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/ctrl/resources/js/freelancer.min.js"></script>
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">

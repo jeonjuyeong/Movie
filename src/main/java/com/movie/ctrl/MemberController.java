@@ -2,6 +2,7 @@ package com.movie.ctrl;
 
 import java.util.Properties;
 
+import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -13,12 +14,18 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.movie.domain.MemberVO;
+import com.movie.service.MemberService;
 
 @Controller
 @RequestMapping("/member/*")
 public class MemberController {
 
+	@Inject
+	private MemberService service;
+	
 	@GetMapping("/join")
 	public void join() {
 	}
@@ -81,5 +88,10 @@ public class MemberController {
 		model.addAttribute("num",num);
 		model.addAttribute("email", email);
 		return "member/emailCheck";
+	}
+	@PostMapping("/join")
+	public String join(Model model,MemberVO vo) {
+		service.memberInsert(vo);
+		return "redirect:/";
 	}
 }
