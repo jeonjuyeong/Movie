@@ -16,6 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.movie.domain.MemberVO;
 import com.movie.service.MemberService;
 
@@ -94,4 +96,24 @@ public class MemberController {
 		service.memberInsert(vo);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/idCheck")
+	public void idCheck() {
+		
+	}
+ @PostMapping("/idCheck")
+ @ResponseBody
+ public String idCheck( String id,Model model) {
+	 String checking= "";
+		System.out.println(id);
+	 String check = service.idCheck(id);
+		System.out.println(check);
+		if(check==null) {
+			checking="ok";
+		}else{
+			checking="no";
+		}
+		System.out.println(checking);
+		return checking;
+ }
 }
