@@ -9,20 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Freelancer - Start Bootstrap Theme</title>
+  <title></title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="../ctrl/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="../ctrl/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <!-- Plugin CSS -->
-  <link href="../ctrl/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-
-  <!-- Custom styles for this template -->
-  <link href="../ctrl/resources/css/freelancer.min.css" rel="stylesheet">
 
 </head>
 
@@ -323,21 +311,7 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="../ctrl/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="../ctrl/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="../ctrl/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="../ctrl/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="../ctrl/resources/js/jqBootstrapValidation.js"></script>
-  <script src="../ctrl/resources/js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="../ctrl/resources/js/freelancer.min.js"></script>
-
+  
 </body>
 
 </html>
