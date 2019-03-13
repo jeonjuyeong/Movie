@@ -3,18 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-  <!-- Bootstrap core CSS -->
-  <link href="/ctrl/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="/ctrl/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <!-- Plugin CSS -->
-  <link href="/ctrl/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-
-  <!-- Custom styles for this template -->
-  <link href="/ctrl/resources/css/freelancer.min.css" rel="stylesheet">
   <%@include file="../includes/navigation.jsp"%>
   <style>
 
@@ -45,12 +34,12 @@ h1{
 	margin-top:200px;
 }
 </style>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script>
 $(document).ready(function(){
 	$("#pwd_check").keyup(function(){
 	    $("#password_check_div").remove();
-	    if($("#pass").val()== $("#pwd_check").val()){
+	    if($("#password").val()== $("#pwd_check").val()){
 	       $("#password_check_span").append("<div style='color:green' id= 'password_check_div' >일치!</div>");
 	    }
 	    else{   
@@ -73,7 +62,7 @@ $(document).ready(function(){
 <body>
 	<h1>회원가입</h1>
 	  <img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/logo.png" alt="">
-	<form name="frm" id="frm" action="join" method="post">
+	<form name="frm" id="frm" action="/ctrl/member/join" method="post">
 		<input type="hidden" name="userid" id="userid" value="false">
 		<input type="hidden" name="password_valid">
 		<input type="hidden" id="email_valid" value="false">
@@ -97,7 +86,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td>PASSWORD *</td>
-					<td colspan=2 ><input type="password" id="password"	name="password" class="form-control" placeholder="(영문,특수기호포함)">
+					<td colspan=2 ><input type="password" id="password" name="password" class="form-control" placeholder="(영문,특수기호포함)">
 					<span id = 'password_valid_span'></span></td>
 				</tr>
 				<tr>
@@ -122,21 +111,21 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td>우편번호</td>
-					<td ><input type="text" id="sample4_postcode"  class="form-control" placeholder="우편번호">
+					<td ><input type="text" id="postcode" name="postcode"  class="form-control" placeholder="우편번호">
 						<br>
-						<input type="text" id="sample4_roadAddress" class="form-control" placeholder="도로명주소">
-						<input type="text" id="sample4_jibunAddress" class="form-control" placeholder="지번주소">
+						<input type="text" id="roadAddress" name="roadAddress"class="form-control" placeholder="도로명주소">
+						<input type="text" id="jibunAddress" name="jibunAddress"class="form-control" placeholder="지번주소">
 						<span id="guide" style="color:#999;display:none"></span>
-						<input type="text" id="sample4_extraAddress" class="form-control" placeholder="참고항목"></td>
-					<td><input type="button" class="btn btn-primary" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"></td>
+						<input type="text" id="extraAddress" name="extraAddress" class="form-control" placeholder="참고항목"></td>
+					<td><input type="button" class="btn btn-primary" onclick="execDaumPostcode()" value="우편번호 찾기"></td>
 				</tr>
 				<tr>
 					<td>상세주소</td>
-					<td colspan=2 ><input type="text"  id="sample4_detailAddress"  placeholder="상세주소" name="addr" id="addr" class="form-control"></td>
+					<td colspan=2 ><input type="text"  id="detailAddress"  placeholder="상세주소" name="addr" id="addr" class="form-control"></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan=2><input type="button" id="insert_bt" value="확인" class="btn btn-primary"> &nbsp;&nbsp; 
+					<td colspan=2><input type="submit" id="insert_bt" value="확인" class="btn btn-primary"> &nbsp;&nbsp; 
 					<input type="button" value="취소" class="btn btn-warning"></td>
 				</tr>
 			</table>
@@ -185,7 +174,7 @@ function autoHypenPhone(str) { // 폰번호 하이픈 하는 함수
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
+    function execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -210,15 +199,15 @@ function autoHypenPhone(str) { // 폰번호 하이픈 하는 함수
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById("roadAddress").value = roadAddr;
+                document.getElementById("jibunAddress").value = data.jibunAddress;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                    document.getElementById("extraAddress").value = extraRoadAddr;
                 } else {
-                    document.getElementById("sample4_extraAddress").value = '';
+                    document.getElementById("extraAddress").value = '';
                 }
 
                 var guideTextBox = document.getElementById("guide");

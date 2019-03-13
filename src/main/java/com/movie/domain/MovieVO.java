@@ -1,5 +1,5 @@
 package com.movie.domain;
 
-public interface MovieVO {
+public class MovieVO {
 
 }
