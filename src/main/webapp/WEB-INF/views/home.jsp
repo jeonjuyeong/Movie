@@ -33,17 +33,17 @@
   <!-- Header -->
   <header class="masthead bg-primary text-white text-center">
     <div class="container">
-      <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-      <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
+      <img class="img-fluid mb-5 d-block mx-auto" src="../ctrl/resources/img/logo.png" alt="">
+      <h1 class="text-uppercase mb-0">HELLO CINEMA</h1>
       <hr class="star-light">
-      <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+      <h2 class="font-weight-light mb-0">대한민국 극장의 중심 HELLO CINEMA에 오신 것을 환영합니다.</h2>
     </div>
   </header>
 
   <!-- Portfolio Grid Section -->
   <section class="portfolio" id="portfolio">
     <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+      <h2 class="text-center text-uppercase text-secondary mb-0">박스오피스</h2>
       <hr class="star-dark mb-5">
       <div class="row">
         <div class="col-md-6 col-lg-4">
@@ -188,7 +188,7 @@
       <i class="fa fa-chevron-up"></i>
     </a>
   </div>
-
+<%@include file="../views/includes/footer.jsp" %>
   <!-- Portfolio Modals -->
 
   <!-- Portfolio Modal 1 -->
