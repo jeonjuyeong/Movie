@@ -2,9 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-
-  <%@include file="../includes/navigation.jsp"%>
+<%@include file="../includes/navigation.jsp"%>
   <style>
 
 #blueone {
@@ -59,7 +57,7 @@ $(document).ready(function(){
     $("#pwd_check").keyup(function(){
        $("#password_check_div").remove();
        if($("#password").val()== $("#pwd_check").val()){
-          $("#password_check_span").append("<div style='color:green' id= 'password_check_div' >일치!</div>");
+          $("#password_check_span").append("<div style='color:green' id= 'password_check_div'>일치!</div>");
        }
        else{   
           $("#password_check_span").append("<div style='color:red' id='password_check_div'>불일치!</div>");
@@ -251,11 +249,11 @@ function autoHypenPhone(str) { // 폰번호 하이픈 하는 함수
                 }
                 // 건물명이 있고, 공동주택일 경우 추가한다.
                 if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   extraRoadAddr += (extraRoadAddr !== '' ? ',' + data.buildingName : data.buildingName);
                 }
                 // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
                 if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    extraRoadAddr = '(' + extraRoadAddr + ')';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -289,5 +287,4 @@ function autoHypenPhone(str) { // 폰번호 하이픈 하는 함수
         }).open();
     }
 </script>
-
 <%@include file="../includes/footer.jsp"%>
