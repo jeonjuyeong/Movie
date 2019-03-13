@@ -43,7 +43,11 @@
   <!-- Portfolio Grid Section -->
   <section class="portfolio" id="portfolio">
     <div class="container">
+<<<<<<< HEAD
       <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+=======
+      <h2 class="text-center text-uppercase text-secondary mb-0">박스오피스</h2>
+>>>>>>> parent of 7e3766c... 190313movieRank
       <hr class="star-dark mb-5">
       <div class="row">
         <div class="col-md-6 col-lg-4">
