@@ -1,14 +1,15 @@
 package com.movie.ctrl;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
-
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MovieRankController {
 	@GetMapping(value = "/getMovieRank",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public String movie(Model model) {
-		SimpleDateFormat format1 = new SimpleDateFormat ( "yyMMdd");
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMdd");
 		
 		Date time1= new Date();
 		String today = format1.format(time1);
@@ -69,22 +70,43 @@ public class MovieRankController {
 		    } catch (Exception e) {
 		      System.out.println(e);
 		    }
+		  String origin_str = res.toString();
+		  JSONParser jsonParser = new JSONParser();
+		  //
+		  //JSON데이터를 넣어 JSON Object 로 만들어 준다.
+          JSONObject jsonObject;
+          JSONObject responseObject;
+          ArrayList<String> movieRankName = new ArrayList<String>();
+          ArrayList<String> movieRankAcc = new ArrayList<String>();
+		try {
+			jsonObject = (JSONObject) jsonParser.parse(origin_str);
+			responseObject = (JSONObject)jsonObject.get("boxOfficeResult");
+			
+			JSONArray jsonArray = (JSONArray)responseObject.get("dailyBoxOfficeList");
+			
+			for(int i=0;i<jsonArray.size();i++) {
+	              //JSON name으로 추출
+				JSONObject objectInArray = (JSONObject) jsonArray.get(i);
+	              movieRankName.add(objectInArray.get("movieNm").toString());
+	              movieRankAcc.add(objectInArray.get("salesAcc").toString());
 
-		    System.out.println("요기서 토큰파싱합시다:" + res.toString());
-		    String origin_str = res.toString(); //우루루  다 있는거 이중에서 토큰 파싱하자
-		
-		    String token="";
-		    JSONParser jsonparser = new JSONParser();
-		    try {
-				JSONObject jsonObject = (JSONObject)jsonparser.parse(origin_str);
-				System.out.println(jsonObject.get("access_token"));
-				token = jsonObject.get("access_token").toString();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    
-		return null;
+	          }
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+           
+          
+    
+		/*
+		 * System.out.println("요기서 토큰파싱합시다:" + res.toString()); String origin_str =
+		 * res.toString(); //우루루 다 있는거 이중에서 토큰 파싱하자
+		 * 
+		 * String token=""; JSONParser jsonparser = new JSONParser();
+		 */
+	    model.addAttribute("movieRankName",movieRankName);
+	    model.addAttribute("movieRankAcc",movieRankAcc);
+		return "redirect:getMovie";
 	}
 	
 }
