@@ -19,7 +19,6 @@
 }
 </style>
 <body>
-
 <script>
 	$(document).ready(function(){
 		$("#check_bt").click(function(){

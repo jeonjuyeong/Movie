@@ -45,6 +45,7 @@ h1{
 	margin-top:200px;
 }
 </style>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("#pwd_check").keyup(function(){
@@ -59,13 +60,20 @@ $(document).ready(function(){
 	  $("#idcheck").click(function(){
 	    	window.open("/book/member/idCheck","confirm","width=500 height=150");
 	    });
+	  $("#email_check_bt").click(function(){
+			 if($("#email").val()==""){
+				 alert("이메일을 입력하세요");
+				 return false;
+			 }
+			window.open("/ctrl/member/emailCheck?email="+$('#email').val(),"","width=500 height=220");
+		}) 
 	});
 </script>
  
 <body>
 	<h1>회원가입</h1>
 	  <img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/logo.png" alt="">
-	<form name="frm" id="frm" action="join.do" method="post">
+	<form name="frm" id="frm" action="join" method="post">
 		<input type="hidden" name="userid" id="userid" value="false">
 		<input type="hidden" name="password_valid">
 		<input type="hidden" id="email_valid" value="false">
@@ -84,7 +92,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td>ID *</td>
-					<td ><input type="text" disabled id="id" name ="id" class="form-control"></td>
+					<td ><input type="text" id="id" name ="id" class="form-control"></td>
 					<td><input type="button" id="idcheck" value="중복체크" class="btn btn-primary"></td>
 				</tr>
 				<tr>
