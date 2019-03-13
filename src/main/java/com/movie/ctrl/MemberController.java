@@ -1,5 +1,7 @@
 package com.movie.ctrl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -10,6 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -103,7 +106,7 @@ public class MemberController {
 	}
  @PostMapping("/idCheck")
  @ResponseBody
- public String idCheck( String id,Model model) {
+  public String idCheck( String id,Model model) {
 	 String checking= "";
 		System.out.println(id);
 	 String check = service.idCheck(id);
@@ -115,5 +118,21 @@ public class MemberController {
 		}
 		System.out.println(checking);
 		return checking;
- }
+ 	}
+ //로그인
+ @GetMapping("/login")
+ @ResponseBody
+	 public int login(String id, String password,Model model) {
+		MemberVO vo = service.memberCheck(id, password);
+		int check=0;
+		if(vo.getId()==null) {
+			check=0;
+		}else if(password.equals(vo.getPassword())) {
+			model.addAttribute("id",id);
+			check=1;
+		}else {
+			check=-1;
+				}
+			return check;
+	 }
 }

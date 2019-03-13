@@ -22,9 +22,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public boolean memberCheck(String id, String pwd) {
-		// TODO Auto-generated method stub
-		return false;
+	public MemberVO memberCheck(String id, String pwd) {
+		
+		return mapper.memberCheck(id,pwd);
 	}
 
 	@Override
