@@ -18,12 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/movie/*")
+@RequestMapping("/main/*")
 public class MovieRankController {
 	@GetMapping(value = "/getMovieRank",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public String movie(Model model) {
+	public String movie(Model model,RedirectAttributes redirectAttributes) {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMdd");
 		
 		Date time1= new Date();
@@ -104,8 +105,8 @@ public class MovieRankController {
 		 * 
 		 * String token=""; JSONParser jsonparser = new JSONParser();
 		 */
-	    model.addAttribute("movieRankName",movieRankName);
-	    model.addAttribute("movieRankAcc",movieRankAcc);
+		redirectAttributes.addAttribute("movieRankName", movieRankName);
+		redirectAttributes.addAttribute("movieRankAcc", movieRankAcc);
 		return "redirect:getMovie";
 	}
 	
