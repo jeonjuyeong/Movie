@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,10 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/movie/*")
 public class MovieController {
 	@GetMapping(value = "/getMovie",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public String movie(Model model) {
+	public String movie(Model model,ArrayList<String> movieRankName,ArrayList<String> movieRankAcc) {
 		String clientId = "qaIfvFuA2ML2UDeEWxaE";//애플리케이션 클라이언트 아이디값";
 		String clientSecret = "6MR8wmHlRk";//애플리케이션 클라이언트 시크릿값";
 		try {
+			
 			String text = URLEncoder.encode("스파이더맨", "UTF-8");
 			String apiURL = "https://openapi.naver.com/v1/search/movie?query="+text; // json 결과
 			//String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
@@ -82,8 +84,5 @@ public class MovieController {
 			System.out.println(e);
 		}
 		return "";
-	}
-	public void getMovieRank() {
-		
 	}
 }
