@@ -107,7 +107,7 @@ public class MovieRankController {
 		 */
 		redirectAttributes.addAttribute("movieRankName", movieRankName);
 		redirectAttributes.addAttribute("movieRankAcc", movieRankAcc);
-		return "redirect:getMovie";
+		return "redirect:/main/getMovie";
 	}
 	
 }

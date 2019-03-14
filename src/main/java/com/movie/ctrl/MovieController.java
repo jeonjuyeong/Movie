@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/main/*")
 public class MovieController {
 	@GetMapping(value = "/getMovie",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
-
 	public String movie(Model model,@RequestParam("movieRankName")ArrayList<String> movieRankName,@RequestParam("movieRankAcc")ArrayList<String> movieRankAcc) {
 		String clientId = "qaIfvFuA2ML2UDeEWxaE";//애플리케이션 클라이언트 아이디값";
 		String clientSecret = "6MR8wmHlRk";//애플리케이션 클라이언트 시크릿값";
