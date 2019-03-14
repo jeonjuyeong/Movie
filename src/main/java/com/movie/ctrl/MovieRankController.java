@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/movie/*")
+@RequestMapping("/main/*")
 public class MovieRankController {
 	@GetMapping(value = "/getMovieRank",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public String movie(Model model,RedirectAttributes redirectAttributes) {

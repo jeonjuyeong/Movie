@@ -29,7 +29,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="../ctrl/resources/img/portfolio/cabin.png" alt="">
+            <img class="img-fluid" src="${image.get(0) }" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
