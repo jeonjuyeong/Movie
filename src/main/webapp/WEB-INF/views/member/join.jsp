@@ -35,16 +35,15 @@ h1{
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script>
 $(document).ready(function(){
-    $("#password").keyup(function(){
+    $("#join_password").keyup(function(){
         $("#pwd_check").val("");
         return false;
     });
     var pw_p= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-    $("#password").keyup(function(){
+    $("#join_password").keyup(function(){
        $("#password_valid_div").remove();
-       if(!$("#password").val().match(pw_p)){
+       if(!$("#join_password").val().match(pw_p)){
           $("#password_valid_span").append("<div style='color:red' id='password_valid_div'>"+ "사용 불가능(특수문자,영어,숫자 각 1개 이상)</div>");
-          
        }
        else{
           $("#password_valid_span").append("<div style='color:green' id='password_valid_div'>"+
@@ -52,20 +51,8 @@ $(document).ready(function(){
           $("#password_valid").val("1");
        }
     });
-
-    
-    $("#pwd_check").keyup(function(){
-       $("#password_check_div").remove();
-       if($("#password").val()== $("#pwd_check").val()){
-          $("#password_check_span").append("<div style='color:green' id= 'password_check_div'>일치!</div>");
-       }
-       else{   
-          $("#password_check_span").append("<div style='color:red' id='password_check_div'>불일치!</div>");
-       }
-          
-    });
-    $("#insert_bt").click(function(){
-    	if(!$("#password").val().match(pw_p)){
+  $("#insert_bt").click(function(){
+    	 if(!$("#join_password").val().match(pw_p)){
     		alert("비밀번호는 영어,특수문자를 포함해야합니다.")
     		return false;
     	}
@@ -81,10 +68,10 @@ $(document).ready(function(){
         	alert("아이디입력"); 
         	return false;
         }
-        if($("#email_valid").val()=="false"){
+  /*       if($("#email_valid").val()=="false"){
         	alert("이메일을 인증하세요");
-        	return false;
-        }
+        	return false; 
+        }*/
         if($("#userid").val()=="false"){
         	alert("아이디 중복확인 하세요");
         	return false;
@@ -97,7 +84,7 @@ $(document).ready(function(){
      });
 	$("#pwd_check").keyup(function(){
 	    $("#password_check_div").remove();
-	    if($("#password").val()== $("#pwd_check").val()){
+	    if($("#join_password").val()==$("#pwd_check").val()){
 	       $("#password_check_span").append("<div style='color:green' id= 'password_check_div' >일치!</div>");
 	    }
 	    else{   
@@ -113,7 +100,7 @@ $(document).ready(function(){
 				 return false;
 			 }
 			window.open("/ctrl/member/emailCheck?email="+$('#email').val(),"","width=500 height=220");
-		}) 
+		}); 
 	});
 </script>
  
@@ -144,21 +131,19 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td>PASSWORD *</td>
-					<td colspan=2 ><input type="password" id="password" name="password" class="form-control" placeholder="(영문,특수기호포함)">
-					<span id = 'password_valid_span'></span></td>
+					<td><input type="password" id="join_password" name="password" class="form-control" placeholder="(영문,특수기호포함)"></td>
+					<td><span id="password_valid_span"></span></td>
 				</tr>
 				<tr>
 					<td>암호확인 *</td>
 					<td><input type="password" id="pwd_check" class="form-control"></td>
-					<td><span id = 'password_check_span'></span></td>
+					<td><span id="password_check_span"></span></td>
 				</tr>
 
 				<tr>
 					<td>E-MAIL *</td>
 					<td><input type="email" name="email" id="email" class="form-control"></td>
-					<td> <input type="button" value="e-mail 인증" id="email_check_bt" class="btn btn-primary" >
-						
-					</td>
+					<td><input type="button" value="e-mail 인증" id="email_check_bt" class="btn btn-primary"></td>
 				</tr>
 				<tr>
 					<td>PHONE *</td>
@@ -183,7 +168,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan=2><input type="button" id="insert_bt" value="확인" class="btn btn-primary"> &nbsp;&nbsp; 
+					<td colspan=2><input type="submit" id="insert_bt" value="확인" class="btn btn-primary"> &nbsp;&nbsp; 
 					<input type="button" value="취소" class="btn btn-warning"></td>
 				</tr>
 			</table>
