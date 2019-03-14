@@ -135,14 +135,17 @@ public class MemberController {
 	 public int login(@RequestParam("id")String id, @RequestParam("password")String password,Model model) {
 		String pass = service.memberCheck(id, password);
 		String encPassword = passwordEncoder.encode(password);
-		System.out.println(pass+":controller");
+	
+		boolean isMatch = passwordEncoder.matches(password,pass);
+		System.out.println(pass+":저장된패스워드");
+		System.out.println(isMatch+"암호화된 패스워드");
 		int check=0;
 		if(pass==null) {
 			check=0;
-		}else if(encPassword.equals(pass)) {
+		}else if(isMatch) {
 			model.addAttribute("id",id);
 			check=1;
-		}else {
+		}else{
 			check=-1;
 				}
 			

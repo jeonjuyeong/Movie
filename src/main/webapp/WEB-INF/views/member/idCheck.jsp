@@ -16,7 +16,8 @@ function sendIt(){
 	      success: function(data){
 	         if(data.trim()=="ok"){
 	            alert("쓸수있는 아이디입니다.");
-	            $(opener.document).find("#id").val($("#userid").val());            
+	            $(opener.document).find("#id").val($("#userid").val());    
+	            $(opener.document).find("#userid").val($("#userid").val());    
 	            self.close();
 	            }else{
 	            	alert("쓸수없는 아이디입니다!");
