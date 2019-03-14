@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
+
 <script>
-		function sendIt(){
+		function memberCheck(){
 		   $.ajax({
-		      type:"get",
-		      url:"/ctrl/member/memberCheck?id="+$("#id").val()+"&password="+$("#password").val(),
+		      type:"post",
+		      url:"/ctrl/member/login?id="+$("#id").val()+"&password="+$("#password").val(),
 		      success: function(data){
-		         if(data.trim()=="ok"){
-		            alert("쓸수있는 아이디입니다.");
-		            $(opener.document).find("#id").val($("#userid").val());            
-		            self.close();
-		            }else{alert("쓸수없는 아이디입니다!");}
+		         if(data==0){
+		            $("#warning").append("<div style='color:red' id='div_login_check'>없는 아이디 입니다!</div>");
+		         }else if(data==-1){
+		        	 $("#warning").append("<div style='color:red' id='div_login_check'>패스워드가 틀립니다.</div>");
+		         }else{
+		        	 location.href="/ctrl/member/login?id="+$("#id").val();
+		         }
 		      },
 		      error:function(e){
 		         alert(e);
@@ -19,6 +23,7 @@
 		   });
 		}
 </script>
+
       <!-- Bootstrap core CSS -->
   <link href="/ctrl/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,7 +61,12 @@
           	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/join">회원가입</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-          	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#exampleModal">로그인</a>
+          	  <c:if test="${id!=null}">
+      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#exampleModal">마이페이지</a>
+         	 </c:if>
+         	  <c:if test="${id==null}">
+          	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#exampleModal">로그인</a>
+          	 </c:if>
           </li>
         </ul>
       </div>
@@ -73,16 +83,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/ctrl/member/login">
+   
       <div class="modal-body">
-       <Strong>ID:</Strong><input type="text" class="form-control">
-      <Strong>PWD:</Strong><input type="text" class="form-control">
+       <Strong>ID:</Strong><input type="text" name="id" id="id" class="form-control">
+      <Strong>PWD:</Strong><input type="password" name="password" id="password" class="form-control">
+      <span id="warning"></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button"onclick="memberCheck()" class="btn btn-primary">Login</button>
       </div>
-     </form>
+
     </div>
   </div>
 </div>

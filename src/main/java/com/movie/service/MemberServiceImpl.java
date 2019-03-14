@@ -22,9 +22,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO memberCheck(String id, String pwd) {
-		
-		return mapper.memberCheck(id,pwd);
+	public String memberCheck(String id, String pwd) {
+		System.out.println(id+":Service");
+		return mapper.memberCheck(id);
 	}
 
 	@Override

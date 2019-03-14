@@ -7,5 +7,5 @@ public interface MemberMapper {
 	
 	public String idCheck(String id);
 	
-	public MemberVO memberCheck(String id, String pwd);
+	public String memberCheck(String id);
 }

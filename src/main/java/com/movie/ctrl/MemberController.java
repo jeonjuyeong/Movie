@@ -1,7 +1,6 @@
 package com.movie.ctrl;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -12,13 +11,16 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.movie.domain.MemberVO;
@@ -28,6 +30,8 @@ import com.movie.service.MemberService;
 @RequestMapping("/member/*")
 public class MemberController {
 
+	  @Inject
+	    PasswordEncoder passwordEncoder;
 	@Inject
 	private MemberService service;
 	
@@ -94,8 +98,13 @@ public class MemberController {
 		model.addAttribute("email", email);
 		return "member/emailCheck";
 	}
+	//회원가입
 	@PostMapping("/join")
-	public String join(Model model,MemberVO vo) {
+	public String join(Model model,MemberVO vo)  throws Exception{
+		
+		 String encPassword = passwordEncoder.encode(vo.getPassword());
+		  vo.setPassword(encPassword);
+		  System.out.println("암호화된 비밀번호 : "+vo.getPassword());
 		service.memberInsert(vo);
 		return "redirect:/";
 	}
@@ -106,7 +115,7 @@ public class MemberController {
 	}
  @PostMapping("/idCheck")
  @ResponseBody
-  public String idCheck( String id,Model model) {
+  public String idCheck(@RequestParam("id")String id,Model model) {
 	 String checking= "";
 		System.out.println(id);
 	 String check = service.idCheck(id);
@@ -117,22 +126,32 @@ public class MemberController {
 			checking="no";
 		}
 		System.out.println(checking);
+		
 		return checking;
  	}
  //로그인
- @GetMapping("/login")
+ @PostMapping("/login")
  @ResponseBody
-	 public int login(String id, String password,Model model) {
-		MemberVO vo = service.memberCheck(id, password);
+	 public int login(@RequestParam("id")String id, @RequestParam("password")String password,Model model) {
+		String pass = service.memberCheck(id, password);
+		String encPassword = passwordEncoder.encode(password);
+		System.out.println(pass+":controller");
 		int check=0;
-		if(vo.getId()==null) {
+		if(pass==null) {
 			check=0;
-		}else if(password.equals(vo.getPassword())) {
+		}else if(encPassword.equals(pass)) {
 			model.addAttribute("id",id);
 			check=1;
 		}else {
 			check=-1;
 				}
+			
 			return check;
 	 }
+ //로그인성공->메인페이지로
+@GetMapping("/login")
+	public String login(Model model,String id,HttpSession session) {
+		session.setAttribute("id", id);
+		return "home";
+	}
 }

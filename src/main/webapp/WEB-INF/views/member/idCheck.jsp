@@ -10,24 +10,23 @@
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 function sendIt(){
-   $.ajax({
-      type:"post",
-      url:"/ctrl/member/idCheck?id="+$("#userid").val(),
-      success: function(data){
-         if(data==1){
-            alert("로그인완료");
-            $(opener.document).find("#id").val($("#userid").val());           
-            }else if(data==0){
-            alert("없는 아이디입니다!");
-            }else if(data==-1){
-            alert("비밀번호가 틀렸습니다.")
-            }
-      },
-      error:function(e){
-         alert(e);
-      },
-   });
-}
+	   $.ajax({
+	      type:"post",
+	      url:"/ctrl/member/idCheck?id="+$("#userid").val(),
+	      success: function(data){
+	         if(data.trim()=="ok"){
+	            alert("쓸수있는 아이디입니다.");
+	            $(opener.document).find("#id").val($("#userid").val());            
+	            self.close();
+	            }else{
+	            	alert("쓸수없는 아이디입니다!");
+	            }
+	      },
+	      error:function(e){
+	         alert("오류남");
+	      },
+	   });
+	}
 </script>
 <style>
 .container{

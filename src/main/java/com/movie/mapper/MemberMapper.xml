@@ -14,8 +14,8 @@
 		select id from MovieMember
 		where id=#{id}
 	</select>
-	<select id="memberCheck" parameterType="String">
-		select id,password from MovieMember
+	<select id="memberCheck" parameterType="String" resultType="String">
+		select password from MovieMember
 		where id =#{id}
 	</select>
 </mapper>
