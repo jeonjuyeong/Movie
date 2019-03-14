@@ -36,7 +36,7 @@ public class HomeController {
 		
 		
 		
-		return "redirect:movie/getMovieRank";
+		return "home";
 	}
 	
 }
