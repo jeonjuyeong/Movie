@@ -101,15 +101,7 @@ public class MovieController {
 			model.addAttribute("actor",actor);
 			model.addAttribute("userRating",userRating);
 			model.addAttribute("movieRankAcc",movieRankAcc);
-			/*HttpSession session = request.getSession();
-			session.setAttribute("name", name);
-			session.setAttribute("id",id);
-			session.setAttribute("email", email);
-			request.setAttribute("sign", "sign");
-
-			RequestDispatcher rd = request.getRequestDispatcher("/api/getMovie.jsp");
-
-			rd.forward(request, response);*/
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
