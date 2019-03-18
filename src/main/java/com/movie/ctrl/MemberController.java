@@ -157,7 +157,23 @@ public class MemberController {
 		session.setAttribute("id", id);
 		return "home";
 	}
+//마이페이지(회원정보 모두 불러오기)
 @GetMapping("/mypage")
-	public void mypage() {
+	public String mypage(@RequestParam("id")String id ,Model model,HttpSession session) {
+		MemberVO vo = service.memberInfo(id);
+		model.addAttribute("vo",vo);
+		session.setAttribute("id", id);
+		System.out.println(vo.getJibunAddress()+vo.getId()+vo.getEmail());
+		
+		return "member/mypage";
 	}
 }
+
+
+
+
+
+
+
+
+

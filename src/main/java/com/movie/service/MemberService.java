@@ -8,4 +8,6 @@ public interface MemberService {
 	public String memberCheck(String id,String pwd);
 	
 	public String idCheck(String id);
+	
+	public MemberVO memberInfo(String id);
 }

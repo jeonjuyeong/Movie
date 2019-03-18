@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public String memberCheck(String id, String pwd) {
-		System.out.println(id+":Service");
+		
 		return mapper.memberCheck(id);
 	}
 
@@ -32,4 +32,12 @@ public class MemberServiceImpl implements MemberService{
 		
 		return mapper.idCheck(id);
 	}
+
+	@Override
+	public MemberVO memberInfo(String id) {
+		MemberVO vo = mapper.memberInfo(id);
+		System.out.println(id);
+		return vo;
+	}
+	
 }
