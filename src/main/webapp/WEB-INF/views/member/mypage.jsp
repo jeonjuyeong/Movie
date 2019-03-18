@@ -3,13 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 <style>
 $logo: #3DBB3D;
 $gray: #777777;
 $black: #070707;
-$green: #7ED386;
-$aqua: #3FB6A8;
+$green: #084B8A;
+$aqua: #2897BA;
 $white: #FFFFFF;
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto');
@@ -17,30 +18,25 @@ $white: #FFFFFF;
 $hulu: 'Nunito Sans', sans-serif;
 $heading: 'Montserrat', sans-serif;
 $body: 'Roboto', sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
 
+ 
 body {
-  background: linear-gradient(to right, $aqua, $green);
+  background: linear-gradient(to right, #2897BA, #084B8A);
+   font-family: 'Raleway', Arial, sans-serif;
 }
 
-.container {
-  background: $white;
-  width: 540px;
-  height: 420px;
+#mypage_container {
+  background: #FFFFFF;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #585858;
+  width: 1200px;
+  height: 600px;
   margin: 0 auto;
   position: relative;
   margin-top: 10%;
   box-shadow: 2px 5px 20px rgba($gray, .5);
-}
-
-.logo {
-  float: right;
-  margin-right: 12px;
-  margin-top: 12px;
-  font-family: $hulu;
-  color: $logo;
-  font-weight: 900;
-  font-size: 1.5em;
-  letter-spacing: 1px;
 }
 
 .CTA {
@@ -51,18 +47,13 @@ body {
   margin-bottom: 90px;
   position: absolute;
   z-index: 1;
-  background: $green;
+  background:#084B8A;
   font-size: 1em;
   transform: rotate(-90deg);
   transition: all .5s ease-in-out;
   cursor: pointer;
-  h1 {
-    color: $white;
-    margin-top: 10px;
-    margin-left: 9px;
-  }
   &:hover {
-    background: $aqua;
+    background: #2897BA;
     transform: scale(1.1);
   }
 }
@@ -72,31 +63,31 @@ body {
   top: -5%;
   left: 5%;
   position: absolute;
-  width: 15%;
+  width: 18%;
   height: 110%;
-  background: $green;
+  background:#084B8A;
   box-shadow: 3px 3px 10px rgba($gray, .5);
 }
 
-nav a {
+#mypage_nav a {
   list-style: none;
   padding: 35px;
-  color: $white;
+  color: #FFFFFF;
   font-size: 1.1em;
   display: block;
   transition: all .3s ease-in-out;
-  &:hover {
-    color: $aqua;
+  }
+  #mypage_nav a :hover {
+    color: #2897BA;
     transform: scale(1.2);
     cursor: pointer;
   }
-  &:first-child {
-    margin-top: 7px;
-  }
-}
-
-.active {
-  color: $aqua;
+  
+#mypage_nav a :first-child {
+   margin-top: 7px;
+ }
+.mypage_active {
+	 color: #2897BA;
 }
 
 .rightbox {
@@ -105,66 +96,16 @@ nav a {
   height: 100%;
 }
 
-
 .profile, .payment, .subscription, .privacy, .settings {
   transition: opacity .5s ease-in;
   position: absolute;
   width: 70%;
 }
 
-h1 {
-  font-family: $heading;
-  color: $green;
-  font-size: 1em;
-  margin-top: 40px;
-  margin-bottom: 35px;
-}
-
-h2 {
-  color: $gray;
-  font-family: $body;
-  width: 80%;
-  text-transform: uppercase;
-  font-size: 8px;
-  letter-spacing: 1px;
-  margin-left: 2px;
-}
-
-p {
-  border-width: 1px;
-  border-style: solid;
-  border-image: linear-gradient(to right, $aqua, rgba($green,.5)) 1 0%;
-  border-top: 0;
-  width: 80%;
-  font-family: $heading;
-  font-size: .7em;
-  padding: 7px 0;
-  color: $black;
-}
-span {
-  font-size: .5em;
-  color: $gray;
-}
-
-.btn {
-  float: right;
-  font-family: $body;
-  text-transform: uppercase;
-  font-size: 10px;
-  border: none;
-  color: $aqua;
-}
-
-.btn:hover {
-  text-decoration: underline;
-  font-weight: 900;
-}
-
-input {
-  border: 1px solid lighten($gray,40%); 
-  font-family: $body;
-  padding: 2px;
-  margin: 0;
+#mypageh1 {
+	margin-top:150px;
+	margin-left:150px;
+	
 }
 
 .privacy h2{
@@ -179,156 +120,87 @@ input {
   opacity: 0;
 }
 
-footer {
-  position: absolute;
-  width: 20%;
-  bottom: 0;
-  right: -20px;
-  text-align: right;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: $body;
-  p {
-    border: none;
-    padding: 0;
-  }
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    &:hover {
-      color: #7d7d7d;
-    }
-  }
-}
 </style>
 
+<script>
+$(document).ready(function(){
+	$('#mypage_nav a').click(function(e) {
+	  e.preventDefault();
+	  $('#mypage_nav a').removeClass('mypage_active');
+	  $(this).addClass('mypage_active');
+	  if(this.id === !'payment'){
+	    $('.payment').addClass('noshow');
+	  }
+	  else if(this.id === 'payment') {
+	    $('.payment').removeClass('noshow');
+	    $('.rightbox').children().not('.payment').addClass('noshow');
+	  }
+	  else if (this.id === 'profile') {
+	    $('.profile').removeClass('noshow');
+	     $('.rightbox').children().not('.profile').addClass('noshow');
+	  }
+	  else if(this.id === 'subscription') {
+	    $('.subscription').removeClass('noshow');
+	    $('.rightbox').children().not('.subscription').addClass('noshow');
+	  }
+	    else if(this.id === 'privacy') {
+	    $('.privacy').removeClass('noshow');
+	    $('.rightbox').children().not('.privacy').addClass('noshow');
+	  }
+	  else if(this.id === 'settings') {
+	    $('.settings').removeClass('noshow');
+	    $('.rightbox').children().not('.settings').addClass('noshow');
+	  }
+	});
+});
+</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
-  <div id="logo"><h1 class="logo">hulu</h1>
-    <div class="CTA">
-      <h1>Get $10</h1>
-      </div>
+<%@include file="../includes/navigation.jsp"%>
+	<h1 id="mypageh1">마이페이지</h1>
+ <img class="img-fluid mb-5 d-block mx-auto" width ="500" height="400" src="/ctrl/resources/img/fundlogo2.png" alt="">
+<div id="mypage_container">
+  <div id="logo"><h1 class="logo"></h1>
   </div>
   <div class="leftbox">
-    <nav>
-      <a id="profile" class="active"><i class="fa fa-user"></i></a>
-      <a id="payment"><i class="fa fa-credit-card"></i></a>
-      <a id="subscription"><i class="fa fa-tv"></i></a>
+    <nav id="mypage_nav">
+      <a id="profile" class="mypage_active"><i class="fa fa-user"></i> PROFILE</a>
+      <a id="payment"><i class="fa fa-credit-card"></i> FUNDING</a>
+      <a id="subscription"><i class="fa fa-tv"></i> MY FUND</a>
       <a id="privacy"><i class="fa fa-tasks"></i></a>
       <a id="settings"><i class="fa fa-cog"></i></a>
     </nav>
   </div>
   <div class="rightbox">
     <div class="profile">
-      <h1>Personal Info</h1>
-      <h2>Full Name</h2>
-      <p>Julie Park <button class="btn">update</button></p>
-      <h2>Birthday</h2>
-      <p>July 21</p>
-      <h2>Gender</h2>
-      <p>Female</p>
-      <h2>Email</h2>
-      <p>example@example.com <button class="btn">update</button></p>
-      <h2>Password </h2>
-      <p>••••••• <button class="btn">Change</button></p>
+      A
     </div>
     
     <div class="payment noshow">
-      <h1>Payment Info</h1>
-      <h2>Payment Method</h2>
-      <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
-      <h2>Billing Address</h2>
-      <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
-      <h2>Zipcode</h2>
-      <p>999000</p>
-      <h2>Billing History</h2>
-      <p>2018<button class="btn">view</button></p>
-      <h2>Redeem Gift Subscription </h2>
-      <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p>
+    B
     </div>
 
     <div class="subscription noshow">
-      <h1>Your Subscription</h1>
-      <h2>Payment Date</h2>
-      <p>05-15-2018 <button class="btn">pay now</button></p>
-      <h2>Your Next Charge</h2>
-      <p>$8.48<span> includes tax</span></p>
-      <h2>Hulu Base Plan</h2>
-      <p>Limited Commercials <button class="btn">change plan</button></p>
-      <h2>Add-ons</h2>
-      <p>None <button class="btn">manage</button></p>
-      <h2>Monthly Recurring Total </h2>
-      <p>$7.99/month</p>
+  C
     </div>
 
     <div class="privacy noshow">
-      <h1>Privacy Settings</h1>
-      <h2>Manage Email Notifications<button class="btn">manage</button></h2>
-      <p></p>
-      <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
-      <p></p>
-      <h2>View Terms of Use <button class="btn">view</button></h2>
-      <p></p>
-      <h2>Personalize Ad Experience <button class="btn">update</button></h2>
-      <p></p>
-      <h2>Protect Your Account <button class="btn">protect</button></h2>
-      <p></p>
+    D
     </div>
  <div class="settings noshow">
-      <h1>Account Settings</h1>
-      <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
-      <p></p>
-      <h2>Hold Your Subscription<button class="btn">hold</button></h2>
-      <p></p>
-      <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
-      <p></p>
-      <h2>Your Devices <button class="btn">Manage Devices</button></h2>
-      <p></p>
-      <h2>Referrals <button class="btn">get $10</button></h2>
-   <p></p>
+     E
     </div>
     
   </div>
 </div>
-
-<footer>
-  <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
-</footer>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%@include file="../includes/footer.jsp"%>
 </body>
 
-<script>
-/*active button class onclick*/
-$('nav a').click(function(e) {
-  e.preventDefault();
-  $('nav a').removeClass('active');
-  $(this).addClass('active');
-  if(this.id === !'payment'){
-    $('.payment').addClass('noshow');
-  }
-  else if(this.id === 'payment') {
-    $('.payment').removeClass('noshow');
-    $('.rightbox').children().not('.payment').addClass('noshow');
-  }
-  else if (this.id === 'profile') {
-    $('.profile').removeClass('noshow');
-     $('.rightbox').children().not('.profile').addClass('noshow');
-  }
-  else if(this.id === 'subscription') {
-    $('.subscription').removeClass('noshow');
-    $('.rightbox').children().not('.subscription').addClass('noshow');
-  }
-    else if(this.id === 'privacy') {
-    $('.privacy').removeClass('noshow');
-    $('.rightbox').children().not('.privacy').addClass('noshow');
-  }
-  else if(this.id === 'settings') {
-    $('.settings').removeClass('noshow');
-    $('.rightbox').children().not('.settings').addClass('noshow');
-  }
-});
-</script>
 </html>
