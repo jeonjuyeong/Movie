@@ -153,7 +153,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
       <h1>FUNDING</h1>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="funding.do"></a>
 </figure>
 
 <figure class="snip1432">
