@@ -62,10 +62,10 @@
           </li>
           <li class="nav-item mx-0 mx-lg-1">
           	  <c:if test="${id!=null}">
-      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#exampleModal">마이페이지</a>
+      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">마이페이지</a>
          	 </c:if>
          	  <c:if test="${id==null}">
-          	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#exampleModal">로그인</a>
+          	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">로그인</a>
           	 </c:if>
           </li>
         </ul>
@@ -74,7 +74,7 @@
   </nav>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
