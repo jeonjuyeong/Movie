@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
 
 <script>
@@ -64,7 +64,7 @@
           </li>
           <li class="nav-item mx-0 mx-lg-1">
           	  <c:if test="${sessionScope.id!=null}">
-      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/mypage">마이페이지</a>
+      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/mypage?id=${sessionScope.id}">마이페이지</a>
          	 </c:if>
          	  <c:if test="${sessionScope.id==null}">
           	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">로그인</a>
