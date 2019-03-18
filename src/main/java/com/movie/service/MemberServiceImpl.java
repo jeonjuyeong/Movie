@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import com.movie.domain.MemberVO;
 import com.movie.mapper.MemberMapper;
 
+import lombok.Data;
 import lombok.Setter;
 @Service
 public class MemberServiceImpl implements MemberService{
-	
 	
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
