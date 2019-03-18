@@ -157,4 +157,7 @@ public class MemberController {
 		session.setAttribute("id", id);
 		return "home";
 	}
+@GetMapping("/mypage")
+	public void mypage() {
+	}
 }
