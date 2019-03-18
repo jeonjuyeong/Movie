@@ -26,7 +26,7 @@
 #blueone tr:hover td {
 	color: #004;
 }
-h1{
+#joinh1 h1{
 	margin-left:500px;
 	color:#004;
 	margin-top:200px;
@@ -105,7 +105,7 @@ $(document).ready(function(){
 </script>
  
 <body>
-	<h1>회원가입</h1>
+	<h1 id="joinh1">회원가입</h1>
 	  <img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/logo.png" alt="">
 	<form name="frm" id="frm" action="/ctrl/member/join" method="post">
 		<input type="hidden" name="id" id="userid" value="false">
