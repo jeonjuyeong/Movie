@@ -139,7 +139,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
       <h2>crowdfunding?</h2>
     </div>
   </figcaption>
-  <a href="#introduce_modal"></a>
+  <a class="portfolio-item d-block mx-auto" href="#introduce_modal"></a>
 </figure>
 
 <figure class="snip1432">
