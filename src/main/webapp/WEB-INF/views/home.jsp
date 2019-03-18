@@ -2,6 +2,107 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<style>
+#logo{
+	margin-top:300px;
+}
+#fund_menu{
+	height:400px;
+	width:100%;
+}
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
+figure.snip1432 {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #fff;
+
+  position: relative;
+  margin: 60px;
+  max-width: 450px;
+  max-height:300px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: left;
+  float: left;
+}
+figure.snip1432 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+figure.snip1432 img {
+  opacity: 0.8;
+  width: auto;
+  height:100%;
+  vertical-align: top;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.snip1432 figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+figure.snip1432 figcaption > div {
+  height: 50%;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+figure.snip1432 h1,figure.snip1432 h2,figure.snip1432 h3 {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  padding: 0 30px;
+  text-transform: uppercase;
+}
+figure.snip1432 h1 {
+  font-weight: 900;
+  top: 0;
+}
+figure.snip1432 h2 {
+  font-weight: 900;
+  top: 0;
+}
+figure.snip1432 h3 {
+  font-size: 1em;
+  bottom: 0;
+  font-weight: 500;
+}
+figure.snip1432 h3:nth-of-type(2) {
+  opacity: 0;
+  -webkit-transform: translateY(150%);
+  transform: translateY(150%);
+}
+figure.snip1432 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+figure.snip1432:hover img,
+figure.snip1432.hover img {
+  opacity: 0.3;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+figure.snip1432:hover figcaption h3:first-of-type,
+figure.snip1432.hover figcaption h3:first-of-type {
+  -webkit-transform: translateY(150%);
+  transform: translateY(150%);
+  opacity: 0;
+}
+figure.snip1432:hover figcaption h3:nth-of-type(2),
+figure.snip1432.hover figcaption h3:nth-of-type(2) {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+</style>
 <head>
 
 <meta charset="utf-8">
@@ -23,282 +124,70 @@
 
 	<!-- Navigation -->
 	<%@include file="../views/includes/navigation.jsp"%>
-	<!-- Header -->
-	<header class="masthead bg-primary text-white text-center">
-		<div class="container">
-			<img class="img-fluid mb-5 d-block mx-auto"
-				src="../ctrl/resources/img/logo.png" alt="">
-			<h1 class="text-uppercase mb-0">HELLO CINEMA</h1>
-			<hr class="star-light">
-			<h2 class="font-weight-light mb-0">대한민국 극장의 중심 HELLO CINEMA에 오신
-				것을 환영합니다.</h2>
-		</div>
-	</header>
+	 <img id="logo" class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/fundlogo2.png" alt="">
+	  
+<div id="fund_menu">
 
-	<!--  Grid Section -->
-	<%@include file="../views/main/movieList.jsp"%>
-	<!-- About Section -->
-	<section class="bg-primary text-white mb-0" id="about">
-		<div class="container">
-			<h2 class="text-center text-uppercase text-white">About</h2>
-			<hr class="star-light mb-5">
-			<div class="row">
-				<div class="col-lg-4 ml-auto">
-					<p class="lead">Freelancer is a free bootstrap theme created by
-						Start Bootstrap. The download includes the complete source files
-						including HTML, CSS, and JavaScript as well as optional LESS
-						stylesheets for easy customization.</p>
-				</div>
-				<div class="col-lg-4 mr-auto">
-					<p class="lead">Whether you're a student looking to showcase
-						your work, a professional looking to attract clients, or a graphic
-						artist looking to share your projects, this template is the
-						perfect starting point!</p>
-				</div>
-			</div>
-			<div class="text-center mt-4">
-				<a class="btn btn-xl btn-outline-light" href="movie/getMovieRank">
-					<i class="fas fa-download mr-2"></i> Download Now!
-				</a>
-			</div>
-		</div>
-	</section>
+<figure class="snip1432">
+<img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/crowd2.jpeg" alt="">
+<figcaption>
+    <div>
+      <h3>What is </h3>
+      <h3>Check it!</h3>
+    </div>
+    <div>
+      <h2>crowdfunding?</h2>
+    </div>
+  </figcaption>
+  <a href="#introduce_modal"></a>
+</figure>
 
-	<!-- Contact Section -->
-	<section id="contact">
-		<div class="container">
-			<h2 class="text-center text-uppercase text-secondary mb-0">Contact
-				Me</h2>
-			<hr class="star-dark mb-5">
-			<div class="row">
-				<div class="col-lg-8 mx-auto">
-					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm" novalidate="novalidate">
-						<div class="control-group">
-							<div
-								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Name</label> <input class="form-control" id="name"
-									type="text" placeholder="Name" required="required"
-									data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div
-								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Email Address</label> <input class="form-control"
-									id="email" type="email" placeholder="Email Address"
-									required="required"
-									data-validation-required-message="Please enter your email address.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div
-								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Phone Number</label> <input class="form-control"
-									id="phone" type="tel" placeholder="Phone Number"
-									required="required"
-									data-validation-required-message="Please enter your phone number.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div
-								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Message</label>
-								<textarea class="form-control" id="message" rows="5"
-									placeholder="Message" required="required"
-									data-validation-required-message="Please enter a message."></textarea>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<br>
-						<div id="success"></div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-xl"
-								id="sendMessageButton">Send</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
+<figure class="snip1432">
+<img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/crowd1.png" alt="">
+<figcaption>
+    <div>
+      <h3></h3>
+      <h3>funding now!</h3>
+    </div>
+    <div>
+      <h1>FUNDING</h1>
+    </div>
+  </figcaption>
+  <a href="#"></a>
+</figure>
 
+<figure class="snip1432">
+<img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/crowd3.png" alt="">
+<figcaption>
+    <div>
+      <h3></h3>
+      <h3>apply now!</h3>
+    </div>
+    <div>
+      <h1>FINANCING</h1>
+    </div>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+</div>
+<br>
+<div class="title">
+  <h1><span style="color: #0C2974; margin-left:30px;">언제 어디서나 쉽고 간편하게</span>
+  <span style="color: #FD791A"> 펀딩을 시작하세요!<span></h1>
+</div>
+<img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/mainAni.gif" alt="">
 
-	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-	<div class="scroll-to-top d-lg-none position-fixed ">
-		<a class="js-scroll-trigger d-block text-center text-white rounded"
-			href="#page-top"> <i class="fa fa-chevron-up"></i>
-		</a>
-	</div>
-	<%@include file="../views/includes/footer.jsp"%>
-	<!-- Portfolio Modals -->
+<%@include file="../views/includes/footer.jsp"%>
+<!-- Portfolio Modals -->
+<%@include file = "../views/main/modal.jsp" %>
 
-	<!-- Portfolio Modal 1 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/cabin.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Portfolio Modal 2 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/cake.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Portfolio Modal 3 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/circus.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Portfolio Modal 4 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/game.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Portfolio Modal 5 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-5">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/safe.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Portfolio Modal 6 -->
-	<div class="portfolio-modal mfp-hide" id="portfolio-modal-6">
-		<div class="portfolio-modal-dialog bg-white">
-			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
-			</a>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-						<hr class="star-dark mb-5">
-						<img class="img-fluid mb-5"
-							src="../ctrl/resources/img/portfolio/submarine.png" alt="">
-						<p class="mb-5">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias
-							magnam, recusandae quos quis inventore quisquam velit asperiores,
-							vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-						<a
-							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-							href="#"> <i class="fa fa-close"></i> Close Project
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 </body>
-
+<script>/* Demo purposes only */
+$(".hover").mouseleave(
+		  function () {
+		    $(this).removeClass("hover");
+		  }
+		);</script>
 </html>
