@@ -55,10 +55,10 @@
         </div>
         <div class="col-md-4">
           <h4 class="text-uppercase mb-4">MALALA FUND</h4>
-          <p class="lead mb-0">서울특별시 강남구 도산대로 156<br>
-          								2층 말랄라펀드(주) (서면)<br>
+          <p class="lead mb-0">서울특별시 강남구 도산대로 말랄라빌딩<br>
+          								말랄라펀드(주) (서면)<br>
 										대표자명 김영호 <br>
-										펀드 메니지 먼트 실장 전주영<br>
+										전무 전주영<br>
 										
             <a href="#page-top">Main</a></p>
         </div>
