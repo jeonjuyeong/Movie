@@ -38,5 +38,8 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+	@RequestMapping("funding.do")
+	public String funding() {
+		return "/main/funding";
+	}
 }
