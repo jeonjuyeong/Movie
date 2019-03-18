@@ -16,7 +16,7 @@ figure.snip1432 {
   color: #fff;
 
   position: relative;
-  margin: 60px;
+  margin: 85px;
   max-width: 450px;
   max-height:300px;
   width: 100%;
@@ -171,8 +171,9 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
 </figure>
 </div>
 <br>
+
 <div class="title">
-  <h1><span style="color: #0C2974; margin-left:30px;">언제 어디서나 쉽고 간편하게</span>
+  <h1 align="center"><span style="color: #0C2974; margin-left:30px;">언제 어디서나 쉽고 간편하게</span>
   <span style="color: #FD791A"> 펀딩을 시작하세요!<span></h1>
 </div>
 <img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/mainAni.gif" alt="">

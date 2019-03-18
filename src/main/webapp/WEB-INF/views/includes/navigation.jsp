@@ -58,13 +58,15 @@
           <li>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
+           <c:if test="${sessionScope.id==null}">
           	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/join">회원가입</a>
+           </c:if>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-          	  <c:if test="${id!=null}">
-      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">마이페이지</a>
+          	  <c:if test="${sessionScope.id!=null}">
+      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/mypage">마이페이지</a>
          	 </c:if>
-         	  <c:if test="${id==null}">
+         	  <c:if test="${sessionScope.id==null}">
           	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">로그인</a>
           	 </c:if>
           </li>
