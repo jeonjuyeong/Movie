@@ -36,7 +36,7 @@ public class HomeController {
 		
 		
 		
-		return "loading";
+		return "/main/summernote";
 	}
 	
 }
