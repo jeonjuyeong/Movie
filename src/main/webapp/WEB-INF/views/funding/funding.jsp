@@ -7,14 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Fashion & beauty</title>
-<link rel="stylesheet" type="text/css" href="../fm/style.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nanum+Gothic&amp;subset=korean"
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../fm/script.js"></script>
 <style>
 .mainImage{
 	position:relative;
@@ -177,7 +175,7 @@ html {
 		</c:if>
 		<br><br><br> --%>
 	</div>
-	<%-- <div class="searchBox">
+	<div class="searchBox">
 		<div class="col-xs-2" id="sele">
 		   <select id="field" class="form-control" name="field">
 		      <option value="title"> 제목
@@ -189,9 +187,9 @@ html {
 		</div>
 		   <input type='button' class="btn btn-default" value="검색" onclick="javascript:getData(1)">
 		   <c:if test="${sessionScope.id!=null }">
-	 			<input type="button" class="btn btn-default" onclick="location.href='../fm/goodsInsert.jsp'" value="상품등록">
+	 			<input type="button" class="btn btn-default" onclick="location.href='fundingInsert.do'" value="상품등록">
 		   </c:if>
-	</div> --%>
+	</div>
 	<%@include file="../includes/footer.jsp"%>
 
 </body>
