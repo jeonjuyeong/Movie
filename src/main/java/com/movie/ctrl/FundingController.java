@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.movie.service.MemberService;
+import com.movie.domain.GoodsVO;
+import com.movie.service.GoodsService;;
 
 @Controller
 @RequestMapping("/funding/*")
 public class FundingController {
 	@Inject
-	private MemberService service;
+	private GoodsService Gservice;
+	@Inject
+	private MemberService Mservice;
 	@RequestMapping("funding.do")
 	public String funding() {
 		return "funding/funding";
@@ -31,7 +35,14 @@ public class FundingController {
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
 	public String insertBoard(String editor) {
 		System.err.println("저장할 내용 : " + editor);
-		return "redirect:/coding.do";
+		
+		GoodsVO vo = new GoodsVO();
+		vo.setContent(editor);
+		
+		Gservice.GoodsInsert(vo);
+		
+		
+		return "funding/funding";
 	}
 
 }
