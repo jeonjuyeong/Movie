@@ -31,6 +31,7 @@ public class FileController {
 					.format(System.currentTimeMillis()))
 					.append(UUID.randomUUID().toString())
 					.append(oldName.substring(oldName.lastIndexOf("."))).toString();
+			System.err.println(saveName);
 			InputStream is = request.getInputStream();
 			OutputStream os = new FileOutputStream(filePath + saveName);
 			int numRead;

@@ -136,7 +136,7 @@ html {
 "최고 수준의 투자보호정책, 오직 펀딩플랫폼에서만 가능합니다."
 		</p>
 	</div>
-	<%-- <div class="goodsList">
+	 <div class="goodsList">
 		<div class="goodsListBox">
 			<c:forEach items="${lists }" var="list">
 				<div class="goodsDiv"
@@ -154,7 +154,7 @@ html {
 				</div>
 			</c:forEach>
 		</div>
-	</div> --%>
+	</div>
 	<div align="center">
 		<%-- <!-- 이전 -->
 		<c:if test="${startpage>blockpage }">
