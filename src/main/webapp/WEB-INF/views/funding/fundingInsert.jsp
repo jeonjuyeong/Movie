@@ -58,12 +58,12 @@ margin-top:50px
     <table id="blueone">
     <tr>
     	<td>제목:</td>
-    	<td colspan=2><input type="text" id="goods_title" class="form-control"></td>
+    	<td colspan=2><input type="text" id="goods_title" name="title" class="form-control"></td>
     </tr>
 	<tr>
-		<td>시작~종료날짜:</td>	
-		<td><input type='text' class="form-control" id='datepicker'/></td>
-		<td><input type='text' class="form-control" id='datepicker'/></td>
+		<td>종료날짜: 오늘부터~</td>	
+		<td><input type='text' class="form-control"name="goodDate"/> </td>
+		<td>일 동안</td>
 	</tr>    
 	<tr>
 		<td>목표금액:</td>
@@ -75,7 +75,30 @@ margin-top:50px
 		<td>
 			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
 		</td>
-		<td><strong>WON</strong></td>
+		<td><strong>원 참여 시</strong></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
+		</td>
+	</tr>
+		<tr>
+		<td></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
+		</td>
+		<td><strong>원 참여 시</strong></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
+		</td>
+		<td><strong>원 참여 시</strong></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
+		</td>
 	</tr>
     </table>
         <textarea name="editor" id="editor" style="height:600px;width:900px;"></textarea>
@@ -112,7 +135,5 @@ margin-top:50px
             $("#insertBoardFrm").submit();
         });
     });
-    
-
 </script>
 </html>

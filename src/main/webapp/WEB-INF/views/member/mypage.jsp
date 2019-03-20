@@ -313,7 +313,7 @@ $(document).ready(function(){
     <div class="pricingContent">
                     <ul>
                     <c:forEach items="${fundList}" var="i">
-                        <li><b>E-MAIL:</b>${vo.email}</li>
+                        <li><b></b>${fundList..title}</li>
                      </c:forEach>
                     </ul>
              	   </div><!-- /  CONTENT BOX-->
