@@ -8,7 +8,9 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="/ctrl/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
  <style>
- 
+ #editer{
+ align:center;
+ }
  </style>
 </head>
 <script type="text/javascript">
@@ -41,7 +43,7 @@
 <body>
  	<%@include file="../includes/navigation.jsp"%>
     <form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
-        <textarea name="editor" id="editor" style="width: 700px; height: 400px;"></textarea>
+        <textarea name="editor" id="editor" style="width: 1000px; height: 600px;"></textarea>
         <input type="button" id="insertBoard" value="등록" />
     </form>
  <%@include file="../includes/footer.jsp"%>
