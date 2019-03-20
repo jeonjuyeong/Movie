@@ -37,7 +37,7 @@ public class FundingController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(String editor) {
+	public String insertBoard(String editor,GoodsVO gvo) {
 		System.err.println("저장할 내용 : " + editor);
 		
 		String target = "<img";
@@ -47,11 +47,9 @@ public class FundingController {
 		result = editor.substring(target_num,(editor.substring(target_num).indexOf(">")+target_num)+1);
 		}
 		
-		GoodsVO vo = new GoodsVO();
-		vo.setContent(editor);
-		vo.setMainPic(result);
+		gvo.setMainPic(result);
 		
-		gService.GoodsInsert(vo);
+		gService.GoodsInsert(gvo);
 		
 		
 		return "funding/funding";
