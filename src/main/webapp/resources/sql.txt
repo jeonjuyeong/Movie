@@ -27,3 +27,13 @@ CREATE TABLE `moviemember` (
   `extraAddress` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `goodsprice` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `goodsNum` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `product` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `goods_idx` (`goodsNum`),
+  CONSTRAINT `goodsF` FOREIGN KEY (`goodsNum`) REFERENCES `goods` (`num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
