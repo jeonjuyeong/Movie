@@ -1,0 +1,29 @@
+CREATE TABLE `goods` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(45) DEFAULT NULL,
+  `username` varchar(200) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `content` varchar(10000) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `untilDate` varchar(200) DEFAULT NULL,
+  `uploadDate` varchar(200) DEFAULT NULL,
+  `currentPrice` int(11) DEFAULT NULL,
+  `wantPrice` int(11) DEFAULT NULL,
+  `mainPic` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8
+
+
+CREATE TABLE `moviemember` (
+  `id` varchar(45) NOT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `postcode` varchar(70) DEFAULT NULL,
+  `roadAddress` varchar(80) DEFAULT NULL,
+  `jibunAddress` varchar(100) DEFAULT NULL,
+  `extraAddress` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
