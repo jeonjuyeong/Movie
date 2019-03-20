@@ -67,7 +67,7 @@ body {
   position: absolute;
   width: 18%;
   height: 110%;
-  background:#084B8A;
+  background:#0B243B;
   box-shadow: 3px 3px 10px rgba($gray, .5);
 }
 
@@ -260,7 +260,8 @@ $(document).ready(function(){
 <body>
 <%@include file="../includes/navigation.jsp"%>
 	<h1 id="mypageh1">마이페이지</h1>
- <img class="img-fluid mb-5 d-block mx-auto" width ="500" height="400" src="/ctrl/resources/img/fundlogo2.png" alt="">
+	<br>
+ <img class="img-fluid mb-5 d-block mx-auto" width ="900" height="650" src="/ctrl/resources/img/fundlogo2.png" alt="">
 <div id="mypage_container">
   <div id="logo"><h1 class="logo"></h1>
   </div>
@@ -293,7 +294,7 @@ $(document).ready(function(){
                         <li><b>E-MAIL:</b>${vo.email}</li>
                         <li><b>PHONE:</b>${vo.phone}</li>
                         <li><b>ADDRESS:</b>${vo.postcode} ${vo.roadAddress} ${vo.jibunAddress} ${vo.extraAddress}</li>
-                        <li><b>INCOME</b>500,000원 </li>
+                        <li><b>MY FUND:</b>500,000원 </li>
                     </ul>
              	   </div><!-- /  CONTENT BOX-->
              	   <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
