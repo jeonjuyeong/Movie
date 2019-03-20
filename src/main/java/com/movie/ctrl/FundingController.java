@@ -2,6 +2,7 @@ package com.movie.ctrl;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.movie.domain.GoodsPriceVO;
 import com.movie.domain.GoodsVO;
 import com.movie.service.GoodsService;
 import com.movie.service.MemberService;;
@@ -40,7 +42,7 @@ public class FundingController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(GoodsVO vo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date) {
+	public String insertBoard(ArrayList<GoodsPriceVO> pvo,GoodsVO vo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date) {
 		System.err.println("저장할 내용 : " + editor);
 		
 		String target = "<img";
@@ -51,9 +53,9 @@ public class FundingController {
 		}
 		String[] week = {"일요일","월요일","화요일","수요일","목요일","금요일","토요일"};
 		// Calendar 클래스 인스턴스 생성 
-		Calendar cal = Calendar.getInstance(); int y,m,d,w;	
+		Calendar cal = Calendar.getInstance(); 
+		int y,m,d,w;	
 		//-- 연, 월, 일, 요일
-		int num;	
 		y =cal.get(Calendar.YEAR);
 		m = cal.get(Calendar.MONTH)+1; 
 		d = cal.get(Calendar.DATE); 
@@ -65,13 +67,14 @@ public class FundingController {
 		 vo.setUntilDate(calS);
 		System.out.println("\n========[확인결과]========"); 
 		//System.out.printf("%d일 후 : %d-%d-%d %s\n",num,y,m,d,week[w-1]); 
-		System.out.printf("%d일 후 : %tF %tA \n",date,cal,cal); System.out.println("============================");
-		
+		System.out.printf("%d일 후 : %tF %tA \n",date,cal,cal); 
 		
 		vo.setContent(editor);
 		vo.setMainPic(result);
-		
 		gService.GoodsInsert(vo);
+	
+		gService.goodsPriceInsert(pvo);
+
 		
 		
 		return "funding/funding";

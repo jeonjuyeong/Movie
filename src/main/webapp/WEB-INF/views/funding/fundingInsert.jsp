@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script type="text/javascript" src="/ctrl/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
  <script>
+ 
  </script>
  <style>
  
@@ -73,33 +74,17 @@ margin-top:50px
 	<tr>
 		<td>참여금액:</td>
 		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
+			<input type="text" name="wantPrice" id="wantPrice" name="price" placeholder="참여자들이 내는 금액" class="form-control"> 
 		</td>
 		<td><strong>원 참여 시</strong></td>
 		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
+			<input type="text" name="wantPrice" id="wantPrice" name="product" placeholder="상품 목록" class="form-control"> 
+		</td>
+		<td><input type="button" id="addBtn" value="추가" class="btn btn-secondary" >
 		</td>
 	</tr>
-		<tr>
-		<td></td>
-		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
-		</td>
-		<td><strong>원 참여 시</strong></td>
-		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
-		</td>
-		<td><strong>원 참여 시</strong></td>
-		<td>
-			<input type="text" name="wantPrice" id="wantPrice" placeholder="상품 목록" class="form-control"> 
-		</td>
-	</tr>
+	<tbody id="addBtnDiv">
+	</tbody>
     </table>
         <textarea name="editor" id="editor" style="height:600px;width:900px;"></textarea>
     </div>
@@ -133,6 +118,9 @@ margin-top:50px
             obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
             //폼 submit
             $("#insertBoardFrm").submit();
+        });
+        $("#addBtn").click(function(){
+        	$("#addBtnDiv").append("<tr><td></td><td><input type='text' name='wantPrice' id='wantPrice' placeholder='참여자들이 내는 금액' name='price' class='form-control'></td><td><strong>원 참여 시</strong></td><td><input type='text' name='wantPrice' id='wantPrice' name='product' placeholder='상품 목록' class='form-control'></td></tr>");
         });
     });
 </script>
