@@ -309,7 +309,14 @@ $(document).ready(function(){
     </div>
     
     <div class="payment noshow">
-    B
+    펀딩한 상품
+    <div class="pricingContent">
+                    <ul>
+                    <c:forEach items="${fundList}" var="i">
+                        <li><b></b>${fundList..title}</li>
+                     </c:forEach>
+                    </ul>
+             	   </div><!-- /  CONTENT BOX-->
     </div>
 
     <div class="subscription noshow">

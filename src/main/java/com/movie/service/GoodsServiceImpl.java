@@ -1,10 +1,12 @@
 package com.movie.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.movie.domain.GoodsPriceVO;
 import com.movie.domain.GoodsVO;
 import com.movie.mapper.GoodsMapper;
 
@@ -35,6 +37,13 @@ public class GoodsServiceImpl implements GoodsService{
 		GoodsVO gVO = mapper.goodsDetail(num);
 		return gVO;
 	}
+
+	@Override
+	public void goodsPriceInsert(ArrayList<GoodsPriceVO> pvo) {
+		mapper.GoodsPriceInsert(pvo);
+		
+	}
+
 
 
 }

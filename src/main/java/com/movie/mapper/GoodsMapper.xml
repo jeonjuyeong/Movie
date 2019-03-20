@@ -17,4 +17,7 @@
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
 		select * from Goods where num = #{num}
 	</select>
+	<insert id="GoodsPriceInsert">
+	 insert into GoodsPrice values ('0',);
+	</insert>
 </mapper>
