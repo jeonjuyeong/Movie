@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movie.domain.GoodsVO;
 import com.movie.service.GoodsService;
@@ -62,5 +63,13 @@ public class FundingController {
 		model.addAttribute("glist",glist);
 		
 		return "funding/funding";
+	}
+	@RequestMapping(value = "/goodsView.do")
+	public String goodsView(@RequestParam("num")int num,Model model) {
+		
+		GoodsVO gVO = gService.goodsDetail(num);
+		model.addAttribute("gVO",gVO);
+		
+		return "funding/fundingView";
 	}
 }
