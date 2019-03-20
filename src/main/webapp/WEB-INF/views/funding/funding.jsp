@@ -126,6 +126,7 @@ html {
 } */
 </script>
 </head>
+	<%@include file="../includes/navigation.jsp"%>
 <body id="results">
 	<div class="mainImage">
 		<div class="block"></div>
@@ -133,7 +134,7 @@ html {
 		<p class="fb_text">Funding</p>
 		<p class="fb_smallText">
 			심사부터 상환까지 리스크를 최소화한 펀딩플랫폼만의 투자보호정책(FP-6S)<br>
-"최고 수준의 투자보호정책, 오직 펀딩플랫폼에서만 가능합니다."
+		"최고 수준의 투자보호정책, 오직 펀딩플랫폼에서만 가능합니다."
 		</p>
 	</div>
 	 <div class="goodsList">
