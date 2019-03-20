@@ -81,14 +81,5 @@
             //폼 submit
             $("#insertBoardFrm").submit();
         });
-        $(function () {
-            $('#datetimepicker4').data("DateTimePicker4").FUNCTION()
-            $('#datetimepicker4').datetimepicker();
-        });
-    });
-    $(function () {
-        $('#datetimepicker4').datetimepicker();
-    });
-</script>
 </html>
   
