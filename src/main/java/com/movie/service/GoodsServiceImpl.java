@@ -1,5 +1,7 @@
 package com.movie.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +20,14 @@ public class GoodsServiceImpl implements GoodsService{
 		mapper.GoodsInsert(vo);
 		//GoodsVO vo = mapper.
 		 // MemberVO vo = mapper.Board(id); System.out.println(id); return vo;
-		
 
+	}
+
+	@Override
+	public List<GoodsVO> getList() {
+		List<GoodsVO> gList = mapper.getList();
+		return gList;
+		 
 	}
 
 
