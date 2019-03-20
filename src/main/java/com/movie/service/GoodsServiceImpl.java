@@ -30,5 +30,11 @@ public class GoodsServiceImpl implements GoodsService{
 		 
 	}
 
+	@Override
+	public GoodsVO goodsDetail(int num) {
+		GoodsVO gVO = mapper.goodsDetail(num);
+		return gVO;
+	}
+
 
 }
