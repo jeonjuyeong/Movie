@@ -7,9 +7,11 @@
 
 	<insert id="GoodsInsert">
 		insert into Goods 
-		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email) 
-		values ('0','0','0',#{userid},#{userName},#{category},#{title},#{content},#{untilDate},#{uploadDate},#{email})
+		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email,mainPic) 
+		values ('0','0','0',#{userid},#{userName},#{category},#{title},#{content},#{untilDate},#{uploadDate},#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
 	</insert>
-	
+	<select id = "getList" resultType="com.movie.domain.GoodsVO">
+		select * from Goods
+	</select>
 </mapper>

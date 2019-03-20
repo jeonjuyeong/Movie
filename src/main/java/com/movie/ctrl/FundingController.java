@@ -1,26 +1,29 @@
 package com.movie.ctrl;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.movie.service.MemberService;
 import com.movie.domain.GoodsVO;
-import com.movie.service.GoodsService;;
+import com.movie.service.GoodsService;
+import com.movie.service.MemberService;;
 
 @Controller
 @RequestMapping("/funding/*")
 public class FundingController {
 	@Inject
-	private GoodsService Gservice;
+	private GoodsService gService;
 	@Inject
-	private MemberService Mservice;
+	private MemberService mService;
 	@RequestMapping("funding.do")
 	public String funding() {
-		return "funding/funding";
+		return "redirect:getList.do";
 	}
 	@RequestMapping("fundingInsert.do")
 	public String fundingInsert() {
@@ -37,18 +40,27 @@ public class FundingController {
 		System.err.println("저장할 내용 : " + editor);
 		
 		String target = "<img";
-		int target_num = editor.indexOf(target); 
-		String result = target.substring(target_num,(target.substring(target_num).indexOf(">")+target_num));
-		System.err.println(result);
-		
+		int target_num = editor.indexOf(target);
+		String result ="";
+		if(target_num >=0) {
+		result = editor.substring(target_num,(editor.substring(target_num).indexOf(">")+target_num)+1);
+		}
 		
 		GoodsVO vo = new GoodsVO();
 		vo.setContent(editor);
+		vo.setMainPic(result);
 		
-		Gservice.GoodsInsert(vo);
+		gService.GoodsInsert(vo);
 		
 		
 		return "funding/funding";
 	}
-
+	@RequestMapping(value = "/getList.do")
+	public String getList(Model model) {
+		
+		List<GoodsVO> glist = gService.getList();
+		model.addAttribute("glist",glist);
+		
+		return "funding/funding";
+	}
 }
