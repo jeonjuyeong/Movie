@@ -2,9 +2,15 @@ package com.movie.domain;
 
 public class GoodsVO {
 	int num,currentPrice,wantPrice;
-	String userid,userName,category,title,content,untilDate,uploadDate,email;
+	String userid,userName,category,title,content,untilDate,uploadDate,email,mainPic;
 	public int getNum() {
 		return num;
+	}
+	public String getMainPic() {
+		return mainPic;
+	}
+	public void setMainPic(String mainPic) {
+		this.mainPic = mainPic;
 	}
 	public void setNum(int num) {
 		this.num = num;

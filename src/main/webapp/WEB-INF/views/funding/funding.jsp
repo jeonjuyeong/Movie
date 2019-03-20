@@ -116,11 +116,11 @@ html {
 }
 </style>
 <script>
-/* function getData(pageNum){
-	$("#results").load("CaList.do",{"pageNum":pageNum,"field":$("#field option:selected").val(),"word":$("#word").val(),"category":"fashion"},function(data){
+ function getData(pageNum){
+	$("#results").load("getList.do",{"pageNum":pageNum,"field":$("#field option:selected").val(),"word":$("#word").val(),"category":"fashion"},function(data){
 		$("#results").html(data);
 	})
-} */
+} 
 </script>
 </head>
 	<%@include file="../includes/navigation.jsp"%>
@@ -136,16 +136,16 @@ html {
 	</div>
 	 <div class="goodsList">
 		<div class="goodsListBox">
-			<c:forEach items="${lists }" var="list">
+			<c:forEach items="${glist }" var="list">
 				<div class="goodsDiv"
 					onclick="location.href='goodsView.do?num=${list.num}'">
 					<div class="imageBox">
-						<img alt="상품사진" src="../upload/${list.mainpic}">
+						${list.mainPic}
 					</div>
 					<div class="pricingContent">
 						<ul>
 							<li><b>제목 :</b> ${list.title }</li>
-							<li><b>PRICE :</b> ${list.price }</li>
+							<li><b>PRICE :</b> ${list.wantPrice }</li>
 							<li><b>판매자 :</b> ${list.userid }</li>
 						</ul>
 					</div>
