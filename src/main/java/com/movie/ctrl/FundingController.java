@@ -36,6 +36,12 @@ public class FundingController {
 	public String insertBoard(String editor) {
 		System.err.println("저장할 내용 : " + editor);
 		
+		String target = "<img";
+		int target_num = editor.indexOf(target); 
+		String result = target.substring(target_num,(target.substring(target_num).indexOf(">")+target_num));
+		System.err.println(result);
+		
+		
 		GoodsVO vo = new GoodsVO();
 		vo.setContent(editor);
 		
