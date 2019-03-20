@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.movie.mapper.GoodsMapper">
+
+	<insert id="GoodsInsert">
+		insert into Goods 
+		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email) 
+		values ('0','0','0',#{userid},#{userName},#{category},#{title},#{content},#{untilDate},#{uploadDate},#{email})
+		<!-- 0값이 아니고 autoimplement추가 -->
+	</insert>
+	
+</mapper>
