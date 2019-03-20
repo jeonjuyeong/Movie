@@ -95,7 +95,6 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button"onclick="memberCheck()" class="btn btn-primary">Login</button>
       </div>
-
     </div>
   </div>
 </div>
