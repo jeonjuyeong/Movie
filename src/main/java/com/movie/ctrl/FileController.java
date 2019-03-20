@@ -45,7 +45,7 @@ public class FileController {
 			sb = new StringBuffer();
 			sb.append("&bNewLine=true")
 			.append("&sFileName=").append(oldName)
-			.append("&sFileURL=").append("http://localhost:8080/ctrl/resources/upload/")
+			.append("&sFileURL=").append("http://localhost:8999/ctrl/resources/upload/")
 			.append(saveName);
 		} catch (Exception e) {
 			e.printStackTrace();
