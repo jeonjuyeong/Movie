@@ -39,8 +39,8 @@
 
 <div class="container">
 <h5><b>Email 인증</b></h5>
-<input type="hidden" id="num" value ="${num }">
-  ${email } 로 인증번호를 전송했습니다.<br>
+<input type="hidden" id="num" value ="${num}">
+  ${email} 로 인증번호를 전송했습니다.<br>
 인증번호를 입력하세요<br><br>
 <input type="text" class="text" id="num_check">
 <input type="button" class="btn btn-success" id="check_bt" value="확인">

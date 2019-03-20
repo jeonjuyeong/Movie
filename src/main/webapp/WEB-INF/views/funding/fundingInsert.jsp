@@ -11,8 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script type="text/javascript" src="/ctrl/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
  <script>
-
-  </script>
+ </script>
  <style>
  
 #blueone {
@@ -62,21 +61,21 @@ margin-top:50px
     	<td colspan=2><input type="text" id="goods_title" class="form-control"></td>
     </tr>
 	<tr>
-	<td>시작~종료날짜:</td>	
-	<td><input type='text' class="form-control" id='datepicker'/></td>
-	<td><input type='text' class="form-control" id='datepicker'/></td>
+		<td>시작~종료날짜:</td>	
+		<td><input type='text' class="form-control" id='datepicker'/></td>
+		<td><input type='text' class="form-control" id='datepicker'/></td>
 	</tr>    
 	<tr>
-	<td>목표금액:</td>
-	<td><input type="text" class="form-control" id='currentPrice' name='currentPrice'></td>
-	<td><strong>WON</strong></td>
+		<td>목표금액:</td>
+		<td><input type="text" class="form-control" id='currentPrice' name='currentPrice'></td>
+		<td><strong>WON</strong></td>
 	</tr>
 	<tr>
-	<td>참여금액:</td>
-	<td>
-	<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
-	</td>
-	<td><strong>WON</strong></td>
+		<td>참여금액:</td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
+		</td>
+		<td><strong>WON</strong></td>
 	</tr>
     </table>
         <textarea name="editor" id="editor" style="height:600px;width:900px;"></textarea>
@@ -114,5 +113,6 @@ margin-top:50px
         });
     });
     
+
 </script>
 </html>
