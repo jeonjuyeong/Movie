@@ -84,8 +84,7 @@ $(document).ready(function(){
 <title>여기에 제목을 입력하십시오</title>
 </head>
 <body>
-<%@include file="../includes/navigation.jsp"%>
-
+<%@include file="/resources/includes/navigation.jsp"%>
 <div class="viewbody">
 	<div class="upDiv">
 		<div class="sideDiv">	
@@ -125,7 +124,7 @@ $(document).ready(function(){
 	</div>
 </div>
 
-<%@include file="../includes/footer.jsp"%>
+<%@include file="/resources/includes/footer.jsp"%>
 </body>
 
 </html>

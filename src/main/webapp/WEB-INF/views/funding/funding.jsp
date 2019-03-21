@@ -129,7 +129,7 @@ html {
 } 
 </script>
 </head>
-	<%@include file="../includes/navigation.jsp"%>
+	<%@include file="/resources/includes/navigation.jsp"%>
 <body id="results">
 	<div class="mainImage">
 		<div class="block"></div>
@@ -197,10 +197,8 @@ html {
 		   <c:if test="${sessionScope.id!=null }">
 	 			<input type="button" class="btn btn-secondary" onclick="location.href='fundingInsert.do'" value="상품등록">
 		   </c:if>
-		   </td>
-	<tr>
-	</table>
-	<%@include file="../includes/footer.jsp"%>
+	</div>
+	<%@include file="/resources/includes/footer.jsp"%>
 
 </body>
 </html>
