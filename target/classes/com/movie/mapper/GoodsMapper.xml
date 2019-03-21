@@ -8,7 +8,7 @@
 	<insert id="GoodsInsert">
 		insert into Goods 
 		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email,mainPic) 
-		values ('0','0','0',#{userid},#{userName},#{category},#{title},#{content},#{untilDate},#{uploadDate},#{email},#{mainPic})
+		values ('0','0','0',#{userid},#{userName},#{category},#{title},#{content},#{untilDate},sysdate(),#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
 	</insert>
 	<select id = "getList" resultType="com.movie.domain.GoodsVO">
@@ -18,6 +18,6 @@
 		select * from Goods where num = #{num}
 	</select>
 	<insert id="GoodsPriceInsert">
-	 insert into GoodsPrice values ('0',);
+		insert into GoodsPrice values ('0',(select max(num)+1 from Goods),#{price},#{product})
 	</insert>
 </mapper>
