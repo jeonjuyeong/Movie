@@ -123,7 +123,7 @@ html {
 } 
 </script>
 </head>
-	<%@include file="../includes/navigation.jsp"%>
+	<%@include file="/resources/includes/navigation.jsp"%>
 <body id="results">
 	<div class="mainImage">
 		<div class="block"></div>
@@ -188,7 +188,7 @@ html {
 	 			<input type="button" class="btn btn-default" onclick="location.href='fundingInsert.do'" value="상품등록">
 		   </c:if>
 	</div>
-	<%@include file="../includes/footer.jsp"%>
+	<%@include file="/resources/includes/footer.jsp"%>
 
 </body>
 </html>

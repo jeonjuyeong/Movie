@@ -49,7 +49,7 @@ margin-top:50px
 </head>
 
 <body>
- 	<%@include file="../includes/navigation.jsp"%>
+ 	<%@include file="/resources/includes/navigation.jsp"%>
 
     <form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
      <div id="editer_div">
@@ -92,7 +92,7 @@ margin-top:50px
         <input type="button" id="insertBoard" value="등록" class="btn btn-secondary"/>
     </div>
     </form>
- <%@include file="../includes/footer.jsp"%>
+ <%@include file="/resources/includes/footer.jsp"%>
 </body>
 <script type="text/javascript">
     $(function(){
