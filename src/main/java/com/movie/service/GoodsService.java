@@ -10,7 +10,7 @@ public interface GoodsService {
 	public void GoodsInsert(GoodsVO vo);
 	public List<GoodsVO> getList();
 	public GoodsVO goodsDetail(int num);
-	public void goodsPriceInsert(ArrayList<GoodsPriceVO> pvo);
+	public void goodsPriceInsert(GoodsPriceVO vo);
 	//public String BoardCheck(String id,String pwd);
 	
 }

@@ -55,7 +55,7 @@ margin-top:50px
      <div id="editer_div">
     <h1>fund 상품 등록하기</h1>
     <br>
-    <input type="hidden" value="${sessionScope.id}">
+    <input type="hidden" name="userid" value="${sessionScope.id}">
     <table id="blueone">
     <tr>
     	<td>제목:</td>
@@ -68,17 +68,17 @@ margin-top:50px
 	</tr>    
 	<tr>
 		<td>목표금액:</td>
-		<td><input type="text" class="form-control" id='currentPrice' name='currentPrice'></td>
+		<td><input type="text" class="form-control" id='wantPrice' name='wantPrice'></td>
 		<td><strong>WON</strong></td>
 	</tr>
 	<tr>
 		<td>참여금액:</td>
 		<td>
-			<input type="text" name="wantPrice" id="wantPrice" name="price" placeholder="참여자들이 내는 금액" class="form-control"> 
+			<input type="text" id="price" name="price" placeholder="참여자들이 내는 금액" class="form-control"> 
 		</td>
 		<td><strong>원 참여 시</strong></td>
 		<td>
-			<input type="text" name="wantPrice" id="wantPrice" name="product" placeholder="상품 목록" class="form-control"> 
+			<input type="text"  id="wantPrice" name="product" placeholder="상품 목록" class="form-control"> 
 		</td>
 		<td><input type="button" id="addBtn" value="추가" class="btn btn-secondary" >
 		</td>
@@ -116,7 +116,6 @@ margin-top:50px
         $("#insertBoard").click(function(){
             //id가 smarteditor인 textarea에 에디터에서 대입
             obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
             $("#insertBoardFrm").submit();
         });
         $("#addBtn").click(function(){

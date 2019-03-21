@@ -39,8 +39,8 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public void goodsPriceInsert(ArrayList<GoodsPriceVO> pvo) {
-		mapper.GoodsPriceInsert(pvo);
+	public void goodsPriceInsert(GoodsPriceVO vo) {
+		mapper.GoodsPriceInsert(vo);
 		
 	}
 
