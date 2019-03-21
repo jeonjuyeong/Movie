@@ -44,7 +44,7 @@ public class FundingController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(GoodsVO gvo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date) {
+	public String insertBoard(GoodsVO gvo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date,Model model) {
 		
 		System.err.println("저장할 내용 : " + editor);
 		
@@ -88,7 +88,8 @@ public class FundingController {
 			gService.goodsPriceInsert(pvo);
 			
 		}
-
+		List<GoodsVO> glist = gService.getList();
+		model.addAttribute("glist",glist);
 		return "funding/funding";
 	}
 	@RequestMapping(value = "/getList.do")
@@ -112,12 +113,15 @@ public class FundingController {
 		return "funding/fundingView";
 	}
 	@GetMapping("/fundPay")
-	public String fundPay(PayVO vo, @RequestParam("priceSelect")String priceSel) {
+	public String fundPay(PayVO vo, @RequestParam("priceSelect")String priceSel,Model model) {
 		String[] arr;
 		arr = priceSel.split(":");
 		 vo.setPrice(Integer.parseInt(arr[0]));
 		 gService.goodsCurrentUpdate(vo);
 		 gService.goodsPayInsert(vo);
+		 System.out.println("가격:"+arr[0]);
+		 List<GoodsVO> glist = gService.getList();
+		model.addAttribute("glist",glist);
 		return "funding/funding";
 		
 		

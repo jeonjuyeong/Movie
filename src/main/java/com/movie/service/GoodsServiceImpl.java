@@ -53,7 +53,8 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public void goodsCurrentUpdate(PayVO vo) {
-		mapper.goodsCurrentUpdate(vo);
+		System.out.println("service:"+vo.getPrice());
+			mapper.goodsCurrentUpdate(vo);
 		
 	}
 

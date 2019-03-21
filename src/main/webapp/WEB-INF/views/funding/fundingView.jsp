@@ -90,7 +90,7 @@ $(document).ready(function(){
 		<div class="sideDiv">	
 			<div class="viewText">
 			<form name ="pay_frm" action="fundPay">
-			<input type="hidden" name="goodsNUm" value="${gVO.num}">
+			<input type="hidden" name="goodsNum" value="${gVO.num}">
 			<input type="hidden" name="userid" value="${sessionScope.id}">
 				<div class="pricingContent">
 			          <ul>
