@@ -293,7 +293,7 @@ $(document).ready(function(){
                         <li><b>E-MAIL:</b>${vo.email}</li>
                         <li><b>PHONE:</b>${vo.phone}</li>
                         <li><b>ADDRESS:</b>${vo.postcode} ${vo.roadAddress} ${vo.jibunAddress} ${vo.extraAddress}</li>
-                        <li><b>MY FUND:</b>500,000원 </li>
+                        <li><b>MY FUND:</b>500,000 \</li>
                     </ul>
              	   </div><!-- /  CONTENT BOX-->
              	   <div class="pricingTable-sign-up"><!-- BUTTON BOX-->

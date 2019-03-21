@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.movie.domain.GoodsPriceVO;
 import com.movie.domain.GoodsVO;
+import com.movie.domain.PayVO;
 
 public interface GoodsService {
 	public void GoodsInsert(GoodsVO vo);
@@ -13,5 +14,7 @@ public interface GoodsService {
 	public void goodsPriceInsert(GoodsPriceVO vo);
 	//public String BoardCheck(String id,String pwd);
 	public ArrayList<GoodsPriceVO> goodsPriceDetal(int num);
-	
+	public void goodsCurrentUpdate(PayVO vo);
+	public void goodsPayInsert(PayVO vo);
+
 }
