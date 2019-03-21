@@ -257,7 +257,7 @@ $(document).ready(function(){
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="../includes/navigation.jsp"%>
+<%@include file="/resources/includes/navigation.jsp"%>
 	<h1 id="mypageh1">마이페이지</h1>
 	<br>
  <img class="img-fluid mb-5 d-block mx-auto" width ="900" height="650" src="/ctrl/resources/img/fundlogo2.png" alt="">

@@ -123,7 +123,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
 
 
 	<!-- Navigation -->
-	<%@include file="../views/includes/navigation.jsp"%>
+	<%@include file="/resources/includes/navigation.jsp"%>
 	 <img id="logo" class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/fundlogo2.png" alt="">
 	  
 <div id="fund_menu">
@@ -167,7 +167,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
       <h1>FINANCING</h1>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="/ctrl/funding/fundingInsert.do"></a>
 </figure>
 </div>
 <br>
@@ -178,7 +178,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
 </div>
 <img class="img-fluid mb-5 d-block mx-auto" src="/ctrl/resources/img/mainAni.gif" alt="">
 
-<%@include file="../views/includes/footer.jsp"%>
+<%@include file="/resources/includes/footer.jsp"%>
 <!-- Portfolio Modals -->
 <%@include file = "../views/main/modal.jsp" %>
 
@@ -186,9 +186,13 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
 
 </body>
 <script>/* Demo purposes only */
+if(${goModal}){
+	$("#introduce_modal").toggle();
+}
 $(".hover").mouseleave(
 		  function () {
 		    $(this).removeClass("hover");
 		  }
-		);</script>
+		);
+		</script>
 </html>
