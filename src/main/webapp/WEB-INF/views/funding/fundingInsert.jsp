@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script type="text/javascript" src="/ctrl/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
  <script>
-
-  </script>
+ 
+ </script>
  <style>
  
 #blueone {
@@ -59,25 +59,32 @@ margin-top:50px
     <table id="blueone">
     <tr>
     	<td>제목:</td>
-    	<td colspan=2><input type="text" id="goods_title" class="form-control"></td>
+    	<td colspan=2><input type="text" id="goods_title" name="title" class="form-control"></td>
     </tr>
 	<tr>
-	<td>시작~종료날짜:</td>	
-	<td><input type='text' class="form-control" id='datepicker'/></td>
-	<td><input type='text' class="form-control" id='datepicker'/></td>
+		<td>종료날짜: 오늘부터~</td>	
+		<td><input type='text' class="form-control"name="goodDate"/> </td>
+		<td>일 동안</td>
 	</tr>    
 	<tr>
-	<td>목표금액:</td>
-	<td><input type="text" class="form-control" id='currentPrice' name='currentPrice'></td>
-	<td><strong>WON</strong></td>
+		<td>목표금액:</td>
+		<td><input type="text" class="form-control" id='currentPrice' name='currentPrice'></td>
+		<td><strong>WON</strong></td>
 	</tr>
 	<tr>
-	<td>참여금액:</td>
-	<td>
-	<input type="text" name="wantPrice" id="wantPrice" placeholder="참여자들이 내는 금액" class="form-control"> 
-	</td>
-	<td><strong>WON</strong></td>
+		<td>참여금액:</td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" name="price" placeholder="참여자들이 내는 금액" class="form-control"> 
+		</td>
+		<td><strong>원 참여 시</strong></td>
+		<td>
+			<input type="text" name="wantPrice" id="wantPrice" name="product" placeholder="상품 목록" class="form-control"> 
+		</td>
+		<td><input type="button" id="addBtn" value="추가" class="btn btn-secondary" >
+		</td>
 	</tr>
+	<tbody id="addBtnDiv">
+	</tbody>
     </table>
         <textarea name="editor" id="editor" style="height:600px;width:900px;"></textarea>
     </div>
@@ -112,7 +119,9 @@ margin-top:50px
             //폼 submit
             $("#insertBoardFrm").submit();
         });
+        $("#addBtn").click(function(){
+        	$("#addBtnDiv").append("<tr><td></td><td><input type='text' name='wantPrice' id='wantPrice' placeholder='참여자들이 내는 금액' name='price' class='form-control'></td><td><strong>원 참여 시</strong></td><td><input type='text' name='wantPrice' id='wantPrice' name='product' placeholder='상품 목록' class='form-control'></td></tr>");
+        });
     });
-    
 </script>
 </html>
