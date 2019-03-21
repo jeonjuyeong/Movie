@@ -12,7 +12,14 @@
  <link rel="stylesheet" href="../fm/style.css" type="text/css">
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
  <script type="text/javascript" src="../fm/script.js"></script>
- 
+ <script>
+$(document).ready(function(){
+	$("#payBtn").click(function(){
+		alert("결제하시겠습니까?");
+		pay_frm.submit();
+	});
+});
+ </script>
 <style>
 .viewbody{
 	padding:30px;
@@ -82,11 +89,13 @@
 	<div class="upDiv">
 		<div class="sideDiv">	
 			<div class="viewText">
-			<form action="gVOPay.do">
+			<form name ="pay_frm" action="fundPay">
+			<input type="hidden" name="goodsNUm" value="${gVO.num}">
+			<input type="hidden" name="userid" value="${sessionScope.id}">
 				<div class="pricingContent">
 			          <ul>
 			              <li><b>제목 :</b> ${gVO.title }</li>
-			              <li><b>참여금액 선택 :</b> <select id="" class="form-control"> 
+			              <li><b>참여금액 선택 :</b> <select id="priceSelect" name="priceSelect" class="form-control"> 
 			              	<c:forEach items="${pList}" var="i">
 			              	<option>${i.price}:${i.product}</option>
 			              	</c:forEach>
@@ -102,8 +111,8 @@
 					<input type="button" class="btn btn-success" onclick="location.href='gVOCartin.do?num=${gVO.num}&id=${sessionScope.id }'"  value="관심목록에 담기">
 				</c:if>
 				<c:if test="${sessionScope.id==gVO.userid or sessionScope.id=='master'}">
-				 <input type="button" class="btn btn-default" onclick="location.href='gVOUpdate.do?num=${gVO.num}'" value="수정">
-				 <input type="button" class="btn btn-default" onclick="location.href='gVODelete.do?num=${gVO.num}'" value="삭제">
+					 <input type="button" class="btn btn-default" onclick="location.href='gVOUpdate.do?num=${gVO.num}'" value="수정">
+					 <input type="button" class="btn btn-default" onclick="location.href='gVODelete.do?num=${gVO.num}'" value="삭제">
 				</c:if>
 			</div>
 		</div>
