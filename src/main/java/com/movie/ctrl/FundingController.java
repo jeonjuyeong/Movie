@@ -84,8 +84,8 @@ public class FundingController {
 			pvo.setPrice(gvo.getPrice()[i]);
 			pvo.setProduct(gvo.getProduct()[i]);
 			gService.goodsPriceInsert(pvo);
+			
 		}
-	
 
 		return "funding/funding";
 	}
@@ -96,7 +96,9 @@ public class FundingController {
 		model.addAttribute("glist",glist);
 		
 		return "funding/funding";
+		
 	}
+	
 	@RequestMapping(value = "/goodsView.do")
 	public String goodsView(@RequestParam("num")int num,Model model) {
 		
