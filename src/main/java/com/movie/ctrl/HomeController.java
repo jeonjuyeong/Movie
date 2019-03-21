@@ -1,5 +1,6 @@
 package com.movie.ctrl;
 
+import java.security.KeyStore.Entry.Attribute;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -33,10 +34,15 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		
+		model.addAttribute("goModal",0);
 		
 		
 		return "home";
 	}
-	
+	@RequestMapping(value = "home.do")
+	public String goHome(Model model){
+		model.addAttribute("goModal",1);
+		return "home";
+		
+	}
 }
