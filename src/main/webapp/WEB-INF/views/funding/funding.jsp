@@ -114,6 +114,12 @@ html {
 	text-align: center;
 	font-family: "Nanum Gothic", sans-serif;
 }
+#searchTable{
+	margin-left:500px;
+	margin-bottom:30px;
+	margin-top:50px;
+	
+}
 </style>
 <script>
  function getData(pageNum){
@@ -173,21 +179,27 @@ html {
 		</c:if>
 		<br><br><br> --%>
 	</div>
-	<div class="searchBox">
-		<div class="col-xs-2" id="sele">
+	<table id="searchTable" cellpadding="20px">
+		<tr>
+		   <td>
 		   <select id="field" class="form-control" name="field">
 		      <option value="title"> 제목
 		      <option value="userid"> 작성자
 		   </select>
-		</div>
-		<div class="col-xs-6">
+		</td>
+		<td>
 		   <input type='text' id='word' name='word' class="form-control" placeholder="검색어입력">
-		</div>
-		   <input type='button' class="btn btn-default" value="검색" onclick="javascript:getData(1)">
+		</td>
+		<td>
+		   <input type='button' class="btn btn-secondary" value="검색" onclick="javascript:getData(1)">
+		  </td>
+		  <td>
 		   <c:if test="${sessionScope.id!=null }">
-	 			<input type="button" class="btn btn-default" onclick="location.href='fundingInsert.do'" value="상품등록">
+	 			<input type="button" class="btn btn-secondary" onclick="location.href='fundingInsert.do'" value="상품등록">
 		   </c:if>
-	</div>
+		   </td>
+	<tr>
+	</table>
 	<%@include file="../includes/footer.jsp"%>
 
 </body>

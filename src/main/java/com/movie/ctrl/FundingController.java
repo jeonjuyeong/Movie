@@ -77,9 +77,13 @@ public class FundingController {
 		gvo.setUntilDate(strDate);
 		
 		gService.GoodsInsert(gvo);
-		GoodsPriceVO[] pvo =gvo.getVo();
-		for(int i=0;i<pvo.length;i++) {
-			gService.goodsPriceInsert(pvo[i]);
+	
+		System.out.println(gvo.getPrice().length);
+		for(int i=0;i<gvo.getProduct().length;i++) {
+			GoodsPriceVO pvo = new GoodsPriceVO();
+			pvo.setPrice(gvo.getPrice()[i]);
+			pvo.setProduct(gvo.getProduct()[i]);
+			gService.goodsPriceInsert(pvo);
 		}
 	
 
@@ -97,6 +101,8 @@ public class FundingController {
 	public String goodsView(@RequestParam("num")int num,Model model) {
 		
 		GoodsVO gVO = gService.goodsDetail(num);
+		ArrayList<GoodsPriceVO> voArr=gService.goodsPriceDetal(num);
+		model.addAttribute("pList",voArr);
 		model.addAttribute("gVO",gVO);
 		
 		return "funding/fundingView";

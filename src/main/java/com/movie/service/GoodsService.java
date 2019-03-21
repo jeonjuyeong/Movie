@@ -12,5 +12,6 @@ public interface GoodsService {
 	public GoodsVO goodsDetail(int num);
 	public void goodsPriceInsert(GoodsPriceVO vo);
 	//public String BoardCheck(String id,String pwd);
+	public ArrayList<GoodsPriceVO> goodsPriceDetal(int num);
 	
 }

@@ -44,6 +44,12 @@ public class GoodsServiceImpl implements GoodsService{
 		
 	}
 
+	@Override
+	public ArrayList<GoodsPriceVO> goodsPriceDetal(int num) {
+			
+		return mapper.GoodsPriceDetail(num);
+	}
+
 
 
 }

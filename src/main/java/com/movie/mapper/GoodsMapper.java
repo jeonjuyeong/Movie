@@ -11,4 +11,5 @@ public interface GoodsMapper {
 	public List<GoodsVO> getList();
 	public GoodsVO goodsDetail(int num);
 	public void GoodsPriceInsert(GoodsPriceVO vo);
+	public ArrayList<GoodsPriceVO> GoodsPriceDetail(int num);
 }
