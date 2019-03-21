@@ -1,11 +1,9 @@
 package com.movie.domain;
 
 public class GoodsPriceVO {
-	int num,goodsnum,price;
+	int num,goodsnum;
+	int price;
 	String product;
-	
-	
-	
 	public int getNum() {
 		return num;
 	}
@@ -31,5 +29,8 @@ public class GoodsPriceVO {
 		this.product = product;
 	}
 	
+	
+	
+
 	
 }

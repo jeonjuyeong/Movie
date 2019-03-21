@@ -68,7 +68,7 @@ margin-top:50px
 	</tr>    
 	<tr>
 		<td>목표금액:</td>
-		<td><input type="text" class="form-control" id='wantPrice' name='wantPrice'></td>
+		<td><input type="text" class="form-control" id='wantPrice'  name='wantPrice'></td>
 		<td><strong>WON</strong></td>
 	</tr>
 	<tr>
@@ -119,7 +119,7 @@ margin-top:50px
             $("#insertBoardFrm").submit();
         });
         $("#addBtn").click(function(){
-        	$("#addBtnDiv").append("<tr><td></td><td><input type='text' name='wantPrice' id='wantPrice' placeholder='참여자들이 내는 금액' name='price' class='form-control'></td><td><strong>원 참여 시</strong></td><td><input type='text' name='wantPrice' id='wantPrice' name='product' placeholder='상품 목록' class='form-control'></td></tr>");
+        	$("#addBtnDiv").append("<tr><td></td><td><input type='text' id='wantPrice' placeholder='참여자들이 내는 금액' name='price' class='form-control'></td><td><strong>원 참여 시</strong></td><td><input type='text' id='wantPrice' name='product' placeholder='상품 목록' class='form-control'></td></tr>");
         });
     });
 </script>

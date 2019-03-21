@@ -3,15 +3,22 @@ package com.movie.domain;
 public class GoodsVO {
 	int num,currentPrice,wantPrice;
 	String userid,userName,category,title,content,untilDate,uploadDate,email,mainPic;
-	GoodsPriceVO[] vo;
+	int[]price;
+	String[] product;
 	
 	
-	
-	public GoodsPriceVO[] getVo() {
-		return vo;
+
+	public int[] getPrice() {
+		return price;
 	}
-	public void setVo(GoodsPriceVO[] vo) {
-		this.vo = vo;
+	public String[] getProduct() {
+		return product;
+	}
+	public void setPrice(int[] price) {
+		this.price = price;
+	}
+	public void setProduct(String[] product) {
+		this.product = product;
 	}
 	public int getNum() {
 		return num;
