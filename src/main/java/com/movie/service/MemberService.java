@@ -10,4 +10,6 @@ public interface MemberService {
 	public String idCheck(String id);
 	
 	public MemberVO memberInfo(String id);
+	
+	public int getAllFunding(String id);
 }

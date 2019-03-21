@@ -122,6 +122,16 @@ public class FundingController {
 		
 		
 	}
+	@GetMapping("/gVOUpdate.do")
+	public String gVOUpdate(int num,Model model) {
+		GoodsVO gvo = gService.goodsDetail(num);
+		List<GoodsPriceVO> plist = gService.getGoodsPrice(num);
+		model.addAttribute("gvo", gvo);
+		model.addAttribute("plist", plist);
+		return "funding/fundingUpdate";
+		
+		
+	}
 }
 
 

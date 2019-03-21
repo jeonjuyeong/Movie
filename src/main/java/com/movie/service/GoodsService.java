@@ -16,5 +16,5 @@ public interface GoodsService {
 	public ArrayList<GoodsPriceVO> goodsPriceDetal(int num);
 	public void goodsCurrentUpdate(PayVO vo);
 	public void goodsPayInsert(PayVO vo);
-
+	public List<GoodsPriceVO> getGoodsPrice(int num);
 }

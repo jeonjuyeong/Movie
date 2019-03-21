@@ -63,6 +63,11 @@ public class GoodsServiceImpl implements GoodsService{
 		
 	}
 
+	@Override
+	public List<GoodsPriceVO> getGoodsPrice(int num) {
+		return mapper.getGoodsPrice(num);
+	}
+
 
 
 }
