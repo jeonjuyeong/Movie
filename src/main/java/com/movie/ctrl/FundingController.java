@@ -42,7 +42,8 @@ public class FundingController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(ArrayList<GoodsPriceVO> pvo,GoodsVO gvo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date) {
+	public String insertBoard(GoodsVO gvo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date) {
+		
 		System.err.println("저장할 내용 : " + editor);
 		
 		String target = "<img";
@@ -66,12 +67,21 @@ public class FundingController {
 		System.out.println("\n========[확인결과]========"); 
 		//System.out.printf("%d일 후 : %d-%d-%d %s\n",num,y,m,d,week[w-1]); 
 		System.out.printf("%d일 후 : %tF %tA \n",date,cal,cal); 
-		
+	
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		String strDate = sdf.format(cal.getTime());
+
 		gvo.setContent(editor);
 		gvo.setMainPic(result);
+		gvo.setUntilDate(strDate);
 		
 		gService.GoodsInsert(gvo);
-		gService.goodsPriceInsert(pvo);
+		GoodsPriceVO[] pvo =gvo.getVo();
+		for(int i=0;i<pvo.length;i++) {
+			gService.goodsPriceInsert(pvo[i]);
+		}
+	
 
 		return "funding/funding";
 	}

@@ -3,6 +3,16 @@ package com.movie.domain;
 public class GoodsVO {
 	int num,currentPrice,wantPrice;
 	String userid,userName,category,title,content,untilDate,uploadDate,email,mainPic;
+	GoodsPriceVO[] vo;
+	
+	
+	
+	public GoodsPriceVO[] getVo() {
+		return vo;
+	}
+	public void setVo(GoodsPriceVO[] vo) {
+		this.vo = vo;
+	}
 	public int getNum() {
 		return num;
 	}
