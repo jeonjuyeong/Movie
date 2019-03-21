@@ -78,14 +78,16 @@
 </head>
 <body>
 <%@include file="../includes/navigation.jsp"%>
+
 <div class="viewbody">
 	<div class="upDiv">
 		<div class="sideDiv">	
 			<div class="viewText">
+			<form action="gVOPay.do">
 				<div class="pricingContent">
 			          <ul>
 			              <li><b>제목 :</b> ${gVO.title }</li>
-			              <li><b>참여금액 선택 :</b> <select id="priceSelect" class="form-control"> 
+			              <li><b>참여금액 선택 :</b> <select id="" class="form-control"> 
 			              	<c:forEach items="${pList}" var="i">
 			              	<option>${i.price}:${i.product}</option>
 			              	</c:forEach>
@@ -93,6 +95,7 @@
 			              <li><b>판매자 :</b><a href="memberView.do?id=${gVO.userid }" onclick="window.open(this.href,'','width=500,height=500'); return false;"> ${gVO.userid }</a></li>
 			          </ul>
 		        </div>
+		        </form>
 			</div>
 			<div class="pBtn">
 				<input type="button" class="btn btn-success" id="payBtn" value="참여하기">

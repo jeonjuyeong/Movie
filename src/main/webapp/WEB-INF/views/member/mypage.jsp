@@ -33,7 +33,7 @@ body {
   border-style: solid;
   border-width: 3px;
   border-color: #585858;
-  width: 1200px;
+  width: 1000px;
   height: 600px;
   margin: 0 auto;
   position: relative;
@@ -65,7 +65,7 @@ body {
   top: -5%;
   left: 5%;
   position: absolute;
-  width: 18%;
+  width: 19%;
   height: 110%;
   background:#0B243B;
   box-shadow: 3px 3px 10px rgba($gray, .5);
@@ -123,11 +123,10 @@ body {
 }
 	
 .pricingTable{
-	margin-left:30px;
 	margin-top:50px;
     text-align: center;
     border: 1px solid #dbdbdb;
-    position: relative;
+    position: 0 auto;
     overflow: hidden;
 }
 .pricingTable .pricingTable-header h3{
@@ -267,9 +266,9 @@ $(document).ready(function(){
   </div>
   <div class="leftbox">
     <nav id="mypage_nav">
-      <a id="profile" class="mypage_active"><i class="fa fa-user"></i> PROFILE</a>
-      <a id="payment"><i class="fa fa-credit-card"></i> FUNDING</a>
-      <a id="subscription"><i class="fa fa-tv"></i> MY FUND</a>
+      <a id="profile" class="mypage_active"><i class="fa fa-user"> PROFILE</i></a>
+      <a id="payment"><i class="fa fa-credit-card"> FUNDING</i> </a>
+      <a id="subscription"><i class="fa fa-tv"> MY FUND</i> </a>
       <a id="privacy"><i class="fa fa-tasks"></i></a>
       <a id="settings"><i class="fa fa-cog"></i></a>
     </nav>
@@ -280,7 +279,7 @@ $(document).ready(function(){
             <div class="design-process-content"  >
               <div class="container">
    				 <div class="row">
-       				 <div class="col-xs-15" style="width:600px">
+       				 <div class="col-xs-15" style="width:600px;margin-left:-100px;">
            				 <div class="pricingTable">
             		  	  <div class="pricingTable-header">
                  		   <h3>내정보</h3>
@@ -307,15 +306,12 @@ $(document).ready(function(){
 			</div>
              </div>
     </div>
-    
+    </div>
     <div class="payment noshow">
     펀딩한 상품
     <div class="pricingContent">
-                    <ul>
-                    <c:forEach items="${fundList}" var="i">
-                        <li><b></b>${fundList..title}</li>
-                     </c:forEach>
-                    </ul>
+           <ul>
+           </ul>
              	   </div><!-- /  CONTENT BOX-->
     </div>
 
@@ -332,7 +328,7 @@ $(document).ready(function(){
     
   </div>
 </div>
-</div>
+
 <br>
 <br>
 <br>
