@@ -22,7 +22,7 @@
 		select * from MovieMember where id=#{id}
 	</select>
 	<select id = "getAllFunding" parameterType = "String" resultType = "Integer">
-		select sum(price) from goodspay where userid = 'youngho753';
+		select IFNULL(SUM(price), 0) from goodspay where userid = #{userid}
 	</select>
 	
 </mapper>

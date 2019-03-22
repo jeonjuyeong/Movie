@@ -71,11 +71,11 @@
           	 </c:if>
           	 
           </li>
+          <c:if test="${sessionScope.id=='master' }">
           <li class="nav-item mx-0 mx-lg-1">
-           <c:if test="${sessionScope.id==master }">
           	 	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/admin/adminMain.do">관리자</a>
-           </c:if>
           </li>
+          </c:if>
         </ul>
       </div>
     </div>

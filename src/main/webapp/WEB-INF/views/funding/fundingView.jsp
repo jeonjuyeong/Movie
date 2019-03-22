@@ -108,8 +108,6 @@
 			<div class="sideDiv">
 				<div class="viewText">
 
-					<input type="hidden" name="goodsNUm" value="${gVO.num}"> <input
-						type="hidden" name="userid" value="${sessionScope.id}">
 					<div class="pricingContent">
 						<ul>
 							<li><b>제목 :</b> ${gVO.title }</li>
@@ -122,11 +120,13 @@
 		</div>
 		<div class="note">
 			<br> <br> <br> ${gVO.content }
-
 		</div>
-		<form name="pay_frm" action="fundPay">
+		<form name="pay_frm" method="post" action="fundPay">
 			<div class="pricingContent">
-				<b>참여금액 선택 :</b> <select id="priceSelect" name="priceSelect"
+			<input type="hidden" name="goodsNum" value=${gVO.num}> 
+			<input type="hidden" name="userid" value="${sessionScope.id}">
+				<b>참여금액 선택 :</b> 
+				<select id="priceSelect" name="priceSelect"
 					class="form-control">
 					<c:forEach items="${pList}" var="i">
 						<option>${i.price}:${i.product}</option>

@@ -40,12 +40,12 @@ public class MemberServiceImpl implements MemberService{
 		return vo;
 	}
 
+	/////////////////////////////////////////////////////
 	@Override
 	public int getAllFunding(String id) {
 		return mapper.getAllFunding(id);
 	}
 	
-	/////////////////////////////////////////////////////
 	
 	
 }

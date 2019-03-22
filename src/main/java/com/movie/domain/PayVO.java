@@ -1,7 +1,8 @@
 package com.movie.domain;
 
 public class PayVO {
-	int goodsNum,price,userid;
+	int goodsNum,price;
+	String userid;
 
 	public int getGoodsNum() {
 		return goodsNum;
@@ -11,7 +12,7 @@ public class PayVO {
 		return price;
 	}
 
-	public int getUserid() {
+	public String getUserid() {
 		return userid;
 	}
 
@@ -22,8 +23,7 @@ public class PayVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
-	public void setUserid(int userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 	

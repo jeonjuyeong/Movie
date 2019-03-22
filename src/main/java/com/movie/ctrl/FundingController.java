@@ -4,7 +4,6 @@ package com.movie.ctrl;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,6 +11,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +44,7 @@ public class FundingController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(GoodsVO gvo,@RequestParam("editor")String editor,@RequestParam("goodDate")int date,Model model) {
+	public String insertBoard(GoodsVO gvo,String editor,@RequestParam("goodDate")int date,Model model) {
 		
 		System.err.println("저장할 내용 : " + editor);
 		
@@ -112,10 +112,10 @@ public class FundingController {
 		
 		return "funding/fundingView";
 	}
-	@GetMapping("/fundPay")
-	public String fundPay(PayVO vo, @RequestParam("priceSelect")String priceSel,Model model) {
+	@PostMapping("/fundPay")
+	public String fundPay(PayVO vo,String priceSelect,Model model) {
 		String[] arr;
-		arr = priceSel.split(":");
+		arr = priceSelect.split(":");
 		 vo.setPrice(Integer.parseInt(arr[0]));
 		 gService.goodsCurrentUpdate(vo);
 		 gService.goodsPayInsert(vo);
@@ -126,8 +126,10 @@ public class FundingController {
 		
 		
 	}
+	
+	
 	@GetMapping("/gVOUpdate.do")
-	public String gVOUpdate(int num,Model model) {
+	public String gVOUpdate(int num,Model model) {	
 		GoodsVO gvo = gService.goodsDetail(num);
 		List<GoodsPriceVO> plist = gService.getGoodsPrice(num);
 		model.addAttribute("gvo", gvo);

@@ -159,7 +159,7 @@ public class MemberController {
 	}
 //마이페이지(회원정보 모두 불러오기)
 @GetMapping("/mypage")
-	public String mypage(@RequestParam("id")String id ,Model model,HttpSession session) {
+	public String mypage(String id,Model model,HttpSession session) {
 		MemberVO vo = service.memberInfo(id);
 		int myFunding = service.getAllFunding(id);
 		
