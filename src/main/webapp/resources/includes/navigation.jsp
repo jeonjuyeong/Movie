@@ -69,6 +69,12 @@
          	  <c:if test="${sessionScope.id==null}">
           	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">로그인</a>
           	 </c:if>
+          	 
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+           <c:if test="${sessionScope.id==master }">
+          	 	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/admin/adminMain.do">관리자</a>
+           </c:if>
           </li>
         </ul>
       </div>

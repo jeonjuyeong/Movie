@@ -39,5 +39,13 @@ public class MemberServiceImpl implements MemberService{
 		System.out.println(id);
 		return vo;
 	}
+
+	@Override
+	public int getAllFunding(String id) {
+		return mapper.getAllFunding(id);
+	}
+	
+	/////////////////////////////////////////////////////
+	
 	
 }

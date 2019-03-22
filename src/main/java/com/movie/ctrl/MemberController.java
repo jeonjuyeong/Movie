@@ -161,8 +161,12 @@ public class MemberController {
 @GetMapping("/mypage")
 	public String mypage(@RequestParam("id")String id ,Model model,HttpSession session) {
 		MemberVO vo = service.memberInfo(id);
+		int myFunding = service.getAllFunding(id);
+		
 		model.addAttribute("vo",vo);
+		model.addAttribute("myFunding",myFunding);
 		session.setAttribute("id", id);
+		
 		System.out.println(vo.getJibunAddress()+vo.getId()+vo.getEmail());
 		
 		return "member/mypage";

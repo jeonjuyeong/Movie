@@ -29,4 +29,7 @@
 	<insert id="goodsPayInsert">
 		insert into goodsPay values (#{goodsNum},#{price},#{userid})
 	</insert>
+	<select id = "getGoodsPrice" parameterType = "Integer" resultType = "com.movie.domain.GoodsPriceVO">
+		select * from GoodsPrice where goodsNum = #{num}
+	</select>
 </mapper>
