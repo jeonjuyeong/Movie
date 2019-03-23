@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.movie.domain.GoodsPriceVO;
 import com.movie.domain.GoodsVO;
 import com.movie.domain.PayVO;
+import com.movie.domain.getMyFundingVO;
 import com.movie.mapper.GoodsMapper;
 
 import lombok.Setter;
@@ -67,6 +68,11 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public List<GoodsPriceVO> getGoodsPrice(int num) {
 		return mapper.getGoodsPrice(num);
+	}
+
+	@Override
+	public List<getMyFundingVO> getMyFunding(String id) {
+		return mapper.getMyFunding(id);
 	}
 
 

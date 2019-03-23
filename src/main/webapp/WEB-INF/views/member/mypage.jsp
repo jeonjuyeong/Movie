@@ -226,7 +226,6 @@ body {
 .profile, .payment, .subscription, .privacy, .settings {
 	transition: opacity .5s ease-in;
 	position: absolute;
-	width: 70%;
 }
 
 #mypageh1 {
@@ -394,7 +393,7 @@ body {
 						});
 			});
 </script>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -477,14 +476,17 @@ body {
 															<td>현재금액</td>
 															<td>달성률</td>
 														</tr>
+														<c:forEach items="${fundingList }" var="list">
 														<tr>
-															<td><a href="#">제목입니다</a></td>
-															<td>20000</td>
-															<td>귤1박스</td>
-															<td>1000000</td>
-															<td>200000</td>
-															<td>20%</td>
+															<td><a href="../funding/goodsView.do?num=${list.goodsNum}">${list.title }</a></td>
+															<td>${list.price }</td>
+															<td>${list.product }</td>
+															<td>${list.wantPrice }</td>
+															<td>${list.currentPrice }</td>
+															<td>${list.wantPrice/100*list.currentPrice }</td>
 														</tr>
+														</c:forEach>
+														
 													</table>
 												</div>
 											</div>
@@ -499,7 +501,7 @@ body {
 					<!-- /  CONTENT BOX-->
 				</div>
 
-				<div class="subscription noshow">C</div>
+				<div class="subscription noshow"></div>
 
 				<div class="privacy noshow">D</div>
 				<div class="settings noshow">E</div>

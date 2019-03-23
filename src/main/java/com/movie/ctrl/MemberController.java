@@ -1,6 +1,8 @@
 package com.movie.ctrl;
 
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -11,7 +13,6 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,8 +24,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.movie.domain.GoodsVO;
 import com.movie.domain.MemberVO;
+import com.movie.domain.getMyFundingVO;
+import com.movie.service.GoodsService;
 import com.movie.service.MemberService;
+import com.myspring.model.BoardDTO;
 
 @Controller
 @RequestMapping("/member/*")
@@ -34,6 +39,8 @@ public class MemberController {
 	PasswordEncoder passwordEncoder;
 	@Inject
 	private MemberService service;
+	@Inject
+	private GoodsService gService;
 
 	@GetMapping("/join")
 	public void join() {
@@ -153,21 +160,79 @@ public class MemberController {
 	}
 	//로그인성공->메인페이지로
 	@GetMapping("/login")
-	public String login(Model model,String id,HttpSession session) {
+	public String login(Model model,String word,String id,HttpSession session) {
 		session.setAttribute("id", id);
 		return "home";
 	}
 	//마이페이지(회원정보 모두 불러오기)
 	@GetMapping("/mypage")
-	public String mypage(String id,Model model,HttpSession session) {
+	public String mypage(String id,String pageNum,String word,String field,Model model,HttpSession session) {
+		//페이징
+		HashMap<String,String> map = new HashMap<>();
+		//검색일때
+		if(word != null) {
+			if(word == "tmvmfld") {
+				map.put("field","title");
+				map.put("word","");
+				word = "tmvmfld";
+				field = "title";
+			}
+			else {
+			if(field.equals("title"))map.put("field", "title");
+			else map.put("field","writer");
+			map.put("word",word);
+			}
+			//검색아닐때
+		}else {
+			map.put("field","title");
+			map.put("word","");
+			word = "tmvmfld";
+			field = "title";
+		}
+		//페이징
+		if(pageNum == null)pageNum = "1";
+		int currentPage = Integer.parseInt(pageNum);
+		int count = gService.fundingCount(id,map);
+		int pageSize = 5;
+		
+		int startRow= 1+(currentPage*pageSize-pageSize);
+		int endRow = currentPage*pageSize;
+		//총페이지수
+		int totPage = count/pageSize+(count%pageSize==0?0:1);
+		int blockPage =3; //[이전] 456 [다음]
+		int startPage=((currentPage-1)/blockPage)*blockPage+1;
+		int endPage=startPage+blockPage-1;
+		
+		if(endPage > totPage) endPage=totPage;
+		
+		
+		map.put("startRow", startRow+"");
+		map.put("endRow", endRow+"");
+		
+		List<getMyFundingVO> fundingList = gService.getMyFunding(id,map);
+		
+		model.addAttribute("word",word);
+		model.addAttribute("field",field);
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("blockPage",blockPage);
+		model.addAttribute("totPage",totPage);
+		model.addAttribute("boardList",boardList);
+		
+		
+		
 		MemberVO vo = service.memberInfo(id);
 		int myFunding = service.getAllFunding(id);
-
+		
+		
 		model.addAttribute("vo",vo);
 		model.addAttribute("myFunding",myFunding);
+		model.addAttribute("fundingList",fundingList);
 		session.setAttribute("id", id);
-
-		System.out.println(vo.getJibunAddress()+vo.getId()+vo.getEmail());
+		
+		
+		
+		
 
 		return "member/mypage";
 	}

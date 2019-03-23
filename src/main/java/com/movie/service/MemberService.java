@@ -12,4 +12,6 @@ public interface MemberService {
 	public MemberVO memberInfo(String id);
 	
 	public int getAllFunding(String id);
+	
+	
 }
