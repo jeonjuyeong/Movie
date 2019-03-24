@@ -24,12 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.movie.domain.GoodsVO;
 import com.movie.domain.MemberVO;
 import com.movie.domain.getMyFundingVO;
 import com.movie.service.GoodsService;
 import com.movie.service.MemberService;
-import com.myspring.model.BoardDTO;
 
 @Controller
 @RequestMapping("/member/*")
@@ -172,27 +170,34 @@ public class MemberController {
 		//검색일때
 		if(word != null) {
 			if(word == "tmvmfld") {
+				map.put("id",id);
 				map.put("field","title");
 				map.put("word","");
 				word = "tmvmfld";
 				field = "title";
 			}
 			else {
-			if(field.equals("title"))map.put("field", "title");
+			if(field.equals("title")) {
+				map.put("field", "title");
+				map.put("word",word);
+				map.put("id",id);
+			}
 			else map.put("field","writer");
 			map.put("word",word);
+			map.put("id",id);
 			}
 			//검색아닐때
 		}else {
 			map.put("field","title");
 			map.put("word","");
+			map.put("id",id);
 			word = "tmvmfld";
 			field = "title";
 		}
 		//페이징
 		if(pageNum == null)pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
-		int count = gService.fundingCount(id,map);
+		int count = gService.fundingCount(map);
 		int pageSize = 5;
 		
 		int startRow= 1+(currentPage*pageSize-pageSize);
@@ -209,7 +214,7 @@ public class MemberController {
 		map.put("startRow", startRow+"");
 		map.put("endRow", endRow+"");
 		
-		List<getMyFundingVO> fundingList = gService.getMyFunding(id,map);
+		List<getMyFundingVO> fundingList = gService.getMyFunding(map);
 		
 		model.addAttribute("word",word);
 		model.addAttribute("field",field);
@@ -217,7 +222,6 @@ public class MemberController {
 		model.addAttribute("endPage",endPage);
 		model.addAttribute("blockPage",blockPage);
 		model.addAttribute("totPage",totPage);
-		model.addAttribute("boardList",boardList);
 		
 		
 		

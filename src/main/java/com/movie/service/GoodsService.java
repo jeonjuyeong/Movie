@@ -1,6 +1,7 @@
 package com.movie.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.movie.domain.GoodsPriceVO;
@@ -19,5 +20,9 @@ public interface GoodsService {
 	public void goodsPayInsert(PayVO vo);
 	public List<GoodsPriceVO> getGoodsPrice(int num);
 	
-	public List<getMyFundingVO> getMyFunding(String id);
+	public List<getMyFundingVO> getMyFunding(HashMap<String,String> map);
+	
+	public int fundingCount(HashMap<String,String> map);
+	
+	
 }

@@ -1,6 +1,7 @@
 package com.movie.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,8 +72,13 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<getMyFundingVO> getMyFunding(String id) {
-		return mapper.getMyFunding(id);
+	public List<getMyFundingVO> getMyFunding(HashMap<String, String> map) {
+		return mapper.getMyFunding(map);
+	}
+
+	@Override
+	public int fundingCount(HashMap<String, String> map) {
+		return mapper.fundingCount(map);
 	}
 
 
