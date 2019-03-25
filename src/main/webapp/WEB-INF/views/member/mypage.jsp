@@ -13,34 +13,11 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 <style>
-$
-logo
-
-
-
-
-
-
-
-
+$logo
 :
 
 
-
-
- 
-
-
-
-
 #3DBB3D
-
-
-
-
-
-
-
 
 ;
 $
@@ -48,25 +25,11 @@ gray
 
 
 
-
-
-
-
-
 :
 
 
 
-
- 
-
-
-
-
 #777777
-
-
-
 
 
 
@@ -80,23 +43,13 @@ black
 
 
 
-
-
-
 :
 
 
 
 
- 
-
-
-
 
 #070707
-
-
-
 
 
 
@@ -108,24 +61,13 @@ green
 
 
 
-
-
-
-
-
 :
 
 
 
 
- 
-
-
-
 
 #084B8A
-
-
 
 
 
@@ -140,57 +82,16 @@ aqua
 
 
 
-
-
-
 :
-
-
-
-
- 
-
-
-
-
 #2897BA
-
-
-
-
-
-
-
 
 ;
 $
 white
 
-
-
-
-
-
-
-
 :
 
-
-
-
- 
-
-
-
-
 #FFFFFF
-
-
-
-
-
-
-
 
 ;
 @import
@@ -200,90 +101,32 @@ white
 $
 hulu
 
-
-
-
-
-
-
-
 :
-
-
-
-
- 
-
-
 
 
 '
 Nunito
 
-
-
-
- 
-
-
-
-
 Sans
-
-
-
-
-
-
-
 
 '
 ,
 sans-serif
 
-
-
-
-
-
-
-
 ;
 $
 heading
 
-
-
-
-
-
-
-
 :
-
-
-
-
- 
-
-
-
 
 '
 Montserrat
 
 
 
-
-
-
-
-
 '
 ,
 sans-serif
-
-
 
 
 
@@ -299,39 +142,16 @@ body
 
 
 
-
-
 :
 
 
 
 
- 
-
-
 
 
 '
-Roboto
-
-
-
-
-
-
-
-
-'
-,
+Roboto',
 sans-serif
-
-
-
-
-
-
-
-
 ;
 @import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
 
@@ -579,11 +399,31 @@ body {
 							}
 						});
 			});
+	function PagingMypage(pageNum){
+		   $.ajax({
+		      type:"get",
+		      url:"mypage?pageNum="+pageNum,
+		      success: function(data){ 
+		      		$("#resultContainer").html(data);
+		      		
+		      	
+		     	$('#payment').addClass('mypage_active');
+					$('#mypage_nav a').removeClass('mypage_active');
+		      		$('.payment').removeClass('noshow');
+					$('.rightbox').children().not('.payment')
+							.addClass('noshow'); 
+		      },
+		      error:function(e){
+		         alert(e);
+		      },
+		   });
+		}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<div id = "resultContainer">
 	<%@include file="/resources/includes/navigation.jsp"%>
 	<h1 id="mypageh1">마이페이지</h1>
 	<br>
@@ -653,16 +493,19 @@ body {
 										<div class="pricingTable-header">
 											펀딩한 상품
 											<div class="pricingContent">
+
 												<div class="payment result">
-													<table class="table table-hover">
+												<div id="goodsList">
+													<table class="table table-hover" style="">
 														<tr>
-															<td>제목</a></td>
+															<td>제목</td>
 															<td>내가넣은금액</td>
 															<td>내가얻을상품</td>
 															<td>목표금액</td>
 															<td>현재금액</td>
 															<td>달성률</td>
 														</tr>
+													
 														<c:forEach items="${fundingList }" var="list">
 															<tr>
 																<td><a
@@ -674,8 +517,29 @@ body {
 																<td><fmt:formatNumber value="${list.currentPrice/list.wantPrice}" type="percent"/></td>
 															</tr>
 														</c:forEach>
-
-													</table>
+														
+														</table>
+														<div align="center">
+															 <!-- 이전 -->
+															<c:if test="${startpage>blockpage }">
+																<a href="javascript:PagingMypage(${startpage-blockpage })">[이전]</a>
+															</c:if>
+															<!-- 페이지출력 -->
+															<c:forEach begin="${startpage }" end="${endpage }" var="i">
+																<c:if test="${currentPage eq i}" >
+																	${i }
+																</c:if>
+																<c:if test="${currentPage ne i}" >
+																	<a href="javascript:PagingMypage(${i })">${i }</a>
+																</c:if>
+															</c:forEach>
+															<!-- 다음 -->
+															<c:if test="${endpage<totpage }">
+																<a  href="javascript:PagingMypage(${endpage+1})">[다음]</a>
+															</c:if>
+															<br><br><br>
+														</div>
+													</div>
 												</div>
 											</div>
 											<!-- BUTTON BOX-->
@@ -687,8 +551,6 @@ body {
 					</div>
 				</div>
 				<!-- /  CONTENT BOX-->
-			</div>
-
 			<div class="subscription noshow"></div>
 
 			<div class="privacy noshow">D</div>
@@ -716,16 +578,15 @@ body {
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
-
+	</div>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
+	</div>
 </body>
 
 </html>
