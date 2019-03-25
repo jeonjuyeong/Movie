@@ -170,14 +170,12 @@ public class MemberController {
 	//마이페이지(회원정보 모두 불러오기)
 	@GetMapping("/mypage")
 	public String mypage(String id,String pageNum,Model model,HttpSession session) {
-		//페이징
-		HashMap<String,String> map = new HashMap<>();
 		//검색일때
 		
 		//페이징
 		if(pageNum == null)pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
-		int count = gService.fundingCount(map);
+		int count = gService.fundingCount(id);
 		int pageSize = 5;
 		
 		int startRow= 1+(currentPage*pageSize-pageSize);
@@ -190,11 +188,7 @@ public class MemberController {
 		
 		if(endPage > totPage) endPage=totPage;
 		
-		
-		map.put("startRow", startRow+"");
-		map.put("endRow", endRow+"");
-		
-		List<getMyFundingVO> fundingList = gService.getMyFunding(map);
+		List<getMyFundingVO> fundingList = gService.getMyFunding(id);
 		
 		model.addAttribute("startPage",startPage);
 		model.addAttribute("endPage",endPage);

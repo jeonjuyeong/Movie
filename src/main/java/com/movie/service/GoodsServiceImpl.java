@@ -72,13 +72,13 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<getMyFundingVO> getMyFunding(HashMap<String, String> map) {
-		return mapper.getMyFunding(map);
+	public List<getMyFundingVO> getMyFunding(String id) {
+		return mapper.getMyFunding(id);
 	}
 
 	@Override
-	public int fundingCount(HashMap<String, String> map) {
-		return mapper.fundingCount(map);
+	public int fundingCount(String id) {
+		return mapper.fundingCount(id);
 	}
 
 	@Override
