@@ -86,17 +86,44 @@ public class FundingController {
 			pvo.setPrice(gvo.getPrice()[i]);
 			pvo.setProduct(gvo.getProduct()[i]);
 			gService.goodsPriceInsert(pvo);
-			
 		}
-		List<GoodsVO> glist = gService.getList();
+		
+		List<GoodsVO> glist = gService.getList(0);
 		model.addAttribute("glist",glist);
-		return "funding/funding";
+		return "redirect:getList.do";
 	}
 	@RequestMapping(value = "/getList.do")
-	public String getList(Model model) {
+	public String getList(Model model,Integer page) {
+		int count= gService.getListCnt();
+		int pageCnt =count/6;
+		if(page==null) {
+			page=1;
+		}
+		int currentPage =page;
+		int pageSize = 6;
 		
-		List<GoodsVO> glist = gService.getList();
+		int totpage = count/pageSize+(count%pageSize==0?0:1);
+		int blockpage =3; 
+		int startpage=((currentPage-1)/blockpage)*blockpage+1;
+		int endpage=startpage+blockpage-1;
+		
+		if(endpage > totpage) endpage=totpage;
+		
+		model.addAttribute("totpage", totpage);
+		model.addAttribute("startpage", startpage);
+		model.addAttribute("endpage", endpage);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("blockpage", blockpage);
+		
+		int number=count-(currentPage-1)*pageSize;
+		model.addAttribute("number",number);
+		model.addAttribute("count", count);
+		model.addAttribute("sign","sign");
+		
+		int page2 =(page-1)*6;
+		List<GoodsVO> glist = gService.getList(page2);
 		model.addAttribute("glist",glist);
+		model.addAttribute("pageCnt",pageCnt);
 		
 		return "funding/funding";
 		
@@ -120,9 +147,7 @@ public class FundingController {
 		 gService.goodsCurrentUpdate(vo);
 		 gService.goodsPayInsert(vo);
 		 System.out.println("가격:"+arr[0]);
-		 List<GoodsVO> glist = gService.getList();
-		model.addAttribute("glist",glist);
-		return "funding/funding";
+		return "redirect:getList.do";
 		
 		
 	}

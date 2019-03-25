@@ -29,8 +29,8 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<GoodsVO> getList() {
-		List<GoodsVO> gList = mapper.getList();
+	public List<GoodsVO> getList(int page) {
+		List<GoodsVO> gList = mapper.getList(page);
 		return gList;
 		 
 	}
@@ -79,6 +79,12 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public int fundingCount(HashMap<String, String> map) {
 		return mapper.fundingCount(map);
+	}
+
+	@Override
+	public int getListCnt() {
+		int listCnt = mapper.goodsCnt();
+		return listCnt;
 	}
 
 
