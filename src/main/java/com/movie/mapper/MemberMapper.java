@@ -10,4 +10,6 @@ public interface MemberMapper {
 	public String memberCheck(String id);
 
 	public MemberVO memberInfo(String id);
+	
+	public int getAllFunding(String id);
 }

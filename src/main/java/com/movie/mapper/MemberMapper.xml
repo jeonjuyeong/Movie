@@ -21,4 +21,8 @@
 	<select id="memberInfo" parameterType="String" resultType="com.movie.domain.MemberVO">
 		select * from MovieMember where id=#{id}
 	</select>
+	<select id = "getAllFunding" parameterType = "String" resultType = "Integer">
+		select IFNULL(SUM(price), 0) from goodspay where userid = #{userid}
+	</select>
+	
 </mapper>

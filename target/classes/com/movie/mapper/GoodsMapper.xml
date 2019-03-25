@@ -4,6 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.movie.mapper.GoodsMapper">
+	<sql id="searchWhere"> <!-- 중복되는 sql문을 하나로 정의해서 중복을 피하도록 만들어 준다 -->
+	<where>
+			<if test="word != null and field=='title'">
+			title like '%'||#{word}||'%'
+			</if>
+			
+			<if test="word != null and field=='writer'">
+			writer like '%${word}%'
+			</if>
+		</where>	
+	</sql>
+
 
 	<insert id="GoodsInsert">
 		insert into Goods 
@@ -29,4 +41,18 @@
 	<insert id="goodsPayInsert">
 		insert into goodsPay values (#{goodsNum},#{price},#{userid})
 	</insert>
+	<select id = "getGoodsPrice" parameterType = "Integer" resultType = "com.movie.domain.GoodsPriceVO">
+		select * from GoodsPrice where goodsNum = #{num}
+	</select>
+	<select id = "getMyFunding" parameterType = "hashmap" resultType = "com.movie.domain.getMyFundingVO">
+		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
+		from goodsprice p,
+			(SELECT g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+			FROM goodspay pay,Goods g
+			where pay.userid=#{id} and pay.goodsnum = g.num) g
+		where p.price = g.price and p.goodsNum = g.goodsnum
+	</select>
+	<select id = "fundingCount" parameterType = "hashmap" resultType = "Integer">
+		select count(num) from goods <include refid="searchWhere"/>
+	</select>
 </mapper>

@@ -150,7 +150,7 @@ html {
 					</div>
 					<div class="pricingContent">
 						<ul>
-							<li><b>제목 :</b> ${list.title }</li>
+							<li style = "white-space:nowrap; overflow : hidden;"><b>제목 :</b> ${list.title }</li>
 							<li><b>목표금액 :</b> ${list.wantPrice }</li>
 							<li><b>현재금액 :</b> ${list.currentPrice } </li>
 							<li><b><strong> ${list.currentPrice/list.wantPrice*100}%달성</strong></b></li>

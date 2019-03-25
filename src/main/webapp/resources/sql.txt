@@ -37,3 +37,17 @@ CREATE TABLE `goodsprice` (
   KEY `goods_idx` (`goodsNum`),
   CONSTRAINT `goodsF` FOREIGN KEY (`goodsNum`) REFERENCES `goods` (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `goodspay` (
+  `goodsnum` int(11) NOT NULL,
+  `price` int(11) DEFAULT NULL,
+  `userid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`goodsnum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+select g.title,g.price,p.product,g.wantPrice,g.currentPrice
+from goodsprice p,
+(SELECT g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+FROM goodspay pay,Goods g
+where pay.userid='youngho753'and pay.goodsnum = g.num) g
+where p.price = g.price and p.goodsNum = g.goodsnum;
