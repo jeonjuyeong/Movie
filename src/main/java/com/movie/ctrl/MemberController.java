@@ -43,6 +43,11 @@ public class MemberController {
 	@GetMapping("/join")
 	public void join() {
 	}
+	@GetMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "home";
+	}
 	@GetMapping("/emailCheck")
 	public String emailCheck(String email,Model model) {
 		// TODO Auto-generated method stub
@@ -164,36 +169,11 @@ public class MemberController {
 	}
 	//마이페이지(회원정보 모두 불러오기)
 	@GetMapping("/mypage")
-	public String mypage(String id,String pageNum,String word,String field,Model model,HttpSession session) {
+	public String mypage(String id,String pageNum,Model model,HttpSession session) {
 		//페이징
 		HashMap<String,String> map = new HashMap<>();
 		//검색일때
-		if(word != null) {
-			if(word == "tmvmfld") {
-				map.put("id",id);
-				map.put("field","title");
-				map.put("word","");
-				word = "tmvmfld";
-				field = "title";
-			}
-			else {
-			if(field.equals("title")) {
-				map.put("field", "title");
-				map.put("word",word);
-				map.put("id",id);
-			}
-			else map.put("field","writer");
-			map.put("word",word);
-			map.put("id",id);
-			}
-			//검색아닐때
-		}else {
-			map.put("field","title");
-			map.put("word","");
-			map.put("id",id);
-			word = "tmvmfld";
-			field = "title";
-		}
+		
 		//페이징
 		if(pageNum == null)pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
@@ -216,8 +196,6 @@ public class MemberController {
 		
 		List<getMyFundingVO> fundingList = gService.getMyFunding(map);
 		
-		model.addAttribute("word",word);
-		model.addAttribute("field",field);
 		model.addAttribute("startPage",startPage);
 		model.addAttribute("endPage",endPage);
 		model.addAttribute("blockPage",blockPage);

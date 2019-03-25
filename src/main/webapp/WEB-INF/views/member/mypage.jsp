@@ -16,11 +16,29 @@ $
 logo
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #3DBB3D
+
+
+
+
+
+
 
 
 ;
@@ -28,11 +46,29 @@ $
 gray
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #777777
+
+
+
+
+
+
 
 
 ;
@@ -40,11 +76,29 @@ $
 black
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #070707
+
+
+
+
+
+
 
 
 ;
@@ -52,11 +106,29 @@ $
 green
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #084B8A
+
+
+
+
+
+
 
 
 ;
@@ -64,11 +136,29 @@ $
 aqua
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #2897BA
+
+
+
+
+
+
 
 
 ;
@@ -76,11 +166,29 @@ $
 white
 
 
+
+
+
+
+
+
 :
+
+
+
 
  
 
+
+
+
 #FFFFFF
+
+
+
+
+
+
 
 
 ;
@@ -92,21 +200,51 @@ $
 hulu
 
 
+
+
+
+
+
+
 :
 
+
+
+
  
+
+
+
 
 '
 Nunito
 
+
+
+
  
 
+
+
+
 Sans
+
+
+
+
+
+
 
 
 '
 ,
 sans-serif
+
+
+
+
+
+
 
 
 ;
@@ -114,17 +252,41 @@ $
 heading
 
 
+
+
+
+
+
+
 :
 
+
+
+
  
+
+
+
 
 '
 Montserrat
 
 
+
+
+
+
+
+
 '
 ,
 sans-serif
+
+
+
+
+
+
 
 
 ;
@@ -132,17 +294,41 @@ $
 body
 
 
+
+
+
+
+
+
 :
 
+
+
+
  
+
+
+
 
 '
 Roboto
 
 
+
+
+
+
+
+
 '
 ,
 sans-serif
+
+
+
+
+
+
 
 
 ;
@@ -408,11 +594,11 @@ body {
 		</div>
 		<div class="leftbox">
 			<nav id="mypage_nav">
-				<a id="profile" class="mypage_active"><i class="fa fa-user">
-						PROFILE</i></a> <a id="payment"><i class="fa fa-credit-card">
-						FUNDING</i> </a> <a id="subscription"><i class="fa fa-tv"> MY FUND</i>
-				</a> <a id="privacy"><i class="fa fa-tasks"></i></a> <a id="settings"><i
-					class="fa fa-cog"></i></a>
+				<a id="profile" class="mypage_active"><i class="fa fa-user">PROFILE</i></a>
+				<a id="payment"><i class="fa fa-credit-card">FUNDING</i> </a> <a
+					id="subscription"><i class="fa fa-tv"> MY FUND</i></a> <a
+					id="privacy"><i class="fa fa-tasks">없음</i></a> <a id="settings"><i
+					class="fa fa-cog">&nbsp;LOGOUT</i></a>
 			</nav>
 		</div>
 		<div class="rightbox">
@@ -477,16 +663,17 @@ body {
 															<td>달성률</td>
 														</tr>
 														<c:forEach items="${fundingList }" var="list">
-														<tr>
-															<td><a href="../funding/goodsView.do?num=${list.goodsNum}">${list.title }</a></td>
-															<td>${list.price }</td>
-															<td>${list.product }</td>
-															<td>${list.wantPrice }</td>
-															<td>${list.currentPrice }</td>
-															<td>${list.wantPrice/100*list.currentPrice }</td>
-														</tr>
+															<tr>
+																<td><a
+																	href="../funding/goodsView.do?num=${list.goodsNum}">${list.title }</a></td>
+																<td>${list.price }</td>
+																<td>${list.product }</td>
+																<td>${list.wantPrice }</td>
+																<td>${list.currentPrice }</td>
+																<td>${list.wantPrice/100*list.currentPrice }</td>
+															</tr>
 														</c:forEach>
-														
+
 													</table>
 												</div>
 											</div>
@@ -497,19 +684,47 @@ body {
 							</div>
 						</div>
 					</div>
-
-					<!-- /  CONTENT BOX-->
 				</div>
-
-				<div class="subscription noshow"></div>
-
-				<div class="privacy noshow">D</div>
-				<div class="settings noshow">E</div>
-
+				<!-- /  CONTENT BOX-->
 			</div>
-		</div>
 
-		<br> <br> <br> <br> <br>
+			<div class="subscription noshow"></div>
+
+			<div class="privacy noshow">D</div>
+			<div class="settings noshow">
+			<div role="tabpanel" class="tab-pane active" align="center"
+					id="discover">
+					<div class="design-process-content">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-15"
+									style="width: 600px; margin-left: -100px;">
+									<div class="pricingTable">
+										<div class="pricingTable-header">
+											<div class="pricingContent">
+												<div>
+													<a href = "logout.do">로그아웃</a>
+												</div>
+											</div>
+											<!-- BUTTON BOX-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 </body>
 
 </html>
