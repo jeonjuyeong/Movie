@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -622,8 +623,8 @@ body {
 												<li><b>E-MAIL:</b>${vo.email}</li>
 												<li><b>PHONE:</b>${vo.phone}</li>
 												<li><b>ADDRESS:</b>${vo.postcode} ${vo.roadAddress}
-													${vo.jibunAddress} ${vo.extraAddress}</li>
-												<li><b>MY FUND:</b>${myFunding }</li>
+												${vo.jibunAddress} ${vo.extraAddress}</li>
+												<li><b>MY FUND:</b>	<fmt:formatNumber value="${myFunding }" type="number"/></li>
 											</ul>
 										</div>
 										<!-- /  CONTENT BOX-->
@@ -666,11 +667,11 @@ body {
 															<tr>
 																<td><a
 																	href="../funding/goodsView.do?num=${list.goodsNum}">${list.title }</a></td>
-																<td>${list.price }</td>
+																	<td><fmt:formatNumber value="${list.price }" type="number"/></td>
 																<td>${list.product }</td>
-																<td>${list.wantPrice }</td>
-																<td>${list.currentPrice }</td>
-																<td>${list.wantPrice/100*list.currentPrice }</td>
+																<td><fmt:formatNumber value="${list.wantPrice }" type="number"/></td>
+																<td><fmt:formatNumber value="${list.currentPrice }" type="number"/></td>
+																<td><fmt:formatNumber value="${list.currentPrice/list.wantPrice}" type="percent"/></td>
 															</tr>
 														</c:forEach>
 
