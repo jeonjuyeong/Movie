@@ -129,6 +129,8 @@ public class FundingController {
 		
 	}
 	
+	
+	
 	@RequestMapping(value = "/goodsView.do")
 	public String goodsView(@RequestParam("num")int num,Model model) {
 		
