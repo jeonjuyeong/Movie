@@ -23,9 +23,14 @@
 		values ('0',0,#{wantPrice},#{userid},#{userName},#{category},#{title},#{content},#{untilDate},sysdate(),#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
 	</insert>
-	<select id = "getList" resultType="com.movie.domain.GoodsVO">
-		select * from Goods
+	<select id="goodsCnt" resultType="Integer">
+		select count(*) from goods
 	</select>
+	
+	<select id = "getList" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
+		select * from Goods limit #{page},6
+ 	</select>
+	
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
 		select * from Goods where num = #{num}
 	</select>

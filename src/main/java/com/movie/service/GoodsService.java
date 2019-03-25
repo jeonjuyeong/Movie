@@ -11,7 +11,7 @@ import com.movie.domain.getMyFundingVO;
 
 public interface GoodsService {
 	public void GoodsInsert(GoodsVO vo);
-	public List<GoodsVO> getList();
+	public List<GoodsVO> getList(int page);
 	public GoodsVO goodsDetail(int num);
 	public void goodsPriceInsert(GoodsPriceVO vo);
 	//public String BoardCheck(String id,String pwd);
@@ -23,6 +23,6 @@ public interface GoodsService {
 	public List<getMyFundingVO> getMyFunding(HashMap<String,String> map);
 	
 	public int fundingCount(HashMap<String,String> map);
-	
+	public int getListCnt();
 	
 }

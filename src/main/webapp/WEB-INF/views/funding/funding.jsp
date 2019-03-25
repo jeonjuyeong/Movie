@@ -163,9 +163,9 @@ html {
 		</div>
 	</div>
 	<div align="center">
-		<%-- <!-- 이전 -->
+		 <!-- 이전 -->
 		<c:if test="${startpage>blockpage }">
-			<a href="javascript:getData(${startpage-blockpage })">[이전]</a>
+			<a href="getList.do?page=${startpage-blockpage }">[이전]</a>
 		</c:if>
 		<!-- 페이지출력 -->
 		<c:forEach begin="${startpage }" end="${endpage }" var="i">
@@ -173,14 +173,14 @@ html {
 				${i }
 			</c:if>
 			<c:if test="${currentPage ne i}" >
-				<a href="javascript:getData(${i })">${i }</a>
+				<a href="getList.do?page=${i }">${i }</a>
 			</c:if>
 		</c:forEach>
 		<!-- 다음 -->
 		<c:if test="${endpage<totpage }">
-			<a href="javascript:getData(${endpage+1 })">[다음]</a>
+			<a href="getList.do?page=${endpage+1 }">[다음]</a>
 		</c:if>
-		<br><br><br> --%>
+		<br><br><br>
 	</div>
 	<table id="searchTable" cellpadding="20px">
 		<tr>
