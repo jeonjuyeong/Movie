@@ -170,8 +170,9 @@ public class MemberController {
 	}
 	//마이페이지(회원정보 모두 불러오기)
 	@GetMapping("/mypage")
-	public String mypage(String id,String pageNum,Model model,HttpSession session) {
+	public String mypage(String pageNum,Model model,HttpSession session) {
 		//검색일때
+		String id=session.getAttribute("id").toString();
 		
 		//페이징
 		if(pageNum == null)pageNum = "1";
@@ -217,8 +218,59 @@ public class MemberController {
 		
 
 		return "member/mypage";
+	}	
+	
+	@ResponseBody
+	@PostMapping("/mypage")
+	public String mypage2(String pageNum,Model model,HttpSession session) {
+		//검색일때
+		String id=session.getAttribute("id").toString();
+		
+		//페이징
+		if(pageNum == null)pageNum = "1";
+		int currentPage = Integer.parseInt(pageNum);
+		int count = gService.fundingCount(id);
+		int pageSize = 4;
+			
+		int totpage = count/pageSize+(count%pageSize==0?0:1);
+		int blockpage =3; 
+		int startpage=((currentPage-1)/blockpage)*blockpage+1;
+		int endpage=startpage+blockpage-1;
+		
+		if(endpage > totpage) endpage=totpage;
+		
+		model.addAttribute("totpage", totpage);
+		model.addAttribute("startpage", startpage);
+		model.addAttribute("endpage", endpage);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("blockpage", blockpage);
+		
+		int number=count-(currentPage-1)*pageSize;
+		model.addAttribute("number",number);
+		model.addAttribute("count", count);
+		model.addAttribute("sign","sign");
+		
+		int page2 =(currentPage-1)*4;
+		
+		List<getMyFundingVO> fundingList = gService.getMyFunding(id,page2);
+		
+	
+		int myFunding = service.getAllFunding(id);
+		
+		
+	
+		model.addAttribute("myFunding",myFunding);
+		model.addAttribute("fundingList",fundingList);
+		session.setAttribute("id", id);
+		
+		
+		
+		
+
+		return "member/myPageList";
 	}
 
+	
 	@GetMapping("/myfunding")
 	public String myFunding(String id,Model model,HttpSession session) {
 		return "";
