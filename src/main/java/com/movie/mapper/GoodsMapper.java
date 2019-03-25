@@ -11,7 +11,7 @@ import com.movie.domain.getMyFundingVO;
 
 public interface GoodsMapper {
 	public void GoodsInsert(GoodsVO vo);
-	public List<GoodsVO> getList();
+	public List<GoodsVO> getList(int page);
 	public GoodsVO goodsDetail(int num);
 	public void GoodsPriceInsert(GoodsPriceVO vo);
 	public ArrayList<GoodsPriceVO> GoodsPriceDetail(int num);
@@ -20,4 +20,5 @@ public interface GoodsMapper {
 	public List<GoodsPriceVO> getGoodsPrice(int num);
 	public List<getMyFundingVO> getMyFunding(HashMap<String, String> map);
 	public int fundingCount(HashMap<String, String> map);
+	public int goodsCnt();
 }

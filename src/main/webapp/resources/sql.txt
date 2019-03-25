@@ -51,3 +51,7 @@ from goodsprice p,
 FROM goodspay pay,Goods g
 where pay.userid='youngho753'and pay.goodsnum = g.num) g
 where p.price = g.price and p.goodsNum = g.goodsnum;
+
+
+
+
