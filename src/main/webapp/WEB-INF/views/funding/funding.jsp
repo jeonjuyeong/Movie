@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- 패션 조회 된 페이지 -->
 <html>
@@ -151,9 +152,10 @@ html {
 					<div class="pricingContent">
 						<ul>
 							<li style = "white-space:nowrap; overflow : hidden;"><b>제목 :</b> ${list.title }</li>
-							<li><b>목표금액 :</b> ${list.wantPrice }</li>
-							<li><b>현재금액 :</b> ${list.currentPrice } </li>
-							<li><b><strong> ${list.currentPrice/list.wantPrice*100}%달성</strong></b></li>
+							
+							<li><b>목표금액 :</b> <fmt:formatNumber value="${list.wantPrice }" type="number"/></li>
+							<li><b>현재금액 :</b> <fmt:formatNumber value="${list.currentPrice }" type="number"/></li>
+							<li><b><strong> <fmt:formatNumber value="${list.currentPrice/list.wantPrice}" type="percent"/>달성</strong></b></li>
 						</ul>
 					</div>
 				</div>

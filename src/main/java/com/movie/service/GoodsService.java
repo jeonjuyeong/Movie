@@ -20,9 +20,9 @@ public interface GoodsService {
 	public void goodsPayInsert(PayVO vo);
 	public List<GoodsPriceVO> getGoodsPrice(int num);
 	
-	public List<getMyFundingVO> getMyFunding(HashMap<String,String> map);
+	public List<getMyFundingVO> getMyFunding(String id);
 	
-	public int fundingCount(HashMap<String,String> map);
+	public int fundingCount(String id);
 	public int getListCnt();
 	
 }
