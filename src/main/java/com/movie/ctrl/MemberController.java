@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.movie.domain.GoodsVO;
 import com.movie.domain.MemberVO;
 import com.movie.domain.getMyFundingVO;
 import com.movie.service.GoodsService;
@@ -176,26 +177,31 @@ public class MemberController {
 		if(pageNum == null)pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int count = gService.fundingCount(id);
-		int pageSize = 5;
+		int pageSize = 4;
+			
+		int totpage = count/pageSize+(count%pageSize==0?0:1);
+		int blockpage =3; 
+		int startpage=((currentPage-1)/blockpage)*blockpage+1;
+		int endpage=startpage+blockpage-1;
 		
-		int startRow= 1+(currentPage*pageSize-pageSize);
-		int endRow = currentPage*pageSize;
-		//총페이지수
-		int totPage = count/pageSize+(count%pageSize==0?0:1);
-		int blockPage =3; //[이전] 456 [다음]
-		int startPage=((currentPage-1)/blockPage)*blockPage+1;
-		int endPage=startPage+blockPage-1;
+		if(endpage > totpage) endpage=totpage;
 		
-		if(endPage > totPage) endPage=totPage;
+		model.addAttribute("totpage", totpage);
+		model.addAttribute("startpage", startpage);
+		model.addAttribute("endpage", endpage);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("blockpage", blockpage);
 		
-		List<getMyFundingVO> fundingList = gService.getMyFunding(id);
+		int number=count-(currentPage-1)*pageSize;
+		model.addAttribute("number",number);
+		model.addAttribute("count", count);
+		model.addAttribute("sign","sign");
 		
-		model.addAttribute("startPage",startPage);
-		model.addAttribute("endPage",endPage);
-		model.addAttribute("blockPage",blockPage);
-		model.addAttribute("totPage",totPage);
+		int page2 =(currentPage-1)*4;
 		
+		List<getMyFundingVO> fundingList = gService.getMyFunding(id,page2);
 		
+	
 		
 		MemberVO vo = service.memberInfo(id);
 		int myFunding = service.getAllFunding(id);

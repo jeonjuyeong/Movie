@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.protobuf.StringValue;
 import com.movie.domain.GoodsPriceVO;
 import com.movie.domain.GoodsVO;
 import com.movie.domain.PayVO;
@@ -72,8 +73,12 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<getMyFundingVO> getMyFunding(String id) {
-		return mapper.getMyFunding(id);
+	public List<getMyFundingVO> getMyFunding(String id,int page) {
+		HashMap <String, String>map = new HashMap<>();
+		map.put("id", id);
+		String pageS =String.valueOf(page);
+		map.put("page",pageS);
+		return mapper.getMyFunding(map);
 	}
 
 	@Override

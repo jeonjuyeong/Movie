@@ -20,7 +20,7 @@ public interface GoodsService {
 	public void goodsPayInsert(PayVO vo);
 	public List<GoodsPriceVO> getGoodsPrice(int num);
 	
-	public List<getMyFundingVO> getMyFunding(String id);
+	public List<getMyFundingVO> getMyFunding(String id,int page);
 	
 	public int fundingCount(String id);
 	public int getListCnt();

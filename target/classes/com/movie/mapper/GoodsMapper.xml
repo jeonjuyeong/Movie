@@ -38,13 +38,13 @@
 	<select id = "getGoodsPrice" parameterType = "Integer" resultType = "com.movie.domain.GoodsPriceVO">
 		select * from GoodsPrice where goodsNum = #{num}
 	</select>
-	<select id = "getMyFunding" parameterType = "String" resultType = "com.movie.domain.getMyFundingVO">
+	<select id = "getMyFunding" parameterType = "HashMap" resultType = "com.movie.domain.getMyFundingVO">
 		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
 			(SELECT g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
 			FROM goodspay pay,Goods g
 			where pay.userid=#{id} and pay.goodsnum = g.num) g
-		where p.price = g.price and p.goodsNum = g.goodsnum
+		where p.price = g.price and p.goodsNum = g.goodsnum limit #{page},4
 	</select>
 	<select id = "fundingCount" parameterType = "String" resultType = "Integer">
 		select count(a.goodsNum) from(
