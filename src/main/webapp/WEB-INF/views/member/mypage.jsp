@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -488,7 +490,7 @@ body {
 						<div class="container">
 							<div class="row">
 								<div class="col-xs-15"
-									style="width: 600px; margin-left: -100px;">
+									style="width: 650px; margin-left: -100px;">
 									<div class="pricingTable">
 										<div class="pricingTable-header">
 											펀딩한 상품
@@ -496,11 +498,11 @@ body {
 
 												<div class="payment result">
 												<div id="goodsList">
-													<table class="table table-hover" style="">
+													<table class="table table-hover" style="width:650px">
 														<tr>
 															<td>제목</td>
-															<td>내가넣은금액</td>
-															<td>내가얻을상품</td>
+															<td>참여금</td>
+															<td>상품</td>
 															<td>목표금액</td>
 															<td>현재금액</td>
 															<td>달성률</td>
@@ -509,8 +511,12 @@ body {
 														<c:forEach items="${fundingList }" var="list">
 															<tr>
 																<td><a
-																	href="../funding/goodsView.do?num=${list.goodsNum}">${list.title }</a></td>
-																	<td><fmt:formatNumber value="${list.price }" type="number"/></td>
+																	href="../funding/goodsView.do?num=${list.goodsNum}">
+																	 <c:if test="${fn:length(list.title) > 9}">
+       												 					   ${fn:substring(list.title,0,9)}...
+       																 </c:if>
+																	</a></td>
+																<td><fmt:formatNumber value="${list.price }" type="number"/></td>
 																<td>${list.product }</td>
 																<td><fmt:formatNumber value="${list.wantPrice }" type="number"/></td>
 																<td><fmt:formatNumber value="${list.currentPrice }" type="number"/></td>
