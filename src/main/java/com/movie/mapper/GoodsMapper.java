@@ -18,7 +18,7 @@ public interface GoodsMapper {
 	public void goodsCurrentUpdate(PayVO vo);
 	public void goodsPayInsert(PayVO vo);
 	public List<GoodsPriceVO> getGoodsPrice(int num);
-	public List<getMyFundingVO> getMyFunding(String id);
+	public List<getMyFundingVO> getMyFunding(HashMap<String,String> map);
 	public int fundingCount(String id);
 	public int goodsCnt();
 }
