@@ -38,7 +38,7 @@
 	<select id = "getGoodsPrice" parameterType = "Integer" resultType = "com.movie.domain.GoodsPriceVO">
 		select * from goodsPrice where goodsNum = #{num}
 	</select>
-	<select id = "getMyFunding" parameterType = "HashMap" resultType = "com.movie.domain.getMyFundingVO">
+	<select id = "getMyFunding" parameterType = "hashmap" resultType = "com.movie.domain.getMyFundingVO">
 		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
 			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
@@ -50,8 +50,8 @@
 		select count(a.goodsNum) from(
 select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
-			(SELECT g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
-			FROM goodspay pay,goods g
+			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+			from goodspay pay,goods g
 			where pay.userid=#{id} and pay.goodsnum = g.num) g
 		where p.price = g.price and p.goodsNum = g.goodsnum
 ) a
