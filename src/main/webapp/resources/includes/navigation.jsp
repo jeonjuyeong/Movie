@@ -65,6 +65,9 @@
           <li class="nav-item mx-0 mx-lg-1">
           	  <c:if test="${sessionScope.id!=null}">
       	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/ctrl/member/mypage?id=${sessionScope.id}">마이페이지</a>
+      	    	 <li class="nav-item mx-0 mx-lg-1">
+      	    	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="/ctrl/member/logout.do">로그아웃</a>
+      	    	</li>
          	 </c:if>
          	  <c:if test="${sessionScope.id==null}">
           	  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"data-toggle="modal" data-target="#loginModal">로그인</a>

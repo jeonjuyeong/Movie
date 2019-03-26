@@ -21,4 +21,5 @@ public interface GoodsMapper {
 	public List<getMyFundingVO> getMyFunding(HashMap<String,String> map);
 	public int fundingCount(String id);
 	public int goodsCnt();
+	public List<GoodsVO> getMyFinacing(String id);
 }

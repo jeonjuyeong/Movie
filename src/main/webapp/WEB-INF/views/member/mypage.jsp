@@ -15,11 +15,30 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 <style>
-$logo
+$
+logo
+
+
+
+
+
+
 :
 
 
+
+
+
+
+
+
 #3DBB3D
+
+
+
+
+
+
 
 ;
 $
@@ -27,11 +46,29 @@ gray
 
 
 
+
+
+
+
+
+
 :
 
 
 
+
+
+
+
+
+
 #777777
+
+
+
+
+
+
 
 
 
@@ -45,7 +82,19 @@ black
 
 
 
+
+
+
+
+
+
 :
+
+
+
+
+
+
 
 
 
@@ -57,9 +106,21 @@ black
 
 
 
+
+
+
+
+
+
 ;
 $
 green
+
+
+
+
+
+
 
 
 
@@ -69,7 +130,19 @@ green
 
 
 
+
+
+
+
+
+
 #084B8A
+
+
+
+
+
+
 
 
 
@@ -84,16 +157,52 @@ aqua
 
 
 
+
+
+
+
+
+
 :
+
+
+
+
+
+
 #2897BA
+
+
+
+
+
+
 
 ;
 $
 white
 
+
+
+
+
+
+
 :
 
+
+
+
+
+
+
 #FFFFFF
+
+
+
+
+
+
 
 ;
 @import
@@ -103,32 +212,86 @@ white
 $
 hulu
 
+
+
+
+
+
+
 :
+
+
+
+
+
+
 
 
 '
 Nunito
 
+
+
+
+
+
+
 Sans
+
+
+
+
+
+
 
 '
 ,
 sans-serif
 
+
+
+
+
+
+
 ;
 $
 heading
 
+
+
+
+
+
+
 :
+
+
+
+
+
+
 
 '
 Montserrat
 
 
 
+
+
+
+
+
+
 '
 ,
 sans-serif
+
+
+
+
+
+
 
 
 
@@ -144,6 +307,12 @@ body
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -151,9 +320,27 @@ body
 
 
 
+
+
+
+
+
+
 '
-Roboto',
+Roboto
+
+
+
+
+'
+,
 sans-serif
+
+
+
+
+
+
 ;
 @import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
 
@@ -252,6 +439,7 @@ body {
 
 .noshow {
 	opacity: 0;
+	z-index: -10;
 }
 
 .pricingTable {
@@ -366,6 +554,7 @@ body {
 	margin: 0 auto;
 	padding: 0;
 }
+
 </style>
 
 <script>
@@ -379,6 +568,7 @@ body {
 							if (this.id === !'payment') {
 								$('.payment').addClass('noshow');
 							} else if (this.id === 'payment') {
+						
 								$('.payment').removeClass('noshow');
 								$('.rightbox').children().not('.payment')
 										.addClass('noshow');
@@ -408,174 +598,224 @@ body {
 		      success: function(data){ 
 		      		$("#resultContainer").html(data);
 		      		
-		      	
-		     	$('#payment').addClass('mypage_active');
+		      		
 					$('#mypage_nav a').removeClass('mypage_active');
 		      		$('.payment').removeClass('noshow');
-					$('.rightbox').children().not('.payment')
-							.addClass('noshow'); 
+		      		$('#payment').addClass('mypage_active');
+		      		
+					$('.rightbox').children().not('.payment').addClass('noshow'); 
 		      },
 		      error:function(e){
 		         alert(e);
 		      },
 		   });
-		}
+	}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div id = "resultContainer">
-	<%@include file="/resources/includes/navigation.jsp"%>
-	<h1 id="mypageh1">마이페이지</h1>
-	<br>
-	<img class="img-fluid mb-5 d-block mx-auto" width="900" height="650"
-		src="/ctrl/resources/img/fundlogo2.png" alt="">
-	<div id="mypage_container">
-		<div id="logo">
-			<h1 class="logo"></h1>
-		</div>
-		<div class="leftbox">
-			<nav id="mypage_nav">
-				<a id="profile" class="mypage_active"><i class="fa fa-user">PROFILE</i></a>
-				<a id="payment"><i class="fa fa-credit-card">FUNDING</i> </a> <a
-					id="subscription"><i class="fa fa-tv"> MY FUND</i></a> <a
-					id="privacy"><i class="fa fa-tasks">없음</i></a> <a id="settings"><i
-					class="fa fa-cog">&nbsp;LOGOUT</i></a>
-			</nav>
-		</div>
-		<div class="rightbox">
-			<div class="profile">
-				<div role="tabpanel" class="tab-pane active" align="center"
-					id="discover">
-					<div class="design-process-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-xs-15"
-									style="width: 600px; margin-left: -100px;">
-									<div class="pricingTable">
-										<div class="pricingTable-header">
-											<h3>내정보</h3>
-										</div>
-										<div class="price-value">
-											<span>${sessionScope.id}</span> <span class="subtitle">${vo.name}</span>
-										</div>
-										<div class="pricingContent">
-											<ul>
-												<li><b>E-MAIL:</b>${vo.email}</li>
-												<li><b>PHONE:</b>${vo.phone}</li>
-												<li><b>ADDRESS:</b>${vo.postcode} ${vo.roadAddress}
-												${vo.jibunAddress} ${vo.extraAddress}</li>
-												<li><b>MY FUND:</b>	<fmt:formatNumber value="${myFunding }" type="number"/></li>
-											</ul>
-										</div>
-										<!-- /  CONTENT BOX-->
-										<div class="pricingTable-sign-up">
+	<div id="resultContainer">
+		<%@include file="/resources/includes/navigation.jsp"%>
+		<h1 id="mypageh1">마이페이지</h1>
+		<br> <img class="img-fluid mb-5 d-block mx-auto" width="900"
+			height="650" src="/ctrl/resources/img/fundlogo2.png" alt="">
+		<div id="mypage_container">
+			<div id="logo">
+				<h1 class="logo"></h1>
+			</div>
+			<div class="leftbox">
+				<nav id="mypage_nav">
+					<a id="profile" class="mypage_active"><i class="fa fa-user">PROFILE</i></a>
+					<a id="payment"><i class="fa fa-credit-card">FUNDING</i> </a> <a
+						id="subscription"><i class="fa fa-tv"> MY FUND</i></a> <a
+						id="privacy"><i class="fa fa-tasks">후원하기</i></a> <a id="settings"><i
+						class="fa fa-cog">&nbsp;LOGOUT</i></a>
+				</nav>
+			</div>
+			<div class="rightbox">
+				<div class="profile">
+					<div role="tabpanel" class="tab-pane active" align="center"
+						id="discover">
+						<div class="design-process-content">
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-15"
+										style="width: 600px; margin-left: -100px;">
+										<div class="pricingTable">
+											<div class="pricingTable-header">
+												<h3>내정보</h3>
+											</div>
+											<div class="price-value">
+												<span>${sessionScope.id}</span> <span class="subtitle">${vo.name}</span>
+											</div>
+											<div class="pricingContent">
+												<ul>
+													<li><b>E-MAIL:</b>${vo.email}</li>
+													<li><b>PHONE:</b>${vo.phone}</li>
+													<li><b>ADDRESS:</b>${vo.postcode} ${vo.roadAddress}
+														${vo.jibunAddress} ${vo.extraAddress}</li>
+													<li><b>MY FUND:</b> <fmt:formatNumber
+															value="${myFunding }" type="number" /></li>
+												</ul>
+											</div>
+											<!-- /  CONTENT BOX-->
+											<div class="pricingTable-sign-up">
+												<!-- BUTTON BOX-->
+												<a href="#" class="btn btn-block btn-default">정보수정</a> <a
+													href="#" class="btn btn-block btn-default">비밀번호변경</a>
+											</div>
 											<!-- BUTTON BOX-->
-											<a href="#" class="btn btn-block btn-default">정보수정</a> <a
-												href="#" class="btn btn-block btn-default">비밀번호변경</a>
 										</div>
-										<!-- BUTTON BOX-->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="payment noshow">
-				<div role="tabpanel" class="tab-pane active" align="center"
-					id="discover">
-					<div class="design-process-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-xs-15"
-									style="width: 650px; margin-left: -100px;">
-									<div class="pricingTable">
-										<div class="pricingTable-header">
-											펀딩한 상품
-											<div class="pricingContent">
-
-												<div class="payment result">
-												<div id="goodsList">
-													<table class="table table-hover" style="width:650px">
+				<div class="payment noshow">
+					<div class="row">
+						<div class="col-xs-15" style="width: 650px; margin-left: -100px;">
+							<div class="pricingTable">
+								<div class="pricingTable-header">
+									펀딩한 상품
+									<div class="pricingContent">
+										<div class="payment result">
+											<div id="goodsList">
+												<table class="table table-hover" style="width: 650px">
+													<tr>
+														<td>제목</td>
+														<td>참여금</td>
+														<td>상품</td>
+														<td>목표금액</td>
+														<td>현재금액</td>
+														<td>달성률</td>
+													</tr>
+													<c:forEach items="${fundingList }" var="list">
 														<tr>
-															<td>제목</td>
-															<td>참여금</td>
-															<td>상품</td>
-															<td>목표금액</td>
-															<td>현재금액</td>
-															<td>달성률</td>
-														</tr>
-													
-														<c:forEach items="${fundingList }" var="list">
-															<tr>
-																<td><a
-																	href="../funding/goodsView.do?num=${list.goodsNum}">
-																	 <c:if test="${fn:length(list.title) > 9}">
+															<td><a
+																href="../funding/goodsView.do?num=${list.goodsNum}">
+																	<c:if test="${fn:length(list.title) > 9}">
        												 					   ${fn:substring(list.title,0,9)}...
        																 </c:if>
-																	</a></td>
-																<td><fmt:formatNumber value="${list.price }" type="number"/></td>
-																<td>${list.product }</td>
-																<td><fmt:formatNumber value="${list.wantPrice }" type="number"/></td>
-																<td><fmt:formatNumber value="${list.currentPrice }" type="number"/></td>
-																<td><fmt:formatNumber value="${list.currentPrice/list.wantPrice}" type="percent"/></td>
-															</tr>
-														</c:forEach>
-														
-														</table>
-														<div align="center">
-															 <!-- 이전 -->
-															<c:if test="${startpage>blockpage }">
-																<a href="javascript:PagingMypage(${startpage-blockpage })">[이전]</a>
-															</c:if>
-															<!-- 페이지출력 -->
-															<c:forEach begin="${startpage }" end="${endpage }" var="i">
-																<c:if test="${currentPage eq i}" >
+															</a></td>
+															<td><fmt:formatNumber value="${list.price }"
+																	type="number" /></td>
+															<td>${list.product }</td>
+															<td><fmt:formatNumber value="${list.wantPrice }"
+																	type="number" /></td>
+															<td><fmt:formatNumber value="${list.currentPrice }"
+																	type="number" /></td>
+															<td><fmt:formatNumber
+																	value="${list.currentPrice/list.wantPrice}"
+																	type="percent" /></td>
+														</tr>
+													</c:forEach>
+
+												</table>
+												<div align="center">
+													<!-- 이전 -->
+													<c:if test="${startpage>blockpage }">
+														<a href="javascript:PagingMypage(${startpage-blockpage })">[이전]</a>
+													</c:if>
+													<!-- 페이지출력 -->
+													<c:forEach begin="${startpage }" end="${endpage }" var="i">
+														<c:if test="${currentPage eq i}">
 																	${i }
 																</c:if>
-																<c:if test="${currentPage ne i}" >
-																	<a href="javascript:PagingMypage(${i })">${i }</a>
-																</c:if>
-															</c:forEach>
-															<!-- 다음 -->
-															<c:if test="${endpage<totpage }">
-																<a  href="javascript:PagingMypage(${endpage+1})">[다음]</a>
-															</c:if>
-															<br><br><br>
-														</div>
-													</div>
+														<c:if test="${currentPage ne i}">
+															<a href="javascript:PagingMypage(${i })">${i }</a>
+														</c:if>
+													</c:forEach>
+													<!-- 다음 -->
+													<c:if test="${endpage<totpage }">
+														<a href="javascript:PagingMypage(${endpage+1})">[다음]</a>
+													</c:if>
+													<br> <br> <br>
 												</div>
 											</div>
-											<!-- BUTTON BOX-->
 										</div>
 									</div>
+									<!-- BUTTON BOX-->
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /  CONTENT BOX-->
-			<div class="subscription noshow"></div>
+				<div class="subscription noshow">
+					<div role="tabpanel" class="tab-pane active" align="center"
+						id="discover">
+					
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-15"
+										style="width: 650px; margin-left: -100px;">
+										<div class="pricingTable">
+											<div class="pricingTable-header">
+												내가 개설한 펀드
+												<div class="pricingContent">
+													<div class="financingresult">
 
-			<div class="privacy noshow">D</div>
-			<div class="settings noshow">
-			<div role="tabpanel" class="tab-pane active" align="center"
-					id="discover">
-					<div class="design-process-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-xs-15"
-									style="width: 600px; margin-left: -100px;">
-									<div class="pricingTable">
-										<div class="pricingTable-header">
-											<div class="pricingContent">
-												<div>
-													<a href = "logout.do">로그아웃</a>
+														<table class="table table-hover" style="width: 650px">
+															<tr>
+																<td>제목</td>
+																<td>목표금액</td>
+																<td>현재금액</td>
+																<td>달성률</td>
+															</tr>
+															<c:forEach items="${financingList}" var="list">
+																<tr>
+																	<td><a
+																		href="../funding/goodsView.do?num=${list.num}"> <c:if
+																				test="${fn:length(list.title) > 9}">
+       												 					   ${fn:substring(list.title,0,9)}...
+       																 </c:if> <c:if test="${fn:length(list.title) <= 9}">
+       												 					   ${list.title}
+       																 </c:if>
+																	</a></td>
+																	<td><fmt:formatNumber value="${list.wantPrice }"
+																			type="number" /></td>
+																	<td><fmt:formatNumber
+																			value="${list.currentPrice }" type="number" /></td>
+																	<td><fmt:formatNumber
+																			value="${list.currentPrice/list.wantPrice}"
+																			type="percent" /></td>
+																</tr>
+															</c:forEach>
+														</table>
+													</div>
 												</div>
+												<!-- BUTTON BOX-->
 											</div>
-											<!-- BUTTON BOX-->
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="privacy noshow">
+					<h2>서비스 준비중</h2>
+				</div>
+				<div class="settings noshow">
+					<div role="tabpanel" class="tab-pane active" align="center"
+						id="discover">
+						<div class="design-process-content">
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-15"
+										style="width: 600px; margin-left: -100px;">
+										<div class="pricingTable">
+											<div class="pricingTable-header">
+												<div class="pricingContent">
+													<div>
+														<a href="logout.do">로그아웃</a>
+													</div>
+												</div>
+												<!-- BUTTON BOX-->
+
+											</div>
 										</div>
 									</div>
 								</div>
@@ -585,13 +825,7 @@ body {
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+		<br> <br> <br> <br> <br>
 	</div>
 </body>
 

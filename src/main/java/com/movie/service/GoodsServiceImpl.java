@@ -92,6 +92,11 @@ public class GoodsServiceImpl implements GoodsService{
 		return listCnt;
 	}
 
+	@Override
+	public List<GoodsVO> getMyFinancing(String id) {
+		return mapper.getMyFinacing(id);
+	}
+
 
 
 }

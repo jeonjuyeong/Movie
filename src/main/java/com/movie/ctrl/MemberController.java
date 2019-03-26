@@ -207,7 +207,11 @@ public class MemberController {
 		MemberVO vo = service.memberInfo(id);
 		int myFunding = service.getAllFunding(id);
 		
+		List<GoodsVO>financingList = gService.getMyFinancing(id);
+
 		
+		
+		model.addAttribute("financingList",financingList);
 		model.addAttribute("vo",vo);
 		model.addAttribute("myFunding",myFunding);
 		model.addAttribute("fundingList",fundingList);
@@ -255,18 +259,18 @@ public class MemberController {
 		List<getMyFundingVO> fundingList = gService.getMyFunding(id,page2);
 		
 	
+		
+	
+
 		int myFunding = service.getAllFunding(id);
 		
 		
-	
+
 		model.addAttribute("myFunding",myFunding);
 		model.addAttribute("fundingList",fundingList);
 		session.setAttribute("id", id);
 		
-		
-		
-		
-
+	
 		return "member/myPageList";
 	}
 
