@@ -7,7 +7,7 @@
 
 
 	<insert id="GoodsInsert">
-		insert into Goods 
+		insert into goods 
 		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email,mainPic) 
 		values ('0',0,#{wantPrice},#{userid},#{userName},#{category},#{title},#{content},#{untilDate},sysdate(),#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
@@ -17,34 +17,34 @@
 	</select>
 	
 	<select id = "getList" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
-		select * from Goods limit #{page},6
+		select * from goods limit #{page},6
  	</select>
 	
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
-		select * from Goods where num = #{num}
+		select * from goods where num = #{num}
 	</select>
 	<insert id="GoodsPriceInsert">
-		insert into GoodsPrice values ('0',(select max(num) from Goods),#{price},#{product})
+		insert into goodsprice values ('0',(select max(num) from goods),#{price},#{product})
 	</insert>
 	<select id="GoodsPriceDetail" parameterType="Integer" resultType="com.movie.domain.GoodsPriceVO">
-		select * from GoodsPrice where goodsnum=#{num}
+		select * from goodsprice where goodsnum=#{num}
 	</select>
 	<update id="goodsCurrentUpdate">
-	 	update Goods set currentPrice = currentPrice+#{price} where num=#{goodsNum}
+	 	update goods set currentPrice = currentPrice+#{price} where num=#{goodsNum}
 	</update>
 	<insert id="goodsPayInsert">
 		insert into goodsPay values (#{goodsNum},#{price},#{userid})
 	</insert>
 	<select id = "getGoodsPrice" parameterType = "Integer" resultType = "com.movie.domain.GoodsPriceVO">
-		select * from GoodsPrice where goodsNum = #{num}
+		select * from goodsPrice where goodsNum = #{num}
 	</select>
 	<select id = "getMyFunding" parameterType = "HashMap" resultType = "com.movie.domain.getMyFundingVO">
 		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
-			(SELECT g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
-			FROM goodspay pay,Goods g
+			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+			from goodspay pay,goods g
 			where pay.userid=#{id} and pay.goodsnum = g.num) g
-		where p.price = g.price and p.goodsNum = g.goodsnum limit ${page},4
+		where p.price = g.price and p.goodsnum = g.goodsnum limit ${page},4
 	</select>
 	<select id = "fundingCount" parameterType = "String" resultType = "Integer">
 		select count(a.goodsNum) from(
