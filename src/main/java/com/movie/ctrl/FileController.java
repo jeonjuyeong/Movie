@@ -26,7 +26,8 @@ public class FileController {
 			// 파일명을 받는다 - 일반 원본파일명
 			String oldName = request.getHeader("file-name");
 			// 파일 기본경로 _ 상세경로
-			String filePath = "C:/Users/it/git/Movie/src/main/webapp/resources/upload/";
+			//String filePath = "C:/Users/it/git/Movie/src/main/webapp/resources/upload/";
+			String filePath = "/var/lib/tomcat8/webapps/ctrl/resources/upload/";
 			String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")
 					.format(System.currentTimeMillis()))
 					.append(UUID.randomUUID().toString())
@@ -45,7 +46,8 @@ public class FileController {
 			sb = new StringBuffer();
 			sb.append("&bNewLine=true")
 			.append("&sFileName=").append(oldName)
-			.append("&sFileURL=").append("http://localhost:8999/ctrl/resources/upload/")
+			//.append("&sFileURL=").append("http://localhost:8999/ctrl/resources/upload/")
+			.append("&sFileURL=").append("/ctrl/resources/upload/")
 			.append(saveName);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -48,11 +48,11 @@
 <title>Insert title here</title>
 	<%@include file="/resources/includes/navigation.jsp"%>
 </head>
-
+	<input type="hidden" id="email_valid" value="false">
 <body>
 	<div class="container">
 		<h2 style="margin-top:200px">아이디/비밀번호 찾기</h2>
-
+		
 		<div id="findIdDiv">
 			<table id='blueone'>
 				<tr>
@@ -82,11 +82,11 @@
 					</tr>
 					<tr>
 						<td>아이디:</td>
-						<td><input type="text" id="name" name="name" class="form-control"></td>
+						<td><input type="text" id="userid" name="userid" class="form-control dddd"></td>
 					</tr>
 					<tr>
 						<td>이메일:</td>
-						<td><input type="email" id="email" name="email" class="form-control" placeholder="가입할 때 입력 하신 이메일"></td>
+						<td><input type="email" id="email2" name="email" class="form-control" placeholder="가입할 때 입력 하신 이메일"></td>
 					</tr>
 					<tr>
 						<td><input type="button" value="비밀번호 찾기" id="findPassword"class="btn btn-secondary"></td>
@@ -122,11 +122,22 @@
 	
 	$(document).ready(function(){
 		 $("#findPassword").click(function(){
-			 if($("#email").val()==""){
-				 alert("이메일을 입력하세요");
-				 return false;
-			 }
-			window.open("/ctrl/member/emailCheck?email="+$('#email').val(),"","width=500 height=220");
+			  $.ajax({
+			      type:"post",
+			      url:"checkEmail?userid="+$("#userid").val()+"&email="+$("#email2").val(),
+			      success: function(data){ 
+			      	if(data=="yes"){
+			      		window.open("/ctrl/member/emailCheckforPass?email="+$('#email2').val()+"&userid="+$("#userid").val(),"","width=500 height=220");
+			      	}else{
+			      		alert("이메일, 이름을 다시확인해주세요");
+			      		$("#userid").val("");
+			      		$("#email").val("");
+			      	}
+			      },
+			      error:function(e){
+			         alert(e);
+			      },
+			  });
 		}); 
 	});
 </script>
