@@ -11,9 +11,12 @@ import com.movie.domain.getMyFundingVO;
 
 public interface GoodsMapper {
 	public void GoodsInsert(GoodsVO vo);
+	public void GoodsUpdate(GoodsVO vo);
 	public List<GoodsVO> getList(int page);
 	public GoodsVO goodsDetail(int num);
 	public void GoodsPriceInsert(GoodsPriceVO vo);
+	public void GoodsPriceReInsert(GoodsPriceVO vo);
+	public void GoodsPriceDelete(int num);
 	public ArrayList<GoodsPriceVO> GoodsPriceDetail(int num);
 	public void goodsCurrentUpdate(PayVO vo);
 	public void goodsPayInsert(PayVO vo);

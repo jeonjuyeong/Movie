@@ -28,7 +28,10 @@ public class GoodsServiceImpl implements GoodsService{
 		 // MemberVO vo = mapper.Board(id); System.out.println(id); return vo;
 
 	}
-
+	@Override
+	public void GoodsUpdate(GoodsVO vo) {
+		mapper.GoodsUpdate(vo);
+	}
 	@Override
 	public List<GoodsVO> getList(int page) {
 		List<GoodsVO> gList = mapper.getList(page);
@@ -45,6 +48,15 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public void goodsPriceInsert(GoodsPriceVO vo) {
 		mapper.GoodsPriceInsert(vo);
+		
+	}
+	@Override
+	public void goodsPriceReInsert(GoodsPriceVO vo) {
+		mapper.GoodsPriceReInsert(vo);
+		
+	}
+	public void goodsPriceDelete(int num) {
+		mapper.GoodsPriceDelete(num);
 		
 	}
 
@@ -96,6 +108,8 @@ public class GoodsServiceImpl implements GoodsService{
 	public List<GoodsVO> getMyFinancing(String id) {
 		return mapper.getMyFinacing(id);
 	}
+
+	
 
 
 

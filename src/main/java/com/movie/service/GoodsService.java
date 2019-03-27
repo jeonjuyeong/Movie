@@ -11,9 +11,12 @@ import com.movie.domain.getMyFundingVO;
 
 public interface GoodsService {
 	public void GoodsInsert(GoodsVO vo);
+	public void GoodsUpdate(GoodsVO vo);
 	public List<GoodsVO> getList(int page);
 	public GoodsVO goodsDetail(int num);
 	public void goodsPriceInsert(GoodsPriceVO vo);
+	public void goodsPriceReInsert(GoodsPriceVO vo);
+	public void goodsPriceDelete(int num);
 	//public String BoardCheck(String id,String pwd);
 	public ArrayList<GoodsPriceVO> goodsPriceDetal(int num);
 	public void goodsCurrentUpdate(PayVO vo);

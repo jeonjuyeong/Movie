@@ -51,11 +51,12 @@ margin-top:50px
 <body>
  	<%@include file="/resources/includes/navigation.jsp"%>
 
-    <form action="./updateBoard.do" method="post" id="updateBoardFrm" enctype="multipart/form-data">
+    <form action="./updateBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
      <div id="editer_div">
     <h1>fund 상품 등록하기</h1>
     <br>
     <input type="hidden" name="userid" value="${sessionScope.id}">
+    <input type = "hidden" name = "num" value = "${gvo.num }">
     <table id="blueone">
     <tr>
     	<td>제목:</td>

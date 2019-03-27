@@ -92,6 +92,35 @@ public class FundingController {
 		model.addAttribute("glist",glist);
 		return "redirect:getList.do";
 	}
+	@RequestMapping(value = "/updateBoard.do", method = RequestMethod.POST)
+	public String updateBoard(GoodsVO gvo,String editor,Model model) {
+		
+		String target = "<img";
+		int target_num = editor.indexOf(target);
+		String result ="";
+		if(target_num >=0) {
+		result = editor.substring(target_num,(editor.substring(target_num).indexOf(">")+target_num)+1);
+		}
+		
+		gvo.setContent(editor);
+		gvo.setMainPic(result);
+		
+		gService.GoodsUpdate(gvo);
+	
+		
+		gService.goodsPriceDelete(gvo.getNum());
+		for(int i=0;i<gvo.getProduct().length;i++) {
+			GoodsPriceVO pvo = new GoodsPriceVO();
+			pvo.setGoodsnum(gvo.getNum());
+			pvo.setPrice(gvo.getPrice()[i]);
+			pvo.setProduct(gvo.getProduct()[i]);
+			gService.goodsPriceReInsert(pvo);
+		}
+		
+		List<GoodsVO> glist = gService.getList(0);
+		model.addAttribute("glist",glist);
+		return "redirect:getList.do";
+	}
 	@RequestMapping(value = "/getList.do")
 	public String getList(Model model,Integer page) {
 		int count= gService.getListCnt();

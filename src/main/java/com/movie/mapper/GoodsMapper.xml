@@ -6,12 +6,18 @@
 <mapper namespace="com.movie.mapper.GoodsMapper">
 
 
-	<insert id="GoodsInsert">
+	<insert id="GoodsInsert" parameterType ="com.movie.domain.GoodsVO">
 		insert into goods 
 		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email,mainPic) 
 		values ('0',0,#{wantPrice},#{userid},#{userName},#{category},#{title},#{content},#{untilDate},sysdate(),#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
 	</insert>
+	<update id="GoodsUpdate" parameterType ="com.movie.domain.GoodsVO">
+		update goods set 
+		title=#{title},content=#{content},mainPic=#{mainPic} 
+		where num = #{num}
+		<!-- 0값이 아니고 autoimplement추가 -->
+	</update>
 	<select id="goodsCnt" resultType="Integer">
 		select count(*) from goods
 	</select>
@@ -23,9 +29,15 @@
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
 		select * from goods where num = #{num}
 	</select>
-	<insert id="GoodsPriceInsert">
+	<insert id="GoodsPriceInsert" parameterType = "com.movie.domain.GoodsPriceVO">
 		insert into goodsprice values ('0',(select max(num) from goods),#{price},#{product})
 	</insert>
+	<insert id="GoodsPriceReInsert" parameterType = "com.movie.domain.GoodsPriceVO">
+		insert into goodsprice values ('0',#{goodsnum},#{price},#{product})
+	</insert>
+	<delete id = "GoodsPriceDelete" parameterType = "Integer">
+		delete from goodsprice where goodsnum=#{num}
+	</delete>
 	<select id="GoodsPriceDetail" parameterType="Integer" resultType="com.movie.domain.GoodsPriceVO">
 		select * from goodsprice where goodsnum=#{num}
 	</select>
