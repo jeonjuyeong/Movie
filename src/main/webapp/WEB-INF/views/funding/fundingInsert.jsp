@@ -114,9 +114,15 @@ margin-top:50px
         });
         //전송버튼
         $("#insertBoard").click(function(){
+        	var session = "<c:out value='${sessionScope.id}'></c:out>";
             //id가 smarteditor인 textarea에 에디터에서 대입
             obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            $("#insertBoardFrm").submit();
+            if(session=="master"){
+            	  $("#insertBoardFrm").submit();
+            }else{
+	            alert("관리자만 올릴수 있습니다.");
+	        	return false;
+            }
         });
         $("#addBtn").click(function(){
         	$("#addBtnDiv").append("<tr><td></td><td><input type='text' id='wantPrice' placeholder='참여자들이 내는 금액' name='price' class='form-control'></td><td><strong>원 참여 시</strong></td><td><input type='text' id='wantPrice' name='product' placeholder='상품 목록' class='form-control'></td></tr>");
