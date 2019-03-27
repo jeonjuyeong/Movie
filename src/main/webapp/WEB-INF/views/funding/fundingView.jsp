@@ -146,8 +146,6 @@
 						test="${sessionScope.id==gVO.userid or sessionScope.id=='master'}">
 						<input type="button" class="btn btn-default"
 							onclick="location.href='gVOUpdate.do?num=${gVO.num}'" value="수정">
-						<input type="button" class="btn btn-default"
-							onclick="location.href='gVODelete.do?num=${gVO.num}'" value="삭제">
 					</c:if>
 				</div>
 
