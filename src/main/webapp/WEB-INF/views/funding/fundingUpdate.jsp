@@ -51,7 +51,7 @@ margin-top:50px
 <body>
  	<%@include file="/resources/includes/navigation.jsp"%>
 
-    <form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
+    <form action="./updateBoard.do" method="post" id="updateBoardFrm" enctype="multipart/form-data">
      <div id="editer_div">
     <h1>fund 상품 등록하기</h1>
     <br>
@@ -63,12 +63,12 @@ margin-top:50px
     </tr>
 	<tr>
 		<td>종료날짜: ${gvo.uploadDate }~</td>	
-		<td><input type='text' class="form-control"name="goodDate" value = ${gvo.untilDate } readonly/> </td>
+		<td><input type="text" class="form-control"name="goodDate" value = "${gvo.untilDate }" readonly> </td>
 		<td>일 까지</td>
 	</tr>    
 	<tr>
 		<td>목표금액:</td>
-		<td><input type="text" class="form-control" id='wantPrice'  name='wantPrice' ${gvo.wantPrice } readonly></td>
+		<td><input type="text" class="form-control" id='wantPrice'  name='wantPrice' value = "${gvo.wantPrice }" readonly></td>
 		<td><strong>WON</strong></td>
 	</tr>
 	
