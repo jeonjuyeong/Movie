@@ -14,6 +14,10 @@ public interface MemberService {
 	public int getAllFunding(String id);
 
 	public String findId(String name, String email);
+
+	public void updatePassword(String id, String password);
+
+	public String checkEmail(String id, String email);
 	
 	
 }
