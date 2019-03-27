@@ -46,9 +46,12 @@
 			where pay.userid=#{id} and pay.goodsnum = g.num) g
 		where p.price = g.price and p.goodsnum = g.goodsnum limit ${page},4
 	</select>
+	<select id = "getMyFinacing" parameterType="String" resultType = "com.movie.domain.GoodsVO">
+		select * from goods where userid=#{id}
+	</select>
 	<select id = "fundingCount" parameterType = "String" resultType = "Integer">
 		select count(a.goodsNum) from(
-select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
+		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
 			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
 			from goodspay pay,goods g
@@ -56,4 +59,7 @@ select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		where p.price = g.price and p.goodsNum = g.goodsnum
 ) a
 	</select>
+	
+	
+	
 </mapper>

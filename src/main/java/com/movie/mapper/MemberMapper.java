@@ -1,5 +1,7 @@
 package com.movie.mapper;
 
+import java.util.HashMap;
+
 import com.movie.domain.MemberVO;
 
 public interface MemberMapper {
@@ -12,4 +14,6 @@ public interface MemberMapper {
 	public MemberVO memberInfo(String id);
 	
 	public int getAllFunding(String id);
+
+	public String findId(HashMap<String, String> idCheck);
 }

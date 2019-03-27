@@ -24,5 +24,7 @@
 	<select id = "getAllFunding" parameterType = "String" resultType = "Integer">
 		select ifnull(sum(price), 0) from goodspay where userid = #{userid}
 	</select>
-	
+	<select id="findId" parameterType="hashMap" resultType="String">
+		select id from moviemember where name=#{name} and email=#{email}
+	</select>
 </mapper>

@@ -24,5 +24,6 @@ public interface GoodsService {
 	
 	public int fundingCount(String id);
 	public int getListCnt();
+	public List<GoodsVO> getMyFinancing(String id);
 	
 }
