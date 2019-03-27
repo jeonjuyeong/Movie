@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.movie.mapper.MemberMapper">
+
+	<insert id="MemberInsert">
+		insert into moviemember
+		values (#{id}, #{password}, #{name}, #{email},#{phone}, #{postcode}, #{roadAddress},#{jibunAddress},#{extraAddress})
+	</insert>
+	
+	<select id="idCheck" parameterType="String" resultType="String">
+		select id from moviemember
+		where id=#{id}
+	</select>
+	<select id="memberCheck" parameterType="String" resultType="String">
+		select password from moviemember
+		where id =#{id}
+	</select>
+	<select id="memberInfo" parameterType="String" resultType="com.movie.domain.MemberVO">
+		select * from moviemember where id=#{id}
+	</select>
+	<select id = "getAllFunding" parameterType = "String" resultType = "Integer">
+		select ifnull(sum(price), 0) from goodspay where userid = #{userid}
+	</select>
+	
+</mapper>
