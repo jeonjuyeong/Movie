@@ -137,12 +137,6 @@
 					<input type="button" class="btn btn-success" id="payBtn"
 						value="참여하기">
 					<c:if
-						test="${sessionScope.id!=gVO.userid and sessionScope.id !=null and cart ==null}">
-						<input type="button" class="btn btn-success"
-							onclick="location.href='gVOCartin.do?num=${gVO.num}&id=${sessionScope.id }'"
-							value="관심목록에 담기">
-					</c:if>
-					<c:if
 						test="${sessionScope.id==gVO.userid or sessionScope.id=='master'}">
 						<input type="button" class="btn btn-default"
 							onclick="location.href='gVOUpdate.do?num=${gVO.num}'" value="수정">
