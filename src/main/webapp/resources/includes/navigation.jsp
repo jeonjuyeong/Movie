@@ -101,6 +101,7 @@
       <span id="warning"></span>
       </div>
       <div class="modal-footer">
+        <a href="/ctrl/member/findId">아이디/비밀번호 찾기</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button"onclick="memberCheck()" class="btn btn-primary">Login</button>
       </div>

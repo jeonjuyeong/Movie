@@ -17,314 +17,72 @@
 <style>
 $
 logo
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
-
 #3DBB3D
-
-
-
-
-
-
 
 ;
 $
 gray
-
-
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
-
-
 #777777
-
-
-
-
-
-
-
-
-
-
-
 ;
 $
 black
 
-
-
-
-
-
-
-
-
-
-
 :
 
 
-
-
-
-
-
-
-
-
-
 #070707
-
-
-
-
-
-
-
-
-
-
-
 ;
 $
 green
 
-
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
-
-
 
 
 #084B8A
 
-
-
-
-
-
-
-
-
-
-
-
 ;
 $
 aqua
-
-
-
-
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
 #2897BA
-
-
-
-
-
-
-
 ;
 $
 white
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
 #FFFFFF
-
-
-
-
-
-
-
 ;
 @import
 	url('https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto')
 	;
-
 $
 hulu
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
 
 '
 Nunito
-
-
-
-
-
-
-
 Sans
-
-
-
-
-
-
 
 '
 ,
 sans-serif
-
-
-
-
-
-
 
 ;
 $
 heading
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
 '
 Montserrat
-
-
-
-
-
-
-
-
-
-'
+''
 ,
 sans-serif
-
-
-
-
-
-
-
-
-
-
-
 
 ;
 $
 body
 
-
-
-
-
-
-
-
-
-
-
-
 :
-
-
-
-
-
-
-
-
-
-
-
 
 '
 Roboto
@@ -332,9 +90,13 @@ Roboto
 
 
 
+
+
 '
 ,
 sans-serif
+
+
 
 
 
@@ -554,7 +316,6 @@ body {
 	margin: 0 auto;
 	padding: 0;
 }
-
 </style>
 
 <script>
@@ -591,7 +352,7 @@ body {
 							}
 						});
 			});
-	function PagingMypage(pageNum){
+		function PagingMypage(pageNum){
 		   $.ajax({
 		      type:"get",
 		      url:"mypage?pageNum="+pageNum,
@@ -746,7 +507,7 @@ body {
 				<div class="subscription noshow">
 					<div role="tabpanel" class="tab-pane active" align="center"
 						id="discover">
-					
+						<div class="design-process-content">
 							<div class="container">
 								<div class="row">
 									<div class="col-xs-15"
@@ -754,9 +515,9 @@ body {
 										<div class="pricingTable">
 											<div class="pricingTable-header">
 												내가 개설한 펀드
+											</div>
 												<div class="pricingContent">
 													<div class="financingresult">
-
 														<table class="table table-hover" style="width: 650px">
 															<tr>
 																<td>제목</td>

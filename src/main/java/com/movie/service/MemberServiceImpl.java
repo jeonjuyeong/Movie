@@ -1,5 +1,7 @@
 package com.movie.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,16 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int getAllFunding(String id) {
 		return mapper.getAllFunding(id);
+	}
+
+	@Override
+	public String findId(String name, String email) {
+		HashMap<String,String> idCheck=new HashMap<>();
+		idCheck.put("name", name);
+		idCheck.put("email",email);
+		System.out.println(name+email);
+		return mapper.findId(idCheck);
+		
 	}
 	
 	

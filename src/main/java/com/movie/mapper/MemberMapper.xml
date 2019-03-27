@@ -6,23 +6,25 @@
 <mapper namespace="com.movie.mapper.MemberMapper">
 
 	<insert id="MemberInsert">
-		insert into MovieMember
+		insert into moviemember
 		values (#{id}, #{password}, #{name}, #{email},#{phone}, #{postcode}, #{roadAddress},#{jibunAddress},#{extraAddress})
 	</insert>
 	
 	<select id="idCheck" parameterType="String" resultType="String">
-		select id from MovieMember
+		select id from moviemember
 		where id=#{id}
 	</select>
 	<select id="memberCheck" parameterType="String" resultType="String">
-		select password from MovieMember
+		select password from moviemember
 		where id =#{id}
 	</select>
 	<select id="memberInfo" parameterType="String" resultType="com.movie.domain.MemberVO">
-		select * from MovieMember where id=#{id}
+		select * from moviemember where id=#{id}
 	</select>
 	<select id = "getAllFunding" parameterType = "String" resultType = "Integer">
 		select IFNULL(SUM(price), 0) from goodspay where userid = #{userid}
 	</select>
-
+	<select id="findId" parameterType="hashMap" resultType="String">
+		select id from moviemember where name=#{name} and email=#{email}
+	</select>
 </mapper>

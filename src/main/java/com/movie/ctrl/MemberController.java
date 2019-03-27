@@ -280,6 +280,18 @@ public class MemberController {
 		return "";
 
 	}
+	
+	@GetMapping("findId")
+	public String findId() {
+		return "member/findId";
+	}
+	@ResponseBody
+	@PostMapping("findId")
+	public String findId(Model model,String name,String email) {		
+		String id=service.findId(name,email);
+		System.out.println("아이디는?"+id);
+		return id;
+	}
 }
 
 
