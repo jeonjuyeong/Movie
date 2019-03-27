@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id = "getList" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
-		select * from goods limit #{page},6
+	select * from mydb.goods order by num desc limit #{page},6
  	</select>
 	
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
