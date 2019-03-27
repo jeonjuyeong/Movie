@@ -6,12 +6,18 @@
 <mapper namespace="com.movie.mapper.GoodsMapper">
 
 
-	<insert id="GoodsInsert">
+	<insert id="GoodsInsert" parameterType ="com.movie.domain.GoodsVO">
 		insert into goods 
 		(num,currentPrice,wantPrice,userid,userName,category,title,content,untilDate,uploadDate,email,mainPic) 
 		values ('0',0,#{wantPrice},#{userid},#{userName},#{category},#{title},#{content},#{untilDate},sysdate(),#{email},#{mainPic})
 		<!-- 0값이 아니고 autoimplement추가 -->
 	</insert>
+	<update id="GoodsUpdate" parameterType ="com.movie.domain.GoodsVO">
+		update goods set 
+		title=#{title},content=#{content},mainPic=#{mainPic} 
+		where num = #{num}
+		<!-- 0값이 아니고 autoimplement추가 -->
+	</update>
 	<select id="goodsCnt" resultType="Integer">
 		select count(*) from goods
 	</select>
@@ -23,9 +29,15 @@
 	<select id = "goodsDetail" parameterType="Integer" resultType="com.movie.domain.GoodsVO">
 		select * from goods where num = #{num}
 	</select>
-	<insert id="GoodsPriceInsert">
+	<insert id="GoodsPriceInsert" parameterType = "com.movie.domain.GoodsPriceVO">
 		insert into goodsprice values ('0',(select max(num) from goods),#{price},#{product})
 	</insert>
+	<insert id="GoodsPriceReInsert" parameterType = "com.movie.domain.GoodsPriceVO">
+		insert into goodsprice values ('0',#{goodsnum},#{price},#{product})
+	</insert>
+	<delete id = "GoodsPriceDelete" parameterType = "Integer">
+		delete from goodsprice where goodsnum=#{num}
+	</delete>
 	<select id="GoodsPriceDetail" parameterType="Integer" resultType="com.movie.domain.GoodsPriceVO">
 		select * from goodsprice where goodsnum=#{num}
 	</select>
@@ -46,9 +58,12 @@
 			where pay.userid=#{id} and pay.goodsnum = g.num) g
 		where p.price = g.price and p.goodsnum = g.goodsnum limit ${page},4
 	</select>
+	<select id = "getMyFinacing" parameterType="String" resultType = "com.movie.domain.GoodsVO">
+		select * from goods where userid=#{id}
+	</select>
 	<select id = "fundingCount" parameterType = "String" resultType = "Integer">
 		select count(a.goodsNum) from(
-select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
+		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
 			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
 			from goodspay pay,goods g
@@ -56,4 +71,7 @@ select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		where p.price = g.price and p.goodsNum = g.goodsnum
 ) a
 	</select>
+	
+	
+	
 </mapper>

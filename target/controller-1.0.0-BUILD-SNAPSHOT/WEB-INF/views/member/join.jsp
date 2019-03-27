@@ -68,10 +68,10 @@ $(document).ready(function(){
         	alert("아이디입력"); 
         	return false;
         }
-  /*       if($("#email_valid").val()=="false"){
+        if($("#email_valid").val()=="false"){
         	alert("이메일을 인증하세요");
         	return false; 
-        }*/
+        }
         if($("#userid").val()=="false"){
         	alert("아이디 중복확인 하세요");
         	return false;
@@ -80,6 +80,7 @@ $(document).ready(function(){
         	alert("폰번호 입력하세요");
         	return false;
         }
+        alert("가입성공!");
         $("#frm").submit();
      });
 	$("#pwd_check").keyup(function(){
@@ -99,6 +100,7 @@ $(document).ready(function(){
 				 alert("이메일을 입력하세요");
 				 return false;
 			 }
+			
 			window.open("/ctrl/member/emailCheck?email="+$('#email').val(),"","width=500 height=220");
 		}); 
 	});
