@@ -292,6 +292,100 @@ public class MemberController {
 		System.out.println("아이디는?"+id);
 		return id;
 	}
+	//password Update
+		@GetMapping("updatePassword")
+		public void updatePassword(Model model,String userid) {
+			model.addAttribute("userid",userid);
+		}
+	//password Update
+	@PostMapping("updatePassword")
+	public String updatePassword(String password,String userid) {
+		String encPassword = passwordEncoder.encode(password);
+		System.out.println("암호화된 비밀번호 : "+password);
+		
+		service.updatePassword(userid,encPassword);
+		return "member/success";
+		
+	}
+	//email과 id 가 일치하는지 확인
+	@ResponseBody
+	@PostMapping("checkEmail")
+	public String checkEmail(@RequestParam("userid")String userid,@RequestParam("email")String email) {
+		System.out.println("hi");
+
+		String check=service.checkEmail(userid,email);
+	
+		String data="";
+		if(check==null) {
+			data="no";
+		}else{
+			data="yes";	
+		};
+		System.out.println(data);
+		return data;
+	}
+	
+	//email 보내기(패스워드 확인용)
+	@GetMapping("/emailCheckforPass")
+	public String emailCheck(String email,String userid,Model model) {
+		// TODO Auto-generated method stub
+		System.out.println(email);
+		System.out.println("id는"+userid);
+		//인증 랜덤 번호 생성 
+		StringBuffer str = new StringBuffer();
+		for(int i=0;i<7;i++) {
+			int n = (int)(Math.random()*10);
+			str.append(n);
+		}
+		String num = str.toString();
+
+		try {
+			String host = "smtp.naver.com";
+			final String username = "junjy93";
+			final String password = "jkl78569!";
+			int port = 465;
+
+			String subject = "MALALA FUND 인증번호입니다.";
+			String content = "인증번호 [" +num+ "]";
+
+			Properties props = System.getProperties();
+
+
+			props.put("mail.smtp.host", host);
+			props.put("mail.smtp.port", port);
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.ssl.enable", "true");
+			props.put("mail.smtp.ssl.trust", host);
+
+			Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+				protected javax.mail.PasswordAuthentication getPasswordAuthentication(){
+					return new javax.mail.PasswordAuthentication(username, password);
+				}
+			});
+			session.setDebug(true);
+
+			Message mimeMessage = new MimeMessage(session);
+			mimeMessage.setFrom(new InternetAddress("junjy93@naver.com"));
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
+			mimeMessage.setSubject(subject);
+			mimeMessage.setText(content);
+
+			Transport.send(mimeMessage);
+		
+			System.out.println("전송성공 email :" + email);
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("userid", userid);
+		model.addAttribute("num",num);
+		model.addAttribute("email", email);
+		return "member/emailCheck2";
+	}
 }
 
 

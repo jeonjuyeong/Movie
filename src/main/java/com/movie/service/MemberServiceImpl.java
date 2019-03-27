@@ -57,6 +57,23 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.findId(idCheck);
 		
 	}
+
+	@Override
+	public void updatePassword(String id, String password) {
+		HashMap<String,String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("password",password);
+		mapper.updatePassword(map);
+		
+	}
+
+	@Override
+	public String checkEmail(String id, String email) {
+		HashMap<String,String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("email",email);
+		return mapper.checkEmail(map);
+	}
 	
 	
 	

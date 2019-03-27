@@ -123,7 +123,7 @@
 		</div>
 		<form name="pay_frm" method="post" action="fundPay">
 			<div class="pricingContent">
-			<input type="hidden" name="goodsNum" value=${gVO.num}> 
+			<input type="hidden" name="goodsNum" value="${gVO.num}"> 
 			<input type="hidden" name="userid" value="${sessionScope.id}">
 				<b>참여금액 선택 :</b> 
 				<select id="priceSelect" name="priceSelect"
@@ -132,7 +132,7 @@
 						<option>${i.price}:${i.product}</option>
 					</c:forEach>
 				</select>
-
+				<br>
 				<div class="pBtn">
 					<input type="button" class="btn btn-success" id="payBtn"
 						value="참여하기">

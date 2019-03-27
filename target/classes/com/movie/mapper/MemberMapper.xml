@@ -27,4 +27,10 @@
 	<select id="findId" parameterType="hashMap" resultType="String">
 		select id from moviemember where name=#{name} and email=#{email}
 	</select>
+	<update id="updatePassword" parameterType="hashMap">
+		update moviemember set password=#{password} where id=#{id}
+	</update>
+	<select id="checkEmail" parameterType="hashMap" resultType="String">
+		select id from moviemember where id=#{id} and email=#{email}
+	</select>
 </mapper>

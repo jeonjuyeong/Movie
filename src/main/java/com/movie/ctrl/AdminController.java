@@ -31,12 +31,24 @@ public class AdminController {
 	}
 	
 	@RequestMapping("memberDelete")
-	public String memberDelete(String id){
+	public String memberDelete(String id,Model model){
+		List<MemberVO> mVO =service.memberList();
+		List<GoodsVO> gVO = service.goodsList();
+		List<PayVO> pVO = service.payList();
+		 model.addAttribute("mVO",mVO);
+		 model.addAttribute("gVO",gVO);
+		 model.addAttribute("pVO",pVO);
 		service.memberDelete(id);
 		return "admin/adminMain";
 	}
 	@RequestMapping("goodsDelete")
-	public String goodsDelete(int num){
+	public String goodsDelete(int num,Model model){
+		List<MemberVO> mVO =service.memberList();
+		List<GoodsVO> gVO = service.goodsList();
+		List<PayVO> pVO = service.payList();
+		 model.addAttribute("mVO",mVO);
+		 model.addAttribute("gVO",gVO);
+		 model.addAttribute("pVO",pVO);
 		service.goodsDlelete(num);
 		return "admin/adminMain";
 	}
