@@ -111,7 +111,7 @@ public class FundingController {
 		gService.goodsPriceDelete(gvo.getNum());
 		for(int i=0;i<gvo.getProduct().length;i++) {
 			GoodsPriceVO pvo = new GoodsPriceVO();
-			pvo.setGoodsnum(gvo.getNum());
+			pvo.setGoodsNum(gvo.getNum());
 			pvo.setPrice(gvo.getPrice()[i]);
 			pvo.setProduct(gvo.getProduct()[i]);
 			gService.goodsPriceReInsert(pvo);

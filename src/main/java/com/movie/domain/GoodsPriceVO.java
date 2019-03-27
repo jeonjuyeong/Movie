@@ -1,14 +1,14 @@
 package com.movie.domain;
 
 public class GoodsPriceVO {
-	int num,goodsnum;
+	int num,goodsNum;
 	int price;
 	String product;
 	public int getNum() {
 		return num;
 	}
-	public int getGoodsnum() {
-		return goodsnum;
+	public int getGoodsNum() {
+		return goodsNum;
 	}
 	public int getPrice() {
 		return price;
@@ -19,8 +19,8 @@ public class GoodsPriceVO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public void setGoodsnum(int goodsnum) {
-		this.goodsnum = goodsnum;
+	public void setGoodsNum(int goodsnum) {
+		this.goodsNum = goodsnum;
 	}
 	public void setPrice(int price) {
 		this.price = price;

@@ -9,7 +9,7 @@
 		select * from moviemember
 	</select>
 	<select id="goodsList" resultType="com.movie.domain.GoodsVO">
-		select * from Goods
+		select * from goods
 	</select>
 	<select id="payList" resultType="com.movie.domain.PayVO">
 	 select * from goodsPay

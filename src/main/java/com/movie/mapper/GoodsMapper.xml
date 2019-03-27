@@ -33,13 +33,13 @@
 		insert into goodsprice values ('0',(select max(num) from goods),#{price},#{product})
 	</insert>
 	<insert id="GoodsPriceReInsert" parameterType = "com.movie.domain.GoodsPriceVO">
-		insert into goodsprice values ('0',#{goodsnum},#{price},#{product})
+		insert into goodsprice values ('0',#{goodsNum},#{price},#{product})
 	</insert>
 	<delete id = "GoodsPriceDelete" parameterType = "Integer">
-		delete from goodsprice where goodsnum=#{num}
+		delete from goodsprice where goodsNum=#{num}
 	</delete>
 	<select id="GoodsPriceDetail" parameterType="Integer" resultType="com.movie.domain.GoodsPriceVO">
-		select * from goodsprice where goodsnum=#{num}
+		select * from goodsprice where goodsNum=#{num}
 	</select>
 	<update id="goodsCurrentUpdate">
 	 	update goods set currentPrice = currentPrice+#{price} where num=#{goodsNum}
@@ -53,10 +53,10 @@
 	<select id = "getMyFunding" parameterType = "hashmap" resultType = "com.movie.domain.getMyFundingVO">
 		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
-			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsNum
 			from goodspay pay,goods g
-			where pay.userid=#{id} and pay.goodsnum = g.num) g
-		where p.price = g.price and p.goodsnum = g.goodsnum limit ${page},4
+			where pay.userid=#{id} and pay.goodsNum = g.num) g
+		where p.price = g.price and p.goodsNum = g.goodsNum limit ${page},4
 	</select>
 	<select id = "getMyFinacing" parameterType="String" resultType = "com.movie.domain.GoodsVO">
 		select * from goods where userid=#{id}
@@ -65,10 +65,10 @@
 		select count(a.goodsNum) from(
 		select g.title,g.goodsNum,g.price,p.product,g.wantPrice,g.currentPrice
 		from goodsprice p,
-			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsnum
+			(select g.title,pay.price,g.currentPrice,g.wantPrice,pay.goodsNum
 			from goodspay pay,goods g
-			where pay.userid=#{id} and pay.goodsnum = g.num) g
-		where p.price = g.price and p.goodsNum = g.goodsnum
+			where pay.userid=#{id} and pay.goodsNum = g.num) g
+		where p.price = g.price and p.goodsNum = g.goodsNum
 ) a
 	</select>
 	
